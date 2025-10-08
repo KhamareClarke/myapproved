@@ -2,6 +2,13 @@
 
 import { useState, useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import dynamic from "next/dynamic";
+
+// Dynamically import the InDemandServices component with SSR disabled
+const InDemandServices = dynamic(
+  () => import("./components/InDemandServices"),
+  { ssr: false }
+);
 import {
   Search,
   MapPin,
@@ -46,15 +53,14 @@ import {
   Fence,
   Droplets,
   Snowflake,
-  Award,
-  Users
+  ArrowRight,
+  Users,
+  UserPlus,
+  MessageSquareText
 } from "lucide-react";
 import "./recommended-scrollbar.css";
 import SmartSearchBar from "../components/SmartSearchBar";
 import TabsSection from "../components/TabsSection";
-import TrendingCategoriesSection from "../components/TrendingCategoriesSection";
-import AuthorityTrustSection from "../components/AuthorityTrustSection";
-import CostGuidesSection from "../components/CostGuidesSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -79,6 +85,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 import CookieConsent from "@/components/CookieConsent";
 import FloatingAssistant from "@/components/FloatingAssistant";
+import EnhancedHeader from "@/components/EnhancedHeader";
 
  // Map trade to icon for Select menu (visual only)
  const tradeIconFor = (name: string) => {
@@ -103,6 +110,30 @@ import FloatingAssistant from "@/components/FloatingAssistant";
    if (n.includes('gutter')) return <Droplets className="w-4 h-4 text-blue-600" />;
    return <Wrench className="w-4 h-4 text-slate-700" />;
  };
+
+// Helper function to get trade icon with custom className for enhanced sections
+const getTradeIcon = (tradeName: string, className: string = "w-6 h-6") => {
+  const n = tradeName.toLowerCase();
+  if (n.includes('plumb')) return <Droplets className={className} />;
+  if (n.includes('electric')) return <Bolt className={className} />;
+  if (n.includes('builder')) return <Hammer className={className} />;
+  if (n.includes('paint')) return <Paintbrush className={className} />;
+  if (n.includes('roof')) return <HomeIcon className={className} />;
+  if (n.includes('garden')) return <Leaf className={className} />;
+  if (n.includes('tiler') || n.includes('tile')) return <Layout className={className} />;
+  if (n.includes('carpenter')) return <Wrench className={className} />;
+  if (n.includes('lock')) return <Key className={className} />;
+  if (n.includes('clean')) return <Sparkles className={className} />;
+  if (n.includes('fence')) return <Fence className={className} />;
+  if (n.includes('hvac') || n.includes('air')) return <Wind className={className} />;
+  if (n.includes('bathroom')) return <ShowerHead className={className} />;
+  if (n.includes('kitchen')) return <Utensils className={className} />;
+  if (n.includes('appliance')) return <Monitor className={className} />;
+  if (n.includes('pest')) return <Bug className={className} />;
+  if (n.includes('insulation')) return <Thermometer className={className} />;
+  if (n.includes('gutter')) return <Droplets className={className} />;
+  return <Wrench className={className} />;
+};
 
 const tradeCategories = [
   { name: "Plumber", icon: "P", jobs: 1247 },
@@ -245,9 +276,10 @@ export default function Home() {
   }, [testimonialSlides]);
   // Rotating hero search messages
   const typingPhrases = [
-    "Electrician in Manchester...",
-    "Plumber in London...",
-    "Roofer in Birmingham...",
+    "Search plumber in London...",
+    "Find electrician in Manchester...",
+    "Book roofer in Birmingham...",
+    "Hire gardener in Leeds...",
   ];
   const [typed, setTyped] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
@@ -967,130 +999,79 @@ export default function Home() {
 
   return (
     <div suppressHydrationWarning>
+      <EnhancedHeader />
       <CookieConsent />
       <FloatingAssistant mode="home" />
-      {/* Gold Standard Professional Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 to-blue-800 text-white overflow-hidden">
-        {/* Clean Background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/95 to-blue-800/95"></div>
+      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-[90vh] flex items-center">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/70 to-indigo-800/60"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.3),transparent_50%)] animate-pulse"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(251,191,36,0.2),transparent_50%)] animate-pulse" style={{animationDelay: '1s'}}></div>
         
-        {/* Streamlined Trust Bar */}
-        <div className="bg-white/10 backdrop-blur-sm border-b border-white/20">
-          <div className="max-w-7xl mx-auto px-6 py-4">
-            <div className="flex items-center justify-center gap-12 text-sm font-semibold">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                  <Shield className="w-4 h-4 text-white" />
-                </div>
-                <span className="text-white">✅ 10,000+ Verified</span>
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-yellow-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute top-40 right-20 w-16 h-16 bg-blue-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '1.5s'}}></div>
+        <div className="absolute bottom-32 left-20 w-12 h-12 bg-white/10 rounded-full blur-lg animate-bounce" style={{animationDelay: '2s'}}></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-20 flex flex-col lg:flex-row items-center gap-8 sm:gap-12">
+          {/* Left Column: Text & Search */}
+          <div className="flex-1 z-10 flex flex-col items-start justify-center text-left">
+            <div className="mb-8">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400/20 to-blue-400/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20 mb-4 animate-fade-in">
+                <Star className="w-3.5 h-3.5 text-yellow-400" />
+                <span className="text-xs font-medium text-yellow-100">Rated #1 Tradesperson Platform</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
-                  <Star className="w-4 h-4 text-white" />
-                </div>
-                <span className="text-white">⭐ 4.9/5 Rating</span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-6 text-balance animate-slide-up">
+                <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl">Find Trusted</span>
+                <br className="hidden sm:block" />
+                <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse">Local </span>
+                <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl">Trades</span>
+                <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse">people</span>
+              </h1>
+              <p className="text-sm sm:text-base md:text-lg text-blue-100 leading-relaxed mb-6 animate-slide-up" style={{animationDelay: '0.1s'}}>
+                Hire vetted professionals near you — fast, reliable, and backed by verified reviews.
+              </p>
+            </div>
+            
+            {/* Statistics Bar - Single Line */}
+            <div className="flex items-center gap-4 mb-6 animate-slide-up whitespace-nowrap overflow-x-auto pb-2 -mx-2 px-2" style={{animationDelay: '0.4s'}}>
+              <div className="flex items-center gap-1 text-white/90 bg-white/5 backdrop-blur-sm px-2 py-1 rounded-full border border-white/10">
+                <div className="w-1 h-1 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
+                <span className="text-xs font-medium">50,000+ Happy Customers</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                  <CheckCircle className="w-4 h-4 text-white" />
-                </div>
-                <span className="text-white">🛡️ £2M+ Insured</span>
+              <div className="flex items-center gap-1 text-white/90 bg-white/5 backdrop-blur-sm px-2 py-1 rounded-full border border-white/10">
+                <div className="w-1 h-1 bg-yellow-400 rounded-full animate-pulse flex-shrink-0" style={{animationDelay: '0.5s'}}></div>
+                <span className="text-xs font-medium">5,000+ Verified Trades</span>
+              </div>
+              <div className="flex items-center gap-1 text-white/90 bg-white/5 backdrop-blur-sm px-2 py-1 rounded-full border border-white/10">
+                <div className="w-1 h-1 bg-blue-400 rounded-full animate-pulse flex-shrink-0" style={{animationDelay: '1s'}}></div>
+                <span className="text-xs font-medium">4.9★ Average Rating</span>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Main Content */}
-        <div className="relative max-w-6xl mx-auto px-6 py-12">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            
-            {/* Left Column - Content */}
-            <div className="space-y-8">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/20 rounded-full px-5 py-2.5 text-sm font-semibold text-yellow-300">
-                <Award className="w-4 h-4" />
-                <span>🇬🇧 UK's #1 Trusted Tradesperson Platform</span>
-              </div>
-
-              {/* Headline */}
-              <div>
-                <h1 className="text-5xl lg:text-6xl font-black leading-tight mb-6">
-                  <span className="block text-white">Hire Trusted Local</span>
-                  <span className="block text-yellow-400 mt-1">Tradespeople</span>
-                  <span className="block text-blue-100 text-4xl lg:text-5xl mt-2">Get Quotes in 60 Seconds</span>
-                </h1>
-                
-                {/* Social Proof */}
-                <div className="flex items-center gap-4 mt-6">
-                  <div className="flex -space-x-2">
-                    {['68', '12', '17', '33'].map((id, i) => (
-                      <img
-                        key={i}
-                        src={`https://randomuser.me/api/portraits/${i % 2 === 0 ? 'women' : 'men'}/${id}.jpg`}
-                        alt=""
-                        className="w-10 h-10 rounded-full border-2 border-white"
-                      />
-                    ))}
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
-                    <p className="text-blue-200 text-sm font-medium">💙 Trusted by 50,000+ happy homeowners</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Enhanced Subtitle with Reassuring Microcopy */}
-              <div className="space-y-4">
-                <p className="text-xl text-blue-100 leading-relaxed">
-                  Connect with <span className="text-yellow-300 font-semibold">verified, insured professionals</span> in your area
-                </p>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <p className="text-blue-200 font-medium text-center">
-                    ✅ No hidden fees • ✅ No cowboy builders • ✅ 100% free to use
-                  </p>
-                </div>
-              </div>
-
-              {/* Single Clear CTA - Conversion Optimized */}
+            <div className="w-full max-w-4xl animate-slide-up" style={{animationDelay: '0.6s'}}>
               <Dialog>
                 <DialogTrigger asChild>
-                  <div className="bg-white rounded-2xl shadow-2xl p-8 cursor-pointer group hover:shadow-3xl transition-all duration-300 border-4 border-orange-400/20 hover:border-orange-400/40">
-                    <div className="text-center mb-6">
-                      <h3 className="text-3xl font-black text-gray-900 mb-2">Get My Free Quote</h3>
-                      <p className="text-gray-600 text-lg">Takes less than 60 seconds • No obligation</p>
-                    </div>
+                  <div id="ai-quote-trigger" className="relative group cursor-pointer">
+                    {/* Enhanced Glow Effect with Gold Accent */}
+                    <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 rounded-3xl blur-lg opacity-40 group-hover:opacity-60 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/50 via-white/30 to-yellow-400/50 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
                     
-                    <div className="flex items-center bg-gray-50 rounded-xl p-6 group-hover:bg-orange-50 transition-colors mb-6 border-2 border-gray-200 group-hover:border-orange-200">
-                      <Search className="w-6 h-6 text-gray-400 mr-4" />
+                    <div className="relative flex items-center bg-white backdrop-blur-sm rounded-xl shadow-xl p-3 border-2 border-yellow-400/60 group-hover:border-yellow-400 transition-all duration-300">
+                      <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg shadow-md group-hover:scale-105 transition-transform duration-200">
+                        <Search className="w-5 h-5 text-white" />
+                      </div>
                       <input
                         type="text"
                         placeholder={typed || typingPhrases[phraseIndex]}
-                        className="flex-1 bg-transparent text-gray-900 placeholder-gray-500 focus:outline-none text-lg font-medium"
+                        className="flex-1 py-3 px-4 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none text-base font-medium bg-transparent cursor-pointer"
                         readOnly
                       />
-                    </div>
-                    
-                    <Button className="w-full h-16 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-black text-xl rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                      Get Free Quotes Now →
-                    </Button>
-                    
-                    <div className="flex items-center justify-center gap-6 mt-6 text-sm text-gray-600">
-                      <span className="flex items-center gap-1">
-                        <CheckCircle className="w-4 h-4 text-green-500" />
-                        100% Free
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-4 h-4 text-blue-500" />
-                        Instant Matching
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Shield className="w-4 h-4 text-purple-500" />
-                        Fully Insured
-                      </span>
+                      <Button
+                        type="button"
+                        className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-medium rounded-lg px-6 h-12 text-sm shadow-md hover:shadow-lg transition-all duration-200"
+                      >
+                        Get Started
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
                     </div>
                   </div>
                 </DialogTrigger>
@@ -1153,234 +1134,189 @@ export default function Home() {
                   </div>
                 </DialogContent>
               </Dialog>
+              {/* Enhanced Trust badges - Compact */}
+              <div className="mt-3 flex flex-wrap items-center gap-2 text-xs animate-slide-up" style={{animationDelay: '0.8s'}}>
+                <div className="inline-flex items-center gap-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm px-2 py-1 rounded-full border border-green-400/30 shadow-sm">
+                  <ShieldCheck className="w-3 h-3 text-green-400" />
+                  <span className="font-medium text-green-100">All Trades Verified</span>
+                </div>
+                <div className="inline-flex items-center gap-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 backdrop-blur-sm px-2 py-1 rounded-full border border-blue-400/30 shadow-sm">
+                  <Shield className="w-3 h-3 text-blue-400" />
+                  <span className="font-medium text-blue-100">Insurance Guaranteed</span>
+                </div>
+                <div className="inline-flex items-center gap-1 bg-gradient-to-r from-yellow-400/90 to-yellow-500/90 backdrop-blur-sm px-2 py-1 rounded-full border border-yellow-300 shadow-sm">
+                  <Star className="w-3 h-3 text-yellow-900 fill-current" />
+                  <span className="font-semibold text-yellow-900">4.9★ by 50K+</span>
+                </div>
+              </div>
             </div>
-
-            {/* Right Column - Clean Professional Image */}
+            <div className="mt-8">
+              <div className="flex items-center gap-4">
+                <img src="/logo.svg" alt="Testimonial" className="w-14 h-14 rounded-full border-2 border-yellow-400 shadow" />
+                <div>
+                  <p className="text-base text-blue-100 italic">“The easiest way to find a reliable tradesperson. Highly recommended!”</p>
+                  <span className="text-yellow-300 font-semibold text-xs">— Sarah M., London</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Right Column: Enhanced Hero Visual */}
+          <div className="flex-1 z-10 flex items-center justify-center relative min-h-[400px] animate-slide-up" style={{animationDelay: '0.4s'}}>
             <div className="relative">
-              <img
-                src="/hero.png"
-                alt="Professional Tradespeople"
-                className="w-full h-[400px] rounded-xl shadow-2xl object-cover"
-              />
+              {/* Glow effect behind image */}
+              <div className="absolute -inset-3 bg-gradient-to-r from-yellow-400/15 via-blue-500/15 to-yellow-400/15 rounded-2xl blur-lg animate-pulse"></div>
               
-              {/* Simple Overlay Stats */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-xl">
-                  <div className="grid grid-cols-3 gap-4 text-center">
-                    <div>
-                      <div className="text-lg font-bold text-gray-900">✅ 10k+</div>
-                      <div className="text-xs text-gray-600 font-medium">ID Verified</div>
+              <div className="relative">
+                <img
+                  src="/hero.png"
+                  alt="Trusted Tradespeople"
+                  className="w-full max-w-xs sm:max-w-sm lg:max-w-md h-[280px] sm:h-[320px] md:h-[360px] lg:h-[400px] object-cover object-top transition-transform duration-700 hover:scale-105"
+                  style={{ objectFit: 'cover', objectPosition: 'top' }}
+                />
+                
+                {/* Trust Badges Container */}
+                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 flex flex-wrap justify-center gap-2 w-full px-4">
+                  {/* Verification Badge */}
+                  <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white px-3 py-1.5 rounded-lg shadow-lg font-medium flex items-center gap-1.5 border border-white/90 backdrop-blur-sm transition-all duration-300 hover:scale-105">
+                    <div className="relative flex items-center justify-center">
+                      <div className="absolute w-2 h-2 bg-white rounded-full animate-ping opacity-75"></div>
+                      <div className="w-1 h-1 bg-white rounded-full"></div>
                     </div>
-                    <div>
-                      <div className="text-lg font-bold text-gray-900">⭐ 4.9</div>
-                      <div className="text-xs text-gray-600 font-medium">Top Rated</div>
-                    </div>
-                    <div>
-                      <div className="text-lg font-bold text-gray-900">🛡️ £2M+</div>
-                      <div className="text-xs text-gray-600 font-medium">Protected</div>
-                    </div>
+                    <span className="text-xs font-medium">All Trades Verified</span>
+                  </div>
+                  
+                  {/* Rating Badge */}
+                  <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 text-blue-900 px-3 py-1.5 rounded-lg shadow-lg font-medium flex items-center gap-1.5 border border-yellow-300/90 backdrop-blur-sm transition-all duration-300 hover:scale-105">
+                    <Star className="w-3 h-3 fill-current text-amber-600" />
+                    <span className="text-xs font-medium">4.9★ Rating</span>
+                  </div>
+                  
+                  {/* User Count Badge */}
+                  <div className="bg-gradient-to-br from-blue-600 to-blue-700 text-white px-3 py-1.5 rounded-lg shadow-lg font-medium flex items-center gap-1.5 border border-white/90 backdrop-blur-sm transition-all duration-300 hover:scale-105">
+                    <Users className="w-3 h-3 text-blue-100" />
+                    <span className="text-xs font-medium">50K+ Users</span>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* SEO Enhancement - LocalBusiness Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "MyApproved",
-            "description": "UK's #1 trusted platform to hire verified local tradespeople. Get instant quotes from insured professionals in your area.",
-            "url": "https://myapproved.co.uk",
-            "telephone": "+44-800-123-4567",
-            "address": {
-              "@type": "PostalAddress",
-              "addressCountry": "GB",
-              "addressRegion": "England"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "50000",
-              "bestRating": "5",
-              "worstRating": "1"
-            },
-            "serviceArea": {
-              "@type": "Country",
-              "name": "United Kingdom"
-            },
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Tradesperson Services",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Plumbing Services",
-                    "description": "Professional plumbing services from verified tradespeople"
-                  }
-                },
-                {
-                  "@type": "Offer", 
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Electrical Services",
-                    "description": "Certified electricians for all electrical work"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service", 
-                    "name": "Building Services",
-                    "description": "Qualified builders for construction and renovation"
-                  }
-                }
-              ]
-            }
-          })
-        }}
-      />
+      
 
-      <TrendingCategoriesSection />
+      
+      
 
-      {/* PREMIUM: Authority & Trust Section */}
-      <AuthorityTrustSection />
+      
 
-      {/* PREMIUM: Cost Guides & Tips Section */}
-      <CostGuidesSection />
+      <InDemandServices />
 
-      {/* Recommended Jobs (upgraded) */}
-      <section className="py-14 bg-gradient-to-br from-blue-50 via-white to-yellow-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-          <h2 className="text-center text-3xl md:text-4xl font-extrabold mb-8 text-blue-900 tracking-tight drop-shadow">Recommended Jobs</h2>
+      {/* Customer Testimonials Section */}
+      <section className="relative py-16 md:py-20 bg-white text-gray-900 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-50 via-blue-50 to-indigo-50"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400/20 to-blue-400/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-blue-100 mb-3">
+              <Star className="w-3.5 h-3.5 text-yellow-600" />
+              <span className="text-xs font-medium text-blue-800">Customer Reviews</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-3">
+              <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">What Customers</span>{' '}
+              <span className="text-gray-900">Say</span>
+            </h2>
+            <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
+              Real reviews from customers across the UK
+            </p>
+          </div>
+
+          {/* Testimonials Grid */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                title: 'Electrician in London',
-                desc: 'Available now — quotes in 2 minutes.',
-                tag: 'Urgent',
-                city: 'London',
-                today: 5,
+                name: "Sarah Thompson",
+                city: "London",
+                quote: "I had an electrical fault late evening and got matched within minutes. The electrician arrived the next morning and fixed it quickly. The whole process felt safe and transparent."
               },
               {
-                title: 'Find a Plumber in Manchester',
-                desc: 'Instant AI quotes — approved plumbers.',
-                tag: 'Available',
-                city: 'Manchester',
-                today: 7,
+                name: "Imran Khan", 
+                city: "Manchester",
+                quote: "Instant quotes saved me so much time. I compared two options, read reviews, and booked in the same hour. The pro turned up on time and the work was spotless."
               },
               {
-                title: 'Chimney Sweep — Local & Trusted',
-                desc: 'Book a local pro — quick, verified help.',
-                tag: 'Local',
-                city: 'Leeds',
-                today: 3,
+                name: "Rebecca Lewis",
+                city: "Birmingham", 
+                quote: "The verified and insured badges gave me confidence. I chose a roofer with great ratings and the price matched the estimate. Would definitely use again."
               },
               {
-                title: 'Gutter Cleaning Clearance',
-                desc: 'Fast quotes from verified pros.',
-                tag: 'Available',
-                city: 'Birmingham',
-                today: 4,
+                name: "Daniel Murphy",
+                city: "Leeds",
+                quote: "Super easy to use. I uploaded a couple of photos and got realistic estimates. The tradesman was friendly, tidy, and finished faster than expected."
               },
               {
-                title: 'Roofer for Leak Repair',
-                desc: 'Emergency callouts — insured tradespeople.',
-                tag: 'Urgent',
-                city: 'Liverpool',
-                today: 6,
+                name: "James Patel",
+                city: "Liverpool",
+                quote: "Booked a plumber in minutes and the communication was brilliant. No hidden costs and the workmanship was excellent. Highly recommend."
               },
               {
-                title: 'Gardener for Lawn Care',
-                desc: 'Same‑week availability, fair pricing.',
-                tag: 'Local',
-                city: 'Nottingham',
-                today: 2,
-              },
-            ].map((job, i) => {
-              const tagColor =
-                job.tag === 'Urgent'
-                  ? 'bg-red-100 text-red-700'
-                  : job.tag === 'Available'
-                  ? 'bg-green-100 text-green-700'
-                  : 'bg-blue-100 text-blue-700';
-              return (
-                <div key={i} className="bg-white rounded-3xl shadow-xl border border-blue-100 flex flex-col p-6 h-full">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${tagColor}`}>{job.tag}</span>
-                    <span className="text-xs text-blue-800/80">{job.today}+ homeowners requested this today</span>
-                  </div>
-                  <h3 className="font-extrabold text-lg md:text-xl text-blue-900 mb-1 tracking-tight">{job.title}</h3>
-                  <p className="text-sm md:text-base text-gray-700">{job.desc}</p>
-                  <div className="mt-3 flex items-center gap-2 text-sm text-blue-800">
-                    <MapPin className="w-4 h-4 text-blue-600" /> {job.city} • Available now
-                  </div>
-                  <Button className="mt-5 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-blue-900 font-bold py-2.5 rounded-xl text-base shadow w-full transition-colors" asChild>
-                    <a href="#" aria-label="Request my free quote for this job">Get My Free Quote</a>
-                  </Button>
-                </div>
-              );
-            })}
-          </div>
-          <div className="sticky bottom-4 mt-8 z-10">
-            <div className="max-w-3xl mx-auto">
-              <Button className="w-full h-12 bg-[#fdbd18] hover:brightness-95 text-blue-900 font-extrabold rounded-2xl shadow-lg hover:shadow-yellow-400/40" onClick={() => document.getElementById('ai-quote-trigger')?.click()}>
-                Request My Free Quote →
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Social Proof & Testimonials (Carousel) */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-2 text-[#002FA7] tracking-tight">What Customers Say</h2>
-            <p className="text-[#002FA7]/80">Real reviews from customers across the UK</p>
-          </div>
-          <div className="relative">
-            <div className="overflow-hidden">
-              <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${testimonialsSlide * 100}%)` }}>
-                {Array.from({ length: testimonialSlides }).map((_, slide) => (
-                  <div key={slide} className="w-full flex-shrink-0">
-                    <div className="grid gap-6 md:grid-cols-3">
-                      {testimonials.slice(slide * testimonialsPerSlide, slide * testimonialsPerSlide + testimonialsPerSlide).map((t, idx) => (
-                        <div key={idx} className="bg-white rounded-2xl border border-blue-100 shadow p-6">
-                          <div className="flex items-center gap-3 mb-3">
-                            <div className="w-10 h-10 rounded-full overflow-hidden bg-blue-100 flex items-center justify-center text-blue-900 font-bold">
-                              {t.image ? (
-                                <img src={t.image} alt={t.name} className="w-full h-full object-cover" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                              ) : (
-                                <InitialsAvatar initials={`${t.name.split(' ')[0][0]}${t.name.split(' ').slice(-1)[0][0]}`.toUpperCase()} size="md" />
-                              )}
-                            </div>
-                            <div className="text-sm text-[#002FA7] font-semibold">{t.name}
-                              <div className="text-xs text-[#002FA7]/80 flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> {t.city}</div>
-                            </div>
-                          </div>
-                          <div className="flex items-center gap-1 mb-2 text-[#fdbd18]">
-                            <Star className="w-4 h-4" /><Star className="w-4 h-4" /><Star className="w-4 h-4" /><Star className="w-4 h-4" /><Star className="w-4 h-4" />
-                          </div>
-                          <p className="text-[#002FA7] text-sm md:text-base leading-relaxed">“{t.quote}”</p>
-                        </div>
-                      ))}
+                name: "Priya Singh",
+                city: "Nottingham",
+                quote: "The insurance guarantee gave me peace of mind. I loved being able to compare profiles and see genuine reviews before confirming."
+              }
+            ].map((testimonial, index) => (
+              <div 
+                key={index}
+                className="group bg-white rounded-xl p-5 border border-gray-100 hover:border-yellow-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 relative overflow-hidden flex flex-col h-full"
+              >
+                <div className="relative z-10 flex flex-col h-full">
+                  {/* Customer Info */}
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center font-semibold text-blue-700">
+                      {`${testimonial.name.split(' ')[0][0]}${testimonial.name.split(' ').slice(-1)[0][0]}`.toUpperCase()}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                      <div className="flex items-center gap-1 text-gray-500 text-sm">
+                        <MapPin className="w-3.5 h-3.5" />
+                        {testimonial.city}
+                      </div>
                     </div>
                   </div>
-                ))}
+
+                  {/* Quote */}
+                  <blockquote className="text-gray-600 text-sm leading-relaxed mb-4 flex-1">
+                    "{testimonial.quote}"
+                  </blockquote>
+
+                  {/* Star Rating */}
+                  <div className="flex items-center gap-1 mt-auto">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="flex justify-center mt-6 space-x-2">
-              {Array.from({ length: testimonialSlides }).map((_, i) => (
-                <button key={i} onClick={() => setTestimonialsSlide(i)} className={`w-3 h-3 rounded-full ${i===testimonialsSlide? 'bg-blue-700' : 'bg-gray-300 hover:bg-gray-400'}`} aria-label={`Go to slide ${i+1}`}></button>
+            ))}
+          </div>
+
+          {/* Trust Stats */}
+          <div className="mt-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              {[
+                { value: '4.9/5', label: 'Average Rating' },
+                { value: '50k+', label: 'Happy Customers' },
+                { value: '98%', label: 'Would Recommend' },
+                { value: '24/7', label: 'Customer Support' },
+              ].map((stat, i) => (
+                <div key={i} className="bg-white rounded-xl p-5 border border-gray-100 text-center">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent mb-1">
+                    {stat.value}
+                  </div>
+                  <p className="text-gray-600 text-sm">{stat.label}</p>
+                </div>
               ))}
             </div>
           </div>
@@ -1393,113 +1329,431 @@ export default function Home() {
 
       
 
-      {/* Action Cards (above Popular Jobs / Find Tradespeople) */}
-      <section className="py-0 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+      {/* Get Started Section - Consistent with InDemand */}
+      <section className="relative py-12 md:py-16 bg-white text-gray-900 overflow-hidden">
+        {/* Animated Background Elements - More subtle */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-50 via-blue-50 to-indigo-50"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400/20 to-blue-400/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-blue-100 mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-yellow-600" />
+              <span className="text-xs font-medium text-blue-800">Get Started Today</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-3">
+              <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">Choose Your</span>{' '}
+              <span className="text-gray-900">Path</span>
+            </h2>
+            <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
+              Whether you need a service or provide one, we've got you covered
+            </p>
+          </div>
+
+          {/* Action Cards Grid */}
+          <div className="grid gap-6 md:grid-cols-3">
             {/* Hire a tradesperson */}
-            <Link href="/find-tradespeople" className="group bg-white rounded-2xl border border-blue-100 shadow-sm overflow-hidden flex flex-col h-full min-h-[280px] transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 hover:bg-blue-50/50">
-              <img
-                src="/background.jpg"
-                alt="Hire a tradesperson"
-                className="w-full h-40 object-cover"
-                onError={e => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement?.insertAdjacentHTML('afterbegin', '<div style=\'width:100%;height:160px;background:#e5e7eb;display:flex;align-items:center;justify-content:center;color:#9ca3af;\'>Image</div>'); }}
-              />
-              <div className="p-6 flex-1 flex flex-col">
-                <div className="mb-3 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-50 text-blue-700">
-                  <Wrench className="w-7 h-7" />
+            <Link href="/find-tradespeople" className="h-full flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-yellow-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 shadow-sm group relative">
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <div className="relative z-10 flex flex-col h-full">
+                {/* Hero Image */}
+                <div className="relative h-32 bg-gradient-to-br from-blue-500 to-blue-600 overflow-hidden">
+                  <img 
+                    src="/api/placeholder/400/128" 
+                    alt="Professional tradesperson at work"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  <div className="absolute top-3 right-3">
+                    <span className="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full text-xs font-medium">
+                      Popular
+                    </span>
+                  </div>
                 </div>
-                <h3 className="text-xl font-extrabold text-blue-900 mb-1">Hire a tradesperson</h3>
-                <p className="text-blue-800/90 mb-4">Find your local pro and get quotes in minutes.</p>
-                <span className="mt-auto inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-[#fdbd18] text-blue-900 font-bold shadow transition-transform duration-150 group-hover:scale-[1.02] self-start pointer-events-none">Hire now</span>
+
+                <div className="p-5 flex flex-col flex-1">
+                  {/* Service Header */}
+                  <div className="flex items-start gap-3 mb-4">
+                    <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                      <div className="text-blue-600 group-hover:text-blue-700 transition-colors duration-300">
+                        <Search className="w-6 h-6" />
+                      </div>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-base font-bold text-gray-900 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
+                        Hire a tradesperson
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Service Details */}
+                  <div className="flex-1 space-y-3 mb-4">
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      Find your local pro and get quotes in minutes.
+                    </p>
+                    
+                    <div className="flex items-center justify-between text-xs text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <Clock className="w-3.5 h-3.5" />
+                        <span>Instant quotes</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MapPin className="w-3.5 h-3.5" />
+                        <span>Local pros</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="mt-auto">
+                    <div className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-medium py-2.5 px-4 rounded-xl text-center transition-all duration-200 shadow-md hover:shadow-lg text-sm">
+                      Hire now
+                    </div>
+                  </div>
+                </div>
               </div>
             </Link>
 
             {/* Tradesperson sign up */}
-            <Link href="/register/tradesperson" className="group bg-white rounded-2xl border border-blue-100 shadow-sm overflow-hidden flex flex-col h-full min-h-[280px] transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 hover:bg-blue-50/50">
-              <img
-                src="/hero.png"
-                alt="Tradesperson sign up"
-                className="w-full h-40 object-cover"
-                onError={e => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement?.insertAdjacentHTML('afterbegin', '<div style=\'width:100%;height:160px;background:#e5e7eb;display:flex;align-items:center;justify-content:center;color:#9ca3af;\'>Image</div>'); }}
-              />
-              <div className="p-6 flex-1 flex flex-col">
-                <div className="mb-3 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-50 text-blue-700">
-                  <UsersRound className="w-7 h-7" />
+            <Link href="/trades/signup" className="h-full flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-yellow-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 shadow-sm group relative">
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <div className="relative z-10 flex flex-col h-full">
+                {/* Hero Image */}
+                <div className="relative h-32 bg-gradient-to-br from-green-500 to-green-600 overflow-hidden">
+                  <img 
+                    src="/api/placeholder/400/128" 
+                    alt="Successful tradesperson growing business"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  <div className="absolute top-3 right-3">
+                    <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-xs font-medium">
+                      Business
+                    </span>
+                  </div>
                 </div>
-                <h3 className="text-xl font-extrabold text-blue-900 mb-1">Tradesperson sign up</h3>
-                <p className="text-blue-800/90 mb-4">Join 10,000+ approved tradespeople and grow your business.</p>
-                <span className="mt-auto inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-[#fdbd18] text-blue-900 font-bold shadow transition-transform duration-150 group-hover:scale-[1.02] self-start pointer-events-none">Join today</span>
+
+                <div className="p-5 flex flex-col flex-1">
+                  {/* Service Header */}
+                  <div className="flex items-start gap-3 mb-4">
+                    <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-green-50 to-green-100 group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                      <div className="text-green-600 group-hover:text-green-700 transition-colors duration-300">
+                        <UserPlus className="w-6 h-6" />
+                      </div>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-base font-bold text-gray-900 group-hover:text-green-700 transition-colors duration-300 leading-tight">
+                        Tradesperson sign up
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Service Details */}
+                  <div className="flex-1 space-y-3 mb-4">
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      Join 10,000+ approved tradespeople and grow your business.
+                    </p>
+                    
+                    <div className="flex items-center justify-between text-xs text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <ShieldCheck className="w-3.5 h-3.5" />
+                        <span>Verified</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Users className="w-3.5 h-3.5" />
+                        <span>10k+ members</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="mt-auto">
+                    <div className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-medium py-2.5 px-4 rounded-xl text-center transition-all duration-200 shadow-md hover:shadow-lg text-sm">
+                      Join today
+                    </div>
+                  </div>
+                </div>
               </div>
             </Link>
 
-            {/* Request a quote (opens AI quote calculator) */}
-            <div className="group bg-white rounded-2xl border border-blue-100 shadow-sm overflow-hidden flex flex-col h-full min-h-[280px] transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5">
-              <img
-                src="/background.jpg"
-                alt="Request a quote"
-                className="w-full h-40 object-cover"
-                onError={e => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement?.insertAdjacentHTML('afterbegin', '<div style=\'width:100%;height:160px;background:#e5e7eb;display:flex;align-items:center;justify-content:center;color:#9ca3af;\'>Image</div>'); }}
-              />
-              <div className="p-6 flex-1 flex flex-col">
-                <div className="mb-3 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-50 text-blue-700">
-                  <Calculator className="w-7 h-7" />
+            {/* Request a quote */}
+            <Link href="/get-quote" className="h-full flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-yellow-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 shadow-sm group relative">
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <div className="relative z-10 flex flex-col h-full">
+                {/* Hero Image */}
+                <div className="relative h-32 bg-gradient-to-br from-purple-500 to-purple-600 overflow-hidden">
+                  <img 
+                    src="/api/placeholder/400/128" 
+                    alt="Customer requesting quotes from tradespeople"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  <div className="absolute top-3 right-3">
+                    <span className="bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full text-xs font-medium">
+                      Instant
+                    </span>
+                  </div>
                 </div>
-                <h3 className="text-xl font-extrabold text-blue-900 mb-1">Request a quote</h3>
-                <p className="text-blue-800/90 mb-4">Tell us your job and we’ll match you instantly with 3 vetted tradespeople.</p>
-                <button type="button" onClick={() => document.getElementById('ai-quote-trigger')?.click()} className="mt-auto inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-[#fdbd18] text-blue-900 font-bold shadow transition-transform duration-150 group-hover:scale-[1.02] self-start">Request a quote</button>
+
+                <div className="p-5 flex flex-col flex-1">
+                  {/* Service Header */}
+                  <div className="flex items-start gap-3 mb-4">
+                    <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                      <div className="text-purple-600 group-hover:text-purple-700 transition-colors duration-300">
+                        <MessageSquareText className="w-6 h-6" />
+                      </div>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-base font-bold text-gray-900 group-hover:text-purple-700 transition-colors duration-300 leading-tight">
+                        Request a quote
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Service Details */}
+                  <div className="flex-1 space-y-3 mb-4">
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      Tell us your job and we'll match you instantly with 3 vetted tradespeople.
+                    </p>
+                    
+                    <div className="flex items-center justify-between text-xs text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <Clock className="w-3.5 h-3.5" />
+                        <span>Instant match</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Shield className="w-3.5 h-3.5" />
+                        <span>3 vetted pros</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="mt-auto">
+                    <div className="w-full bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-medium py-2.5 px-4 rounded-xl text-center transition-all duration-200 shadow-md hover:shadow-lg text-sm">
+                      Request a quote
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Popular Jobs / Find Tradespeople / Find Out More Tabs Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-yellow-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
-          {/* Tabs */}
-          <TabsSection />
+      {/* Popular Services Section - Consistent with InDemand */}
+      <section className="relative py-12 md:py-16 bg-white text-gray-900 overflow-hidden">
+        {/* Animated Background Elements - More subtle */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-50 via-blue-50 to-indigo-50"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400/20 to-blue-400/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-blue-100 mb-3">
+              <TrendingUp className="w-3.5 h-3.5 text-yellow-600" />
+              <span className="text-xs font-medium text-blue-800">Popular Services</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-3">
+              <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">Find Trusted</span>{' '}
+              <span className="text-gray-900">Tradespeople</span>
+            </h2>
+            <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
+              Connect with top-rated professionals in your area for all your home service needs
+            </p>
+          </div>
+
+          {/* Tabs Navigation */}
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {['Popular Jobs', 'Find Tradespeople', 'Find Out More'].map((tab, index) => (
+              <button
+                key={index}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  index === 0 
+                    ? 'bg-gradient-to-r from-yellow-400 to-yellow-500 text-white shadow-md hover:shadow-lg' 
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200 border border-gray-200'
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              'Electricians in London',
+              'Roofers in Edinburgh', 
+              'Gardeners in Wolverhampton',
+              'Electricians in Cardiff',
+              'Plumbers in Liverpool',
+              'Plumbers in Croydon',
+              'Roofers in Plymouth',
+              'Plumbers in Norwich',
+              'Gardeners in Luton',
+              'Plumbers in Birmingham',
+              'Roofers in Belfast',
+              'Gutter Cleaning Services in Manchester'
+            ].map((service, index) => (
+              <Link
+                key={index}
+                href={`/${service.toLowerCase().replace(/\s+/g, '-')}`}
+                className="block p-4 bg-white rounded-xl border border-gray-100 hover:border-yellow-300 hover:shadow-lg transition-all duration-300 group relative overflow-hidden shadow-sm"
+              >
+                {/* Subtle glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div className="relative z-10 flex items-center justify-between">
+                  <span className="text-gray-900 font-medium group-hover:text-blue-700 transition-colors duration-300">
+                    {service}
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-yellow-500 group-hover:translate-x-1 transition-all duration-300" />
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* View All Button */}
+          <div className="text-center mt-8">
+            <Link 
+              href="/all-services"
+              className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-medium rounded-xl transition-all duration-200 shadow-md hover:shadow-lg group"
+            >
+              <span>View All Services</span>
+              <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* SEO FAQ Section (Accordion, 4 items) */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-6 text-blue-900 tracking-tight">FAQs</h2>
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="faq-1">
-              <AccordionTrigger className="text-blue-900 font-semibold">How do I know a tradesperson is approved?</AccordionTrigger>
-              <AccordionContent className="text-blue-800">
-                All tradespeople are identity‑checked and verified. Learn more in our guide:
-                {' '}
-                <Link href="/blog/how-we-verify-tradespeople" className="text-blue-700 underline hover:text-blue-900">How We Verify Tradespeople</Link>.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="faq-2">
-              <AccordionTrigger className="text-blue-900 font-semibold">Can I get instant quotes in my area?</AccordionTrigger>
-              <AccordionContent className="text-blue-800">
-                Yes — use our quote tool for instant estimates and availability near you. Read more:
-                {' '}
-                <Link href="/blog/instant-quotes-near-you" className="text-blue-700 underline hover:text-blue-900">How Instant Quotes Work</Link>.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="faq-3">
-              <AccordionTrigger className="text-blue-900 font-semibold">Are tradespeople insured?</AccordionTrigger>
-              <AccordionContent className="text-blue-800">
-                We check for valid public liability insurance to protect your job.
-                {' '}
-                <Link href="/blog/insured-tradespeople" className="text-blue-700 underline hover:text-blue-900">Why Hiring an Insured Tradesperson Matters</Link>.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="faq-4">
-              <AccordionTrigger className="text-blue-900 font-semibold">How quickly can I book?</AccordionTrigger>
-              <AccordionContent className="text-blue-800">
-                Same‑day bookings are often available and most pros reply within minutes. Tips to book faster:
-                {' '}
-                <Link href="/blog/book-a-tradesperson-fast" className="text-blue-700 underline hover:text-blue-900">How to Book a Tradesperson Fast</Link>.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+      {/* FAQ Section - Consistent with InDemand */}
+      <section className="relative py-12 md:py-16 bg-white text-gray-900 overflow-hidden">
+        {/* Animated Background Elements - More subtle */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-50 via-blue-50 to-indigo-50"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400/20 to-blue-400/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-blue-100 mb-3">
+              <Star className="w-3.5 h-3.5 text-yellow-600" />
+              <span className="text-xs font-medium text-blue-800">Frequently Asked Questions</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-3">
+              <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">Got</span>{' '}
+              <span className="text-gray-900">Questions?</span>
+            </h2>
+            <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
+              Everything you need to know about finding trusted tradespeople
+            </p>
+          </div>
+
+          {/* FAQ Items */}
+          <div className="space-y-4 max-w-4xl mx-auto">
+            {[
+              {
+                icon: <ShieldCheck className="w-5 h-5" />,
+                question: "How do I know a tradesperson is approved?",
+                answer: "All tradespeople are identity‑checked and verified. We conduct thorough background checks, verify qualifications, and ensure they have valid insurance before they can join our platform.",
+                link: { text: "How We Verify Tradespeople", href: "/blog/how-we-verify-tradespeople" }
+              },
+              {
+                icon: <Clock className="w-5 h-5" />,
+                question: "Can I get instant quotes in my area?",
+                answer: "Yes — use our AI-powered quote tool for instant estimates and availability near you. Our smart matching system connects you with local professionals in minutes.",
+                link: { text: "How Instant Quotes Work", href: "/blog/instant-quotes-near-you" }
+              },
+              {
+                icon: <Shield className="w-5 h-5" />,
+                question: "Are tradespeople insured?",
+                answer: "We check for valid public liability insurance to protect your job. Every tradesperson must provide proof of comprehensive insurance coverage before joining our platform.",
+                link: { text: "Why Hiring an Insured Tradesperson Matters", href: "/blog/insured-tradespeople" }
+              },
+              {
+                icon: <ArrowRight className="w-5 h-5" />,
+                question: "How quickly can I book?",
+                answer: "Same‑day bookings are often available and most pros reply within minutes. Our streamlined booking process gets you connected with qualified tradespeople fast.",
+                link: { text: "How to Book a Tradesperson Fast", href: "/blog/book-a-tradesperson-fast" }
+              }
+            ].map((faq, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-2xl border border-gray-100 hover:border-yellow-300 transition-all duration-300 hover:shadow-lg shadow-sm group relative overflow-hidden"
+              >
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value={`faq-${index + 1}`} className="border-none">
+                    <AccordionTrigger className="relative px-6 py-5 text-left hover:no-underline group/trigger">
+                      <div className="flex items-center gap-4 w-full">
+                        <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 group-hover/trigger:scale-110 transition-transform duration-300 shadow-sm flex-shrink-0">
+                          <div className="text-blue-600 group-hover/trigger:text-blue-700 transition-colors duration-300">
+                            {faq.icon}
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-base font-bold text-gray-900 group-hover/trigger:text-blue-700 transition-colors duration-300 leading-tight">
+                            {faq.question}
+                          </h3>
+                        </div>
+                        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 group-hover/trigger:bg-yellow-100 transition-colors duration-300 flex-shrink-0">
+                          <ChevronDown className="w-4 h-4 text-gray-500 group-hover/trigger:text-yellow-600 transition-transform duration-300 group-data-[state=open]/trigger:rotate-180" />
+                        </div>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 pb-5">
+                      <div className="ml-14 space-y-3">
+                        <p className="text-gray-600 leading-relaxed text-sm">
+                          {faq.answer}
+                        </p>
+                        <div className="flex items-center gap-3">
+                          <Link 
+                            href={faq.link.href}
+                            className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg border border-yellow-200 text-yellow-700 hover:text-yellow-800 hover:bg-yellow-200 transition-all duration-200 group/link text-sm"
+                          >
+                            <span className="font-medium">{faq.link.text}</span>
+                            <ArrowRight className="w-3.5 h-3.5 transform group-hover/link:translate-x-0.5 transition-transform" />
+                          </Link>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
+            ))}
+          </div>
+
+          {/* Call to Action */}
+          <div className="mt-12 text-center">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100 max-w-2xl mx-auto">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                Still have questions?
+              </h3>
+              <p className="text-gray-600 mb-6 text-sm">
+                Our support team is here to help you find the perfect tradesperson
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <button 
+                  onClick={() => document.getElementById('ai-quote-trigger')?.click()}
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-medium rounded-xl transition-all duration-200 shadow-md hover:shadow-lg group"
+                >
+                  <span>Get Your Free Quote</span>
+                  <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" />
+                </button>
+                <Link 
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 rounded-xl transition-all duration-200 font-medium"
+                >
+                  Contact Support
+                </Link>
+              </div>
+            </div>
+          </div>
           {/* JSON-LD: FAQPage schema for SEO */}
           <script
             type="application/ld+json"
@@ -1552,6 +1806,6 @@ export default function Home() {
       </section>
 
     </div>
-
   );
 }
+

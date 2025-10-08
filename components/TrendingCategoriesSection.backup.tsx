@@ -1,4 +1,4 @@
-      import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import {
   Wrench,
@@ -99,25 +99,21 @@ const TrendingCategoriesSection = () => {
   }, [emblaApi, isHovering]);
 
   return (
-    <section className="py-8 bg-gradient-to-br from-blue-50 via-white to-yellow-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-4 md:mb-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-blue-900 drop-shadow mb-3">
-            Most In-Demand Services
+    <section className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Premium Services Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-black text-gray-900 mb-6 leading-tight">
+            Most Popular Services in Your Area
           </h2>
-          <p className="text-blue-700/90 max-w-2xl mx-auto">
-            The services customers are booking right now. Trusted, approved, and ready to help.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Connect with verified professionals for the services you need most
           </p>
         </div>
-        <div className="relative mt-2">
-          <div
-            className="overflow-hidden"
-            ref={emblaRef}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-          >
-            <div className="flex gap-5">
-              {displayed.map((category, index) => {
+
+        {/* Premium 2x3 Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {displayed.map((category, index) => {
               let TradeIcon: any = null;
               let MiniIcon: any = null;
               switch (category.name) {
@@ -222,106 +218,118 @@ const TrendingCategoriesSection = () => {
                 <Link
                   key={category.name}
                   href={`/find-tradespeople?trade=${encodeURIComponent(category.name)}`}
-                  className="embla__slide group min-w-[300px] max-w-[340px]"
-                  aria-label={`Browse ${category.name} tradespeople`}
+                  className="embla__slide group min-w-[280px] max-w-[300px]"
+                  aria-label={`Get ${category.name} quotes`}
                 >
-                  <div className="relative rounded-2xl bg-white border border-blue-100/70 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 p-5 md:p-6">
-                    {isPopular && (
-                      <span className="absolute top-3 right-3 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-yellow-400 text-blue-900/90">
-                        Popular
-                      </span>
-                    )}
-                    <div className="flex items-center gap-4">
-                      <span className="relative inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-xl bg-blue-600 text-white shadow-md">
-                        {TradeIcon && <TradeIcon className="w-8 h-8 md:w-9 md:h-9" />}
-                        {MiniIcon && (
-                          <span className="absolute -bottom-1 -right-1 inline-flex items-center justify-center w-6 h-6 rounded-full bg-white text-blue-700 border border-blue-100 shadow">
-                            <MiniIcon className="w-3.5 h-3.5" />
-                          </span>
-                        )}
-                      </span>
-                      <div className="min-w-0">
-                        <h3 className="text-lg md:text-xl font-semibold text-blue-900 leading-tight truncate">{category.name}</h3>
-                        <p className="mt-1 text-sm text-slate-600">In demand • {category.jobs} jobs</p>
+                  <div className="relative bg-white rounded-3xl border-2 border-gray-100 p-8 hover:border-blue-300 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    
+                    {/* ULTIMATE Icon */}
+                    <div className="text-center mb-6">
+                      <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-xl group-hover:scale-110 transition-transform duration-300">
+                        {TradeIcon && <TradeIcon className="w-10 h-10" />}
                       </div>
                     </div>
-                    <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-slate-700">
-                      <div className="inline-flex items-center gap-1.5">
-                        <span className="inline-block w-2 h-2 rounded-full bg-green-500"></span>
-                        <span>{responseMins} min • Available now</span>
-                      </div>
-                      <span className="hidden sm:inline opacity-40">•</span>
-                      <div className="inline-flex items-center gap-1.5">
-                        <Clock className="w-4 h-4 text-blue-600" />
-                        <span>Typically replies within {responseMins} min</span>
-                      </div>
-                      <span className="hidden sm:inline opacity-40">•</span>
-                      <div className="inline-flex items-center gap-1.5 text-blue-800 font-medium">
-                        <span>{jobsToday}+ jobs booked today near you</span>
+
+                    {/* ULTIMATE Title */}
+                    <div className="text-center mb-6">
+                      <h3 className="text-2xl font-black text-gray-900 mb-2">{category.name}</h3>
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        <span className="text-sm font-bold text-green-600">Available Now</span>
                       </div>
                     </div>
-                    <Button className="mt-4 w-full h-10 bg-[#fdbd18] hover:brightness-95 text-blue-900 font-bold rounded-xl">Get My Free Quote Now</Button>
+
+                    {/* ULTIMATE Stats */}
+                    <div className="text-center mb-8">
+                      <div className="text-3xl font-black text-blue-600 mb-1">{responseMins} min</div>
+                      <div className="text-sm text-gray-600">Average Response</div>
+                    </div>
+
+                    {/* ULTIMATE CTA */}
+                    <Button className="w-full h-14 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-blue-900 font-black text-lg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                      Get Free Quote
+                    </Button>
                   </div>
                 </Link>
               );
             })}
             </div>
           </div>
-          {/* Side arrows */}
+          {/* ULTIMATE Navigation */}
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center">
             <button
               onClick={() => emblaApi && emblaApi.scrollPrev()}
-              className="pointer-events-auto -ml-2 sm:ml-0 h-10 w-10 sm:h-12 sm:w-12 p-0 rounded-full border border-blue-200 bg-white/90 text-blue-700 shadow-md hover:bg-white hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#fdbd18]/60 backdrop-blur"
+              className="pointer-events-auto -ml-4 h-14 w-14 rounded-full bg-white shadow-2xl text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-all duration-300 hover:scale-110"
               aria-label="Previous"
             >
-              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+              <ChevronLeft className="w-7 h-7" />
             </button>
           </div>
           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
             <button
               onClick={() => emblaApi && emblaApi.scrollNext()}
-              className="pointer-events-auto -mr-2 sm:mr-0 h-10 w-10 sm:h-12 sm:w-12 p-0 rounded-full border border-blue-200 bg-white/90 text-blue-700 shadow-md hover:bg-white hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#fdbd18]/60 backdrop-blur"
+              className="pointer-events-auto -mr-4 h-14 w-14 rounded-full bg-white shadow-2xl text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-all duration-300 hover:scale-110"
               aria-label="Next"
             >
-              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+              <ChevronRight className="w-7 h-7" />
             </button>
           </div>
 
-          {/* Slide indicators */}
-          <div className="flex items-center justify-center gap-2 mt-5">
+          {/* ULTIMATE Indicators */}
+          <div className="flex items-center justify-center gap-2 mt-12">
             {scrollSnaps.map((_, i) => (
-              <span
+              <button
                 key={i}
-                className={`h-2 w-2 rounded-full ${i === selectedIndex ? 'bg-[#fdbd18]' : 'bg-blue-200'}`}
+                onClick={() => emblaApi && emblaApi.scrollTo(i)}
+                className={`h-3 w-8 rounded-full transition-all duration-300 ${
+                  i === selectedIndex 
+                    ? 'bg-blue-600 shadow-lg' 
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
               />
             ))}
           </div>
         </div>
-        {/* Quick filters (moved below carousel) */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mt-8 mb-6">
-          {['Plumber','Electrician','Builder','Painter','Roofer','Cleaner'].map((tag) => (
-            <Link key={tag} href={`/find-tradespeople?trade=${encodeURIComponent(tag)}`} className="px-4 py-2 rounded-full bg-white border border-blue-100 text-blue-900 text-sm font-medium hover:border-yellow-300 hover:shadow transition">
-              {tag}
-            </Link>
-          ))}
-        </div>
-        {/* Trust strip (moved below carousel) */}
-        <div className="flex flex-wrap items-center justify-center gap-5 mb-6 md:mb-8 text-sm text-blue-800">
-          <span className="inline-flex items-center gap-2">
-            <Shield className="w-4 h-4" /> All Trades Verified
-          </span>
-          <span className="inline-flex items-center gap-2">
-            <Shield className="w-4 h-4" /> Insurance Guaranteed
-          </span>
-          <span className="inline-flex items-center gap-2">
-            <Star className="w-4 h-4 text-yellow-400" /> Rated 5.0 by 50,000+ Customers
-          </span>
-        </div>
-        {/* Bottom CTA */}
-        <div className="text-center mt-10">
-          <Link href="/find-tradespeople" className="inline-flex items-center px-6 py-3 rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-blue-900 font-bold shadow">
-            Browse all categories
-            <ChevronRight className="w-4 h-4 ml-2" />
+
+        {/* ULTIMATE Trust Section */}
+        <div className="mt-20 text-center">
+          <div className="flex items-center justify-center gap-12 mb-12">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                <Shield className="w-6 h-6 text-green-600" />
+              </div>
+              <div className="text-left">
+                <div className="font-black text-gray-900">10,000+</div>
+                <div className="text-sm text-gray-600">Verified Pros</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                <Star className="w-6 h-6 text-yellow-600" />
+              </div>
+              <div className="text-left">
+                <div className="font-black text-gray-900">4.9★</div>
+                <div className="text-sm text-gray-600">Rating</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <Shield className="w-6 h-6 text-blue-600" />
+              </div>
+              <div className="text-left">
+                <div className="font-black text-gray-900">£2M+</div>
+                <div className="text-sm text-gray-600">Insured</div>
+              </div>
+            </div>
+          </div>
+
+          {/* ULTIMATE Final CTA */}
+          <Link 
+            href="/find-tradespeople" 
+            className="inline-flex items-center px-12 py-5 rounded-3xl bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-black text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+          >
+            Browse All Services
+            <ChevronRight className="w-6 h-6 ml-3" />
           </Link>
         </div>
       </div>
