@@ -15,6 +15,7 @@ import {
   MessageCircle,
   Sparkles,
   TrendingUp,
+  MapPin,
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
