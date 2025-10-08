@@ -64,7 +64,7 @@ const EnhancedHeader = () => {
   const navigationItems = [
     {
       label: 'Find Tradespeople',
-      href: '/tradespeople',
+      href: '/find-tradespeople',
       description: 'Browse verified professionals',
       icon: Search
     },
@@ -75,8 +75,8 @@ const EnhancedHeader = () => {
       icon: Users
     },
     {
-      label: 'For Business',
-      href: '/for-business',
+      label: 'For Tradespeople',
+      href: '/for-tradespeople',
       description: 'Grow your business',
       icon: Building2
     }
@@ -90,15 +90,41 @@ const EnhancedHeader = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-11 h-11 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
-                <Shield className="w-6 h-6 text-blue-900" />
+            <Link href="/" className="flex items-center gap-4 group">
+              {/* Logo Icon */}
+              <div className="w-14 h-14 bg-gradient-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300 overflow-hidden">
+                <img 
+                  src="/logo-icon.svg" 
+                  alt="MyApproved Logo Icon"
+                  className="w-10 h-10 object-contain"
+                  onError={(e) => {
+                    // Fallback to Shield icon if image fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.nextElementSibling?.classList.remove('hidden');
+                  }}
+                />
+                <Shield className="w-8 h-8 text-white hidden" />
               </div>
-              <div className="hidden sm:block">
-                <div className="text-2xl font-extrabold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
-                  MyApproved
+              {/* Logo Text/Image */}
+              <div className="hidden sm:block flex items-center">
+                <img 
+                  src="/logo-text.svg" 
+                  alt="MyApproved Logo"
+                  className="h-16 object-contain"
+                  onError={(e) => {
+                    // Fallback to text if image fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.nextElementSibling?.classList.remove('hidden');
+                  }}
+                />
+                <div className="hidden">
+                  <div className="text-4xl font-extrabold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+                    MyApproved
+                  </div>
+                  <div className="text-base font-semibold bg-gradient-to-r from-yellow-300 to-yellow-400 bg-clip-text text-transparent tracking-wider">TRUSTED TRADESPEOPLE</div>
                 </div>
-                <div className="text-xs font-semibold bg-gradient-to-r from-yellow-300 to-yellow-400 bg-clip-text text-transparent tracking-wider">TRUSTED TRADESPEOPLE</div>
               </div>
             </Link>
 
@@ -112,16 +138,25 @@ const EnhancedHeader = () => {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`group relative flex items-center gap-2 px-4 py-2.5 rounded-xl transition-all duration-300 font-semibold text-sm ${
+                    className={`group relative flex items-center gap-2 px-4 py-2.5 rounded-xl transition-all duration-300 font-semibold text-sm hover:scale-105 ${
                       isActive
                         ? 'bg-white/10 text-white shadow-lg backdrop-blur-md'
-                        : 'text-blue-100 hover:text-white hover:bg-white/5'
+                        : 'text-blue-100 hover:text-white hover:bg-white/10'
                     }`}
+                    onClick={(e) => {
+                      console.log(`Navigating to: ${item.href}`);
+                      // Force navigation if Next.js Link fails
+                      setTimeout(() => {
+                        if (window.location.pathname === pathname) {
+                          window.location.href = item.href;
+                        }
+                      }, 100);
+                    }}
                   >
                     <IconComponent className="w-4 h-4" />
                     <span>{item.label}</span>
                     {isActive && (
-                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full" />
+                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-yellow-400 rounded-full" />
                     )}
                   </Link>
                 );
@@ -141,13 +176,13 @@ const EnhancedHeader = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-48">
                   <DropdownMenuItem asChild>
-                    <Link href="/login" className="flex items-center gap-2 cursor-pointer">
+                    <Link href="/login/client" className="flex items-center gap-2 cursor-pointer">
                       <User className="w-4 h-4" />
                       <span>Customer Login</span>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/tradesperson/login" className="flex items-center gap-2 cursor-pointer">
+                    <Link href="/login/trade" className="flex items-center gap-2 cursor-pointer">
                       <Wrench className="w-4 h-4" />
                       <span>Tradesperson Login</span>
                     </Link>
@@ -303,13 +338,29 @@ const EnhancedHeader = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
               
-              <Button
-                onClick={() => window.location.href = '/register'}
-                className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-400 hover:to-yellow-400/90 text-blue-900 font-extrabold px-6 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-yellow-400/20"
-              >
-                <span>Sign Up</span>
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-400 hover:to-yellow-400/90 text-blue-900 font-extrabold px-6 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-yellow-400/20">
+                    <span>Sign Up</span>
+                    <ChevronDown className="w-3 h-3 ml-2" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56 bg-white/95 backdrop-blur-md border border-gray-200 shadow-xl rounded-xl p-2">
+                  <DropdownMenuItem asChild>
+                    <Link href="/register/client" className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-blue-50 transition-colors cursor-pointer">
+                      <User className="w-4 h-4 text-blue-600" />
+                      <span className="font-medium text-gray-700">Register as Customer</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator className="my-1 bg-gray-200" />
+                  <DropdownMenuItem asChild>
+                    <Link href="/register/tradesperson" className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-blue-50 transition-colors cursor-pointer">
+                      <Wrench className="w-4 h-4 text-blue-600" />
+                      <span className="font-medium text-gray-700">Register as Tradesperson</span>
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
 
             {/* Mobile Menu Button */}
@@ -366,13 +417,39 @@ const EnhancedHeader = () => {
             <div className="flex flex-col h-full">
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b border-gray-100 bg-gradient-to-r from-blue-50/50 to-yellow-50/50">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-md">
-                    <Shield className="w-5 h-5 text-white" />
+                <div className="flex items-center gap-4">
+                  {/* Mobile Logo Icon */}
+                  <div className="w-12 h-12 bg-gradient-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-md overflow-hidden">
+                    <img 
+                      src="/logo-icon.svg" 
+                      alt="MyApproved Logo Icon"
+                      className="w-8 h-8 object-contain"
+                      onError={(e) => {
+                        // Fallback to Shield icon if image fails to load
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        target.nextElementSibling?.classList.remove('hidden');
+                      }}
+                    />
+                    <Shield className="w-6 h-6 text-white hidden" />
                   </div>
+                  {/* Mobile Logo Text */}
                   <div>
-                    <div className="font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent text-lg">MyApproved</div>
-                    <div className="text-xs text-blue-600 font-semibold tracking-wide uppercase">Trusted Tradespeople</div>
+                    <img 
+                      src="/logo-text.svg" 
+                      alt="MyApproved Logo"
+                      className="h-16 object-contain"
+                      onError={(e) => {
+                        // Fallback to text if image fails to load
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        target.nextElementSibling?.classList.remove('hidden');
+                      }}
+                    />
+                    <div className="hidden">
+                      <div className="font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent text-2xl">MyApproved</div>
+                      <div className="text-base text-blue-600 font-semibold tracking-wide uppercase">Trusted Tradespeople</div>
+                    </div>
                   </div>
                 </div>
                 <button
@@ -394,7 +471,16 @@ const EnhancedHeader = () => {
                       <Link
                         key={item.href}
                         href={item.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
+                        onClick={(e) => {
+                          console.log(`Mobile navigating to: ${item.href}`);
+                          setIsMobileMenuOpen(false);
+                          // Force navigation if Next.js Link fails
+                          setTimeout(() => {
+                            if (window.location.pathname === pathname) {
+                              window.location.href = item.href;
+                            }
+                          }, 100);
+                        }}
                         className={`flex items-center gap-3 p-4 rounded-xl transition-all duration-200 ${
                           isActive
                             ? 'bg-blue-50 text-blue-600 shadow-sm border border-blue-100'
@@ -415,7 +501,7 @@ const EnhancedHeader = () => {
                 <div className="mt-8 space-y-2">
                   <h3 className="font-semibold text-gray-900 mb-3">Account Access</h3>
                   <Link
-                    href="/login"
+                    href="/login/client"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-blue-600 transition-colors"
                   >
@@ -423,12 +509,33 @@ const EnhancedHeader = () => {
                     <span className="font-medium">Customer Login</span>
                   </Link>
                   <Link
-                    href="/tradesperson/login"
+                    href="/login/trade"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-blue-600 transition-colors"
                   >
                     <Wrench className="w-4 h-4" />
                     <span className="font-medium">Tradesperson Login</span>
+                  </Link>
+                </div>
+
+                {/* Sign Up Options */}
+                <div className="mt-8 space-y-2">
+                  <h3 className="font-semibold text-gray-900 mb-3">Create Account</h3>
+                  <Link
+                    href="/register/client"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-blue-600 transition-colors"
+                  >
+                    <User className="w-4 h-4" />
+                    <span className="font-medium">Register as Customer</span>
+                  </Link>
+                  <Link
+                    href="/register/tradesperson"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-blue-600 transition-colors"
+                  >
+                    <Wrench className="w-4 h-4" />
+                    <span className="font-medium">Register as Tradesperson</span>
                   </Link>
                 </div>
 

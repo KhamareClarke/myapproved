@@ -1,7 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import HeaderClient from '@/components/HeaderClient';
+import EnhancedHeader from '@/components/EnhancedHeader';
 import Footer from '@/components/Footer';
 import GlobalAssistant from '@/components/GlobalAssistant';
 
@@ -22,11 +22,38 @@ export const metadata: Metadata = {
     siteName: 'MyApproved',
   },
   twitter: {
-    card: 'summary_large_image',
     title: 'MyApproved - Find Local Approved Tradespeople',
     description: 'Connect with verified, reliable tradespeople in your area.',
   },
 };
+
+// Add this CSS to ensure proper spacing with fixed header
+const fixedHeaderStyles = `
+  :root {
+    --header-height: 80px;
+  }
+  
+  @media (max-width: 768px) {
+    :root {
+      --header-height: 70px;
+    }
+  }
+  
+  body {
+    padding-top: var(--header-height);
+  }
+  
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: linear-gradient(to bottom, rgba(30, 58, 138, 0.98), rgba(30, 58, 138, 0.95));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+`;
 
 export default function RootLayout({
   children,
@@ -36,17 +63,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="canonical" href="https://myapproved.co.uk" />
-        <meta name="theme-color" content="#1e40af" />
-        <link
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-          rel="stylesheet"
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
+        <style dangerouslySetInnerHTML={{ __html: fixedHeaderStyles }} />
       </head>
-      <body className={inter.className}>
-        <HeaderClient />
+      <body className={`${inter.className} bg-gray-50`}>
+        <EnhancedHeader />
         {children}
         <Footer />
         {/* Global AI Assistant visible on every page */}

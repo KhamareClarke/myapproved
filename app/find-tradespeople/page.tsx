@@ -19,6 +19,7 @@ import InitialsAvatar from "@/components/InitialsAvatar";
 import { Textarea } from "@/components/ui/textarea";
 import GetQuoteModal from "@/components/GetQuoteModal";
 import Link from "next/link";
+import styles from "./page.module.css";
 // (Header dropdown imports removed; Header is rendered globally in layout)
 
 interface Tradesperson {
@@ -814,4 +815,4 @@ export default function FindTradespeople() {
       )}
     </div>
   );
-}
+};

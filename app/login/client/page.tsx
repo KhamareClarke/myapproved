@@ -195,15 +195,25 @@ export default function ClientLoginPage() {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-blue-50 to-yellow-50 flex flex-col items-center justify-center p-6 sm:p-8 gap-6 overflow-hidden">
-      {/* Background accents */}
-      <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-blue-200/40 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-yellow-200/40 blur-3xl" />
+    <div className="relative min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-900 flex flex-col items-center justify-center p-6 sm:p-8 gap-6 overflow-hidden" style={{ paddingTop: '100px' }}>
+      {/* Hero-style background effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-900" />
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-radial from-blue-400/20 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0s' }} />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-radial from-indigo-400/20 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-gradient-radial from-purple-400/15 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
+      </div>
+      
+      {/* Floating orbs */}
+      <div className="absolute top-20 left-20 w-4 h-4 bg-yellow-400/60 rounded-full animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }} />
+      <div className="absolute top-40 right-32 w-3 h-3 bg-blue-300/60 rounded-full animate-bounce" style={{ animationDelay: '1s', animationDuration: '4s' }} />
+      <div className="absolute bottom-32 left-32 w-5 h-5 bg-indigo-300/60 rounded-full animate-bounce" style={{ animationDelay: '2s', animationDuration: '3.5s' }} />
       {/* Main Content */}
       <div className="w-full max-w-6xl mx-auto grid md:grid-cols-2 gap-6 md:gap-8 items-start">
         {/* Left: Login card (moved left) */}
-        <div className="order-1 md:order-1 p-[1.5px] rounded-3xl bg-gradient-to-b from-blue-200/70 to-yellow-200/70 shadow-2xl">
-          <Card className="w-full rounded-3xl shadow-2xl border border-white/70 bg-white/95 backdrop-blur">
+        <div className="order-1 md:order-1 relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 rounded-3xl blur-xl" />
+          <Card className="relative w-full rounded-3xl shadow-2xl border border-white/20 bg-white/10 backdrop-blur-md">
           <CardHeader className="text-center pb-4 sm:pb-6">
             {/* Brand text removed as requested */}
             {/* Trust badge */}
@@ -216,10 +226,10 @@ export default function ClientLoginPage() {
                 <User className="w-8 h-8 text-white" />
               </div>
             </div>
-            <CardTitle className="text-[26px] sm:text-3xl font-bold text-[#fdbd18] mb-1">
+            <CardTitle className="text-[26px] sm:text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent mb-1">
               Sign in to your account
             </CardTitle>
-            <p className="text-gray-600 text-sm sm:text-base">Manage bookings, messages, and saved pros.</p>
+            <p className="text-blue-100 text-sm sm:text-base">Manage bookings, messages, and saved pros.</p>
           </CardHeader>
 
           <CardContent className="p-6">
@@ -227,7 +237,7 @@ export default function ClientLoginPage() {
               <div>
                 <Label
                   htmlFor="email"
-                  className="flex items-center mb-2 text-sm font-semibold text-gray-700"
+                  className="flex items-center mb-2 text-sm font-semibold text-blue-100"
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   Email Address
@@ -239,7 +249,7 @@ export default function ClientLoginPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
-                    className="h-12 text-base bg-white border-2 border-gray-200 hover:border-blue-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-200 rounded-lg"
+                    className="h-12 text-base bg-white/10 border-2 border-white/20 hover:border-yellow-400/50 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-200 rounded-lg text-white placeholder:text-blue-200 backdrop-blur-sm"
                     required
                   />
                 </div>
@@ -248,7 +258,7 @@ export default function ClientLoginPage() {
               <div>
                 <Label
                   htmlFor="password"
-                  className="flex items-center mb-2 text-sm font-semibold text-gray-700"
+                  className="flex items-center mb-2 text-sm font-semibold text-blue-100"
                 >
                   <Lock className="w-4 h-4 mr-2" />
                   Password
@@ -260,13 +270,13 @@ export default function ClientLoginPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter your password"
-                    className="h-12 text-base bg-white border-2 border-gray-200 hover:border-blue-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-200 rounded-lg pr-10"
+                    className="h-12 text-base bg-white/10 border-2 border-white/20 hover:border-yellow-400/50 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-200 rounded-lg pr-10 text-white placeholder:text-blue-200 backdrop-blur-sm"
                     required
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-200 hover:text-white"
                     aria-label={showPassword ? "Hide password" : "Show password"}
                   >
                     {showPassword ? (
@@ -281,11 +291,11 @@ export default function ClientLoginPage() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Checkbox id="remember" checked={rememberMe} onCheckedChange={(c) => setRememberMe(c === true)} />
-                  <Label htmlFor="remember" className="text-sm text-gray-700">Remember me</Label>
+                  <Label htmlFor="remember" className="text-sm text-blue-100">Remember me</Label>
                 </div>
                 <Link
                   href="/forgot-password?type=client"
-                  className="text-sm text-blue-600 hover:text-blue-800 hover:underline font-medium"
+                  className="text-sm text-yellow-400 hover:text-yellow-300 hover:underline font-medium"
                 >
                   Forgot password?
                 </Link>
@@ -316,14 +326,14 @@ export default function ClientLoginPage() {
                   <span className="w-full border-t border-gray-200" />
                 </div>
                 <div className="relative flex justify-center text-xs">
-                  <span className="bg-white px-2 text-[#fdbd18]">Enter your details</span>
+                  <span className="bg-blue-900/80 px-2 text-yellow-400">Enter your details</span>
                 </div>
               </div>
 
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-base font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+                className="w-full h-12 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-blue-900 text-base font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
               >
                 {isLoading ? (
                   <span className="inline-flex items-center gap-2">
@@ -336,39 +346,39 @@ export default function ClientLoginPage() {
               </Button>
 
               <div className="text-center space-y-2">
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-blue-100">
                   Do not have a client account?{" "}
                   <Link
                     href="/register/client"
-                    className="text-blue-600 hover:text-blue-800 hover:underline font-medium"
+                    className="text-yellow-400 hover:text-yellow-300 hover:underline font-medium"
                   >
                     Register here
                   </Link>
                 </p>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-blue-100">
                   Are you a tradesperson?{" "}
                   <Link
                     href="/login/trade"
-                    className="text-blue-600 hover:text-blue-800 hover:underline font-medium"
+                    className="text-yellow-400 hover:text-yellow-300 hover:underline font-medium"
                   >
                     Login here
                   </Link>
                 </p>
                 <div className="pt-1">
-                  <Link href="/contact" className="text-xs text-gray-500 hover:text-gray-700 underline">Need help? Contact support</Link>
+                  <Link href="/contact" className="text-xs text-blue-200 hover:text-white underline">Need help? Contact support</Link>
                 </div>
               </div>
 
               {/* Benefits bullets */}
               <ul className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2 text-left">
-                <li className="flex items-center gap-2 text-xs text-gray-700 bg-gray-50 border border-gray-200 rounded-md px-2 py-1">
-                  <CheckCircle className="h-4 w-4 text-green-600" /> No hidden fees
+                <li className="flex items-center gap-2 text-xs text-blue-100 bg-white/10 border border-white/20 rounded-md px-2 py-1 backdrop-blur-sm">
+                  <CheckCircle className="h-4 w-4 text-green-400" /> No hidden fees
                 </li>
-                <li className="flex items-center gap-2 text-xs text-gray-700 bg-gray-50 border border-gray-200 rounded-md px-2 py-1">
-                  <Shield className="h-4 w-4 text-blue-700" /> Secure login
+                <li className="flex items-center gap-2 text-xs text-blue-100 bg-white/10 border border-white/20 rounded-md px-2 py-1 backdrop-blur-sm">
+                  <Shield className="h-4 w-4 text-blue-400" /> Secure login
                 </li>
-                <li className="flex items-center gap-2 text-xs text-gray-700 bg-gray-50 border border-gray-200 rounded-md px-2 py-1">
-                  <Star className="h-4 w-4 text-yellow-500" /> Top-rated pros
+                <li className="flex items-center gap-2 text-xs text-blue-100 bg-white/10 border border-white/20 rounded-md px-2 py-1 backdrop-blur-sm">
+                  <Star className="h-4 w-4 text-yellow-400" /> Top-rated pros
                 </li>
               </ul>
 
@@ -376,7 +386,7 @@ export default function ClientLoginPage() {
               <div className="mt-5">
                 <Link
                   href="/register/client"
-                  className="inline-flex items-center justify-center w-full h-11 rounded-lg bg-gradient-to-r from-yellow-400 to-yellow-500 text-black text-sm font-semibold shadow hover:from-yellow-500 hover:to-yellow-600"
+                  className="inline-flex items-center justify-center w-full h-11 rounded-lg bg-gradient-to-r from-yellow-400 to-yellow-500 text-blue-900 text-sm font-semibold shadow hover:from-yellow-500 hover:to-yellow-600 hover:scale-105 transition-all duration-200"
                 >
                   Create a free account
                 </Link>
@@ -387,22 +397,53 @@ export default function ClientLoginPage() {
           </Card>
         </div>
 
-        {/* Right: UK map with dense active trade markers + feature cards */}
-        <div className="order-2 md:order-2 flex flex-col gap-4">
-          <div className="relative rounded-2xl p-[2px] bg-gradient-to-br from-blue-200/80 to-yellow-200/80 shadow-xl">
-            <div className="relative rounded-[14px] overflow-hidden border border-white/70 bg-white/90 backdrop-blur">
-              {/* Interactive Map with Real-looking Markers */}
+        {/* Right: Hero-style feature section */}
+        <div className="order-2 md:order-2 flex flex-col gap-6 relative z-10">
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-blue-400/20 rounded-3xl blur-xl" />
+            <div className="relative rounded-3xl overflow-hidden border border-white/20 bg-white/10 backdrop-blur-md shadow-2xl">
+              {/* Combined Hero Content + Interactive Map */}
               <div className="relative w-full h-[360px] md:h-[440px] bg-gradient-to-br from-blue-100 to-green-100">
-                {/* Base map using Google Maps embed for more realistic appearance */}
-              <iframe
-                title="UK coverage map"
+                {/* Base map using Google Maps embed */}
+                <iframe
+                  title="UK coverage map"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9933496.689157944!2d-8.644409999999999!3d54.2361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x25a3b1142c791a9%3A0xc4f8a0433288257a!2sUnited%20Kingdom!5e0!3m2!1sen!2suk!4v1699999999999!5m2!1sen!2suk&iwloc=&output=embed"
-                  className="w-full h-full rounded-[14px] pointer-events-none"
-                loading="lazy"
+                  className="w-full h-full rounded-3xl pointer-events-none"
+                  loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
                 
-                {/* Realistic tradesperson markers with hover effects */}
+                {/* Hero badge at top of map */}
+                <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-yellow-400/50 bg-yellow-400/20 px-4 py-2 text-sm font-semibold text-yellow-400 backdrop-blur-md">
+                    <Star className="h-4 w-4 fill-yellow-400" />
+                    Join 50,000+ Happy Customers
+                  </div>
+                </div>
+                
+                {/* Statistics at bottom of map */}
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <div className="bg-gradient-to-r from-blue-900/90 to-indigo-900/90 backdrop-blur-md rounded-xl p-4 border border-white/20 shadow-lg">
+                    <div className="flex items-center justify-center gap-6">
+                      <div className="text-center">
+                        <div className="text-xl font-bold text-yellow-400">{onlineCount}+</div>
+                        <div className="text-xs text-blue-200">Online Now</div>
+                      </div>
+                      <div className="h-8 w-px bg-white/20"></div>
+                      <div className="text-center">
+                        <div className="text-xl font-bold text-yellow-400">4.9★</div>
+                        <div className="text-xs text-blue-200">Average Rating</div>
+                      </div>
+                      <div className="h-8 w-px bg-white/20"></div>
+                      <div className="text-center">
+                        <div className="text-xl font-bold text-yellow-400">24/7</div>
+                        <div className="text-xs text-blue-200">Support</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Interactive tradesperson markers */}
                 <div className="absolute inset-0 pointer-events-none">
                   {ukCities.slice(0, 25).map((city, idx) => {
                     const pos = projectToPercent(city.lat, city.lon);
@@ -424,16 +465,16 @@ export default function ClientLoginPage() {
                         {/* Marker pin */}
                         <div className={`relative ${isActive ? 'animate-bounce' : ''}`}>
                           <div 
-                            className="w-6 h-6 rounded-full border-2 border-white shadow-lg flex items-center justify-center text-white text-xs font-bold transition-transform hover:scale-125"
+                            className="w-6 h-6 rounded-full border-2 border-white shadow-lg flex items-center justify-center text-white text-xs font-bold transition-transform hover:scale-125 backdrop-blur-sm"
                             style={{ backgroundColor: tradeType.color }}
                           >
                             {tradeType.name.charAt(0)}
                           </div>
                           
                           {/* Tooltip on hover */}
-                          <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+                          <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black/80 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 backdrop-blur-sm">
                             {city.name} - {tradeType.name} • Click to search
-                            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-2 border-transparent border-t-black"></div>
+                            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-2 border-transparent border-t-black/80"></div>
                           </div>
                           
                           {/* Pulse effect for active markers */}
@@ -450,18 +491,18 @@ export default function ClientLoginPage() {
                 </div>
                 
                 {/* Live activity indicator */}
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur rounded-lg px-3 py-2 shadow-lg">
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md rounded-lg px-3 py-2 shadow-lg border border-white/20">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                     <span className="text-xs font-medium text-gray-700">
-                      {onlineCount}+ tradespeople online
+                      Live Coverage
                     </span>
                   </div>
                 </div>
                 
                 {/* Legend */}
-                <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur rounded-lg p-3 shadow-lg">
-                  <div className="text-xs font-medium text-gray-700 mb-2">Available Now</div>
+                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md rounded-lg p-3 shadow-lg border border-white/20">
+                  <div className="text-xs font-medium text-gray-700 mb-2">Available Trades</div>
                   <div className="grid grid-cols-2 gap-1">
                     {tradeCategories.slice(0, 4).map((trade) => (
                       <div key={trade.name} className="flex items-center gap-1">
@@ -470,59 +511,60 @@ export default function ClientLoginPage() {
                           style={{ backgroundColor: trade.color }}
                         />
                         <span className="text-xs text-gray-600">{trade.name}</span>
-                  </div>
-                ))}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
 
-              {/* Subtle frame */}
-              <div className="pointer-events-none absolute inset-0 ring-1 ring-black/5" />
             </div>
           </div>
 
-          {/* Restored feature cards under the map */}
-          <div className="p-[1.5px] rounded-3xl bg-gradient-to-br from-blue-200/70 to-yellow-200/70 shadow-xl">
-            <div className="relative bg-white/95 backdrop-blur rounded-3xl border border-white/70 p-6 transition-transform duration-200 hover:-translate-y-[2px]">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-[#fdbd18] rounded-t-3xl" />
-              <h2 className="text-xl font-bold text-gray-900 mb-3">Why MyApproved</h2>
-              <ul className="space-y-3">
+          {/* Hero-style feature cards */}
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 rounded-3xl blur-xl" />
+            <div className="relative bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 p-6 shadow-2xl">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-t-3xl" />
+              <h2 className="text-xl font-bold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent mb-4">Why Choose MyApproved</h2>
+              <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-50 border border-blue-100">
-                    <Shield className="h-4 w-4 text-blue-700" />
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/20 border border-blue-400/30 backdrop-blur-sm">
+                    <Shield className="h-5 w-5 text-blue-400" />
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">Verified pros</p>
-                    <p className="text-sm text-gray-600">ID, insurance, and checks for peace of mind.</p>
+                    <p className="text-sm font-semibold text-white">Verified Professionals</p>
+                    <p className="text-sm text-blue-200">ID, insurance, and background checks for complete peace of mind.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-yellow-50 border border-yellow-100">
-                    <Star className="h-4 w-4 text-yellow-500" />
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-yellow-500/20 border border-yellow-400/30 backdrop-blur-sm">
+                    <Star className="h-5 w-5 text-yellow-400" />
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-[#fdbd18]">Top-rated pros</p>
-                    <p className="text-sm text-gray-600">5★ reviews from thousands of UK customers.</p>
+                    <p className="text-sm font-semibold text-yellow-400">Top-Rated Pros</p>
+                    <p className="text-sm text-blue-200">5★ reviews from thousands of satisfied UK customers.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-green-50 border border-green-100">
-                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-green-500/20 border border-green-400/30 backdrop-blur-sm">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">Fast booking</p>
-                    <p className="text-sm text-gray-600">Match quickly with trusted local specialists.</p>
+                    <p className="text-sm font-semibold text-white">Instant Booking</p>
+                    <p className="text-sm text-blue-200">Connect and book trusted local specialists in minutes.</p>
                   </div>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="p-[1.5px] rounded-3xl bg-gradient-to-br from-blue-200/70 to-yellow-200/70 shadow-xl">
-            <div className="relative bg-white/95 backdrop-blur rounded-3xl border border-white/70 p-5 transition-transform duration-200 hover:-translate-y-[2px]">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-[#fdbd18] rounded-t-3xl" />
-              <div className="flex items-center gap-2 text-sm text-gray-800">
-                <Star className="h-4 w-4 text-[#fdbd18]" />
-                4.9/5 from 12k+ verified reviews
+          
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-blue-400/20 rounded-2xl blur-xl" />
+            <div className="relative bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-4 shadow-xl">
+              <div className="flex items-center justify-center gap-2 text-center">
+                <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                <span className="text-lg font-bold text-white">4.9/5</span>
+                <span className="text-blue-200">from 12,000+ verified reviews</span>
               </div>
             </div>
           </div>

@@ -85,7 +85,6 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 import CookieConsent from "@/components/CookieConsent";
 import FloatingAssistant from "@/components/FloatingAssistant";
-import EnhancedHeader from "@/components/EnhancedHeader";
 
  // Map trade to icon for Select menu (visual only)
  const tradeIconFor = (name: string) => {
@@ -999,10 +998,9 @@ export default function Home() {
 
   return (
     <div suppressHydrationWarning>
-      <EnhancedHeader />
       <CookieConsent />
       <FloatingAssistant mode="home" />
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-[90vh] flex items-center">
+      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-[90vh] flex items-center pt-12">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/70 to-indigo-800/60"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.3),transparent_50%)] animate-pulse"></div>
@@ -1027,13 +1025,13 @@ export default function Home() {
                 <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl">Trades</span>
                 <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse">people</span>
               </h1>
-              <p className="text-sm sm:text-base md:text-lg text-blue-100 leading-relaxed mb-6 animate-slide-up" style={{animationDelay: '0.1s'}}>
+              <p className="text-sm sm:text-base md:text-lg text-blue-100 leading-relaxed mb-4 animate-slide-up" style={{animationDelay: '0.1s'}}>
                 Hire vetted professionals near you — fast, reliable, and backed by verified reviews.
               </p>
             </div>
             
             {/* Statistics Bar - Single Line */}
-            <div className="flex items-center gap-4 mb-6 animate-slide-up whitespace-nowrap overflow-x-auto pb-2 -mx-2 px-2" style={{animationDelay: '0.4s'}}>
+            <div className="flex items-center gap-4 mb-4 animate-slide-up whitespace-nowrap overflow-x-auto pb-2 -mx-2 px-2" style={{animationDelay: '0.4s'}}>
               <div className="flex items-center gap-1 text-white/90 bg-white/5 backdrop-blur-sm px-2 py-1 rounded-full border border-white/10">
                 <div className="w-1 h-1 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
                 <span className="text-xs font-medium">50,000+ Happy Customers</span>
@@ -1150,7 +1148,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="mt-8">
+            <div className="mt-4">
               <div className="flex items-center gap-4">
                 <img src="/logo.svg" alt="Testimonial" className="w-14 h-14 rounded-full border-2 border-yellow-400 shadow" />
                 <div>
@@ -1361,7 +1359,7 @@ export default function Home() {
                 {/* Hero Image */}
                 <div className="relative h-32 bg-gradient-to-br from-blue-500 to-blue-600 overflow-hidden">
                   <img 
-                    src="/api/placeholder/400/128" 
+                    src="/hire-tradesperson.jpg" 
                     alt="Professional tradesperson at work"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -1425,7 +1423,7 @@ export default function Home() {
                 {/* Hero Image */}
                 <div className="relative h-32 bg-gradient-to-br from-green-500 to-green-600 overflow-hidden">
                   <img 
-                    src="/api/placeholder/400/128" 
+                    src="/tradesperson-signup.jpg" 
                     alt="Successful tradesperson growing business"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -1489,7 +1487,7 @@ export default function Home() {
                 {/* Hero Image */}
                 <div className="relative h-32 bg-gradient-to-br from-purple-500 to-purple-600 overflow-hidden">
                   <img 
-                    src="/api/placeholder/400/128" 
+                    src="/request-quote.jpg" 
                     alt="Customer requesting quotes from tradespeople"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
