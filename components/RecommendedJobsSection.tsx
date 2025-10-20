@@ -13,7 +13,7 @@ import {
   Users,
   Shield,
   CheckCircle,
-  Fire,
+  Flame,
   Timer,
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -132,7 +132,9 @@ const RecommendedJobsSection = () => {
     emblaApi.on('select', onSelect);
     onSelect();
 
-    return () => emblaApi.off('select', onSelect);
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
   }, [emblaApi]);
 
   // Auto-scroll
@@ -166,7 +168,7 @@ const RecommendedJobsSection = () => {
           bgColor: 'bg-orange-500',
           textColor: 'text-orange-700',
           borderColor: 'border-orange-200',
-          icon: Fire
+          icon: Flame
         };
       case 'available':
         return {

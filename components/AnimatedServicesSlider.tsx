@@ -148,7 +148,9 @@ const AnimatedServicesSlider = () => {
     emblaApi.on('select', onSelect);
     onSelect();
 
-    return () => emblaApi.off('select', onSelect);
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
   }, [emblaApi]);
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();

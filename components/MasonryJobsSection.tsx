@@ -9,7 +9,7 @@ import {
   Users,
   Shield,
   Zap,
-  Fire,
+  Flame,
   CheckCircle,
   TrendingUp,
   Timer,
@@ -184,7 +184,7 @@ const MasonryJobsSection = () => {
           textColor: 'text-orange-700',
           borderColor: 'border-orange-200',
           bgLight: 'bg-orange-50',
-          icon: Fire,
+          icon: Flame,
           pulse: false
         };
       case 'available':
