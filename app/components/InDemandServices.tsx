@@ -170,7 +170,7 @@ const InDemandServices = () => {
   ];
 
   return (
-    <section className="relative py-12 md:py-16 bg-white text-gray-900 overflow-hidden">
+    <section className="relative py-12 md:py-16 my-16 bg-white text-gray-900 overflow-hidden">
       {/* Animated Background Elements - More subtle */}
       <div className="absolute inset-0 bg-gradient-to-tr from-blue-50 via-blue-50 to-indigo-50"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
@@ -264,13 +264,13 @@ const InDemandServices = () => {
 
         {/* View All CTA */}
         <div className="mt-10 text-center">
-          <button 
-            onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+          <a 
+            href="/find-tradespeople"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-blue-900 font-semibold text-sm py-2.5 px-6 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg hover:scale-[1.02]"
           >
             View All Services
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </a>
         </div>
       </div>
     </section>

@@ -1006,7 +1006,7 @@ export default function Home() {
       
       <CookieConsent />
       <FloatingAssistant mode="home" />
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-[90vh] flex items-center pt-4">
+      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-[90vh] flex items-center pt-4 mb-16">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/70 to-indigo-800/60"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.3),transparent_50%)] animate-pulse"></div>
@@ -1016,7 +1016,7 @@ export default function Home() {
         <div className="absolute top-20 left-10 w-20 h-20 bg-yellow-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '0.5s'}}></div>
         <div className="absolute top-40 right-20 w-16 h-16 bg-blue-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '1.5s'}}></div>
         <div className="absolute bottom-32 left-20 w-12 h-12 bg-white/10 rounded-full blur-lg animate-bounce" style={{animationDelay: '2s'}}></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 md:py-12 flex flex-col lg:flex-row items-center gap-8 sm:gap-12">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 md:py-12 flex flex-col lg:flex-row items-start lg:items-end gap-8 sm:gap-12">
           {/* Left Column: Text & Search */}
           <div className="flex-1 z-10 flex flex-col items-start justify-center text-left">
             <div className="mb-8">
@@ -1031,13 +1031,13 @@ export default function Home() {
                 <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl font-black">Trades</span>
                 <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse font-black">people</span>
               </h1>
-              <p className="text-sm sm:text-base md:text-lg text-blue-100 leading-relaxed mb-4 animate-slide-up" style={{animationDelay: '0.1s'}}>
+              <p className="text-sm sm:text-base md:text-lg text-blue-100 leading-relaxed mb-2 animate-slide-up" style={{animationDelay: '0.1s'}}>
                 Hire vetted professionals near you — fast, reliable, and backed by verified reviews.
               </p>
             </div>
             
             {/* Statistics Bar - Single Line */}
-            <div className="flex items-center gap-4 mb-4 animate-slide-up whitespace-nowrap overflow-x-auto pb-2 -mx-2 px-2" style={{animationDelay: '0.4s'}}>
+            <div className="flex items-center gap-4 mb-3 animate-slide-up whitespace-nowrap overflow-x-auto pb-2 -mx-2 px-2" style={{animationDelay: '0.4s'}}>
               <div className="flex items-center gap-1 text-white/90 bg-white/5 backdrop-blur-sm px-2 py-1 rounded-full border border-white/10">
                 <div className="w-1 h-1 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
                 <span className="text-xs font-medium">50,000+ Happy Customers</span>
@@ -1158,47 +1158,47 @@ export default function Home() {
               <div className="flex items-center gap-4">
                 <img src="/logo.svg" alt="Testimonial" className="w-14 h-14 rounded-full border-2 border-yellow-400 shadow" />
                 <div>
-                  <p className="text-base text-blue-100 italic">“The easiest way to find a reliable tradesperson. Highly recommended!”</p>
+                  <p className="text-base text-blue-100 italic">"The easiest way to find a reliable tradesperson. Highly recommended!"</p>
                   <span className="text-yellow-300 font-semibold text-xs">— Sarah M., London</span>
                 </div>
               </div>
             </div>
           </div>
-          {/* Right Column: Enhanced Hero Visual */}
-          <div className="flex-1 z-10 flex items-center justify-center relative min-h-[400px] animate-slide-up" style={{animationDelay: '0.4s'}}>
-            <div className="relative">
+          {/* Right Column: Enlarged Hero Visual */}
+          <div className="flex-1 z-10 flex items-end justify-center relative animate-slide-up" style={{animationDelay: '0.4s'}}>
+            <div className="relative w-full max-w-2xl">
               {/* Glow effect behind image */}
-              <div className="absolute -inset-3 bg-gradient-to-r from-yellow-400/15 via-blue-500/15 to-yellow-400/15 rounded-2xl blur-lg animate-pulse"></div>
+              <div className="absolute -inset-4 bg-gradient-to-r from-yellow-400/20 via-blue-500/20 to-yellow-400/20 rounded-3xl blur-2xl animate-pulse"></div>
               
               <div className="relative">
                 <img
                   src="/hero.png"
                   alt="Trusted Tradespeople"
-                  className="w-full max-w-xs sm:max-w-sm lg:max-w-md h-[280px] sm:h-[320px] md:h-[360px] lg:h-[400px] object-cover object-top transition-transform duration-700 hover:scale-105"
-                  style={{ objectFit: 'cover', objectPosition: 'top' }}
+                  className="w-full h-[450px] sm:h-[500px] md:h-[550px] lg:h-[600px] object-cover object-top transition-transform duration-700 hover:scale-[1.02]"
+                  style={{ objectFit: 'cover', objectPosition: 'top center' }}
                 />
                 
                 {/* Trust Badges Container */}
-                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 flex flex-wrap justify-center gap-2 w-full px-4">
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-wrap justify-center gap-3 w-full px-4">
                   {/* Verification Badge */}
-                  <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white px-3 py-1.5 rounded-lg shadow-lg font-medium flex items-center gap-1.5 border border-white/90 backdrop-blur-sm transition-all duration-300 hover:scale-105">
+                  <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white px-4 py-2 rounded-lg shadow-xl font-medium flex items-center gap-2 border-2 border-white backdrop-blur-sm transition-all duration-300 hover:scale-105">
                     <div className="relative flex items-center justify-center">
                       <div className="absolute w-2 h-2 bg-white rounded-full animate-ping opacity-75"></div>
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
+                      <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
                     </div>
-                    <span className="text-xs font-medium">All Trades <span className="text-white">Verified</span></span>
+                    <span className="text-sm font-semibold">All Trades Verified</span>
                   </div>
                   
                   {/* Rating Badge */}
-                  <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 text-blue-900 px-3 py-1.5 rounded-lg shadow-lg font-medium flex items-center gap-1.5 border border-yellow-300/90 backdrop-blur-sm transition-all duration-300 hover:scale-105">
-                    <Star className="w-3 h-3 fill-current text-amber-600" />
-                    <span className="text-xs font-medium">4.9★ Rating</span>
+                  <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 text-blue-900 px-4 py-2 rounded-lg shadow-xl font-medium flex items-center gap-2 border-2 border-yellow-300 backdrop-blur-sm transition-all duration-300 hover:scale-105">
+                    <Star className="w-4 h-4 fill-current text-amber-600" />
+                    <span className="text-sm font-semibold">4.9★ Rating</span>
                   </div>
                   
                   {/* User Count Badge */}
-                  <div className="bg-gradient-to-br from-blue-600 to-blue-700 text-white px-3 py-1.5 rounded-lg shadow-lg font-medium flex items-center gap-1.5 border border-white/90 backdrop-blur-sm transition-all duration-300 hover:scale-105">
-                    <Users className="w-3 h-3 text-blue-100" />
-                    <span className="text-xs font-medium">50K+ Users</span>
+                  <div className="bg-gradient-to-br from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg shadow-xl font-medium flex items-center gap-2 border-2 border-white backdrop-blur-sm transition-all duration-300 hover:scale-105">
+                    <Users className="w-4 h-4 text-blue-100" />
+                    <span className="text-sm font-semibold">50K+ Users</span>
                   </div>
                 </div>
               </div>
@@ -1217,7 +1217,7 @@ export default function Home() {
       <InDemandServices />
 
       {/* Customer Testimonials Section */}
-      <section className="relative py-16 md:py-20 bg-white text-gray-900 overflow-hidden">
+      <section className="relative py-16 md:py-20 my-16 bg-white text-gray-900 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-50 via-blue-50 to-indigo-50"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
@@ -1334,7 +1334,7 @@ export default function Home() {
       
 
       {/* Get Started Section - Consistent with InDemand */}
-      <section className="relative py-12 md:py-16 bg-white text-gray-900 overflow-hidden">
+      <section className="relative py-12 md:py-16 my-16 bg-white text-gray-900 overflow-hidden">
         {/* Animated Background Elements - More subtle */}
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-50 via-blue-50 to-indigo-50"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
@@ -1363,13 +1363,12 @@ export default function Home() {
               
               <div className="relative z-10 flex flex-col h-full">
                 {/* Hero Image */}
-                <div className="relative h-32 bg-gradient-to-br from-blue-500 to-blue-600 overflow-hidden">
+                <div className="relative h-96 overflow-hidden">
                   <img 
                     src="/hire-tradesperson.jpg" 
                     alt="Professional tradesperson at work"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                   <div className="absolute top-3 right-3">
                     <span className="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full text-xs font-medium">
                       Popular
@@ -1427,13 +1426,12 @@ export default function Home() {
               
               <div className="relative z-10 flex flex-col h-full">
                 {/* Hero Image */}
-                <div className="relative h-32 bg-gradient-to-br from-green-500 to-green-600 overflow-hidden">
+                <div className="relative h-96 overflow-hidden">
                   <img 
                     src="/tradesperson-signup.jpg" 
                     alt="Successful tradesperson growing business"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                   <div className="absolute top-3 right-3">
                     <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-xs font-medium">
                       Business
@@ -1485,19 +1483,18 @@ export default function Home() {
             </Link>
 
             {/* Request a quote */}
-            <Link href="/get-quote" className="h-full flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-yellow-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 shadow-sm group relative">
+            <button onClick={() => document.getElementById('ai-quote-trigger')?.click()} className="h-full flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-yellow-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 shadow-sm group relative">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               <div className="relative z-10 flex flex-col h-full">
                 {/* Hero Image */}
-                <div className="relative h-32 bg-gradient-to-br from-purple-500 to-purple-600 overflow-hidden">
+                <div className="relative h-96 overflow-hidden">
                   <img 
                     src="/request-quote.jpg" 
                     alt="Customer requesting quotes from tradespeople"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                   <div className="absolute top-3 right-3">
                     <span className="bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full text-xs font-medium">
                       Instant
@@ -1546,13 +1543,13 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </Link>
+            </button>
           </div>
         </div>
       </section>
 
       {/* Popular Services Section - Consistent with InDemand */}
-      <section className="relative py-12 md:py-16 bg-white text-gray-900 overflow-hidden">
+      <section className="relative py-12 md:py-16 my-16 bg-white text-gray-900 overflow-hidden">
         {/* Animated Background Elements - More subtle */}
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-50 via-blue-50 to-indigo-50"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
@@ -1575,8 +1572,9 @@ export default function Home() {
           {/* Tabs Navigation */}
           <div className="flex flex-wrap justify-center gap-3 mb-8">
             {['Popular Jobs', 'Find Tradespeople', 'Find Out More'].map((tab, index) => (
-              <button
+              <Link
                 key={index}
+                href="/find-tradespeople"
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   index === 0 
                     ? 'bg-gradient-to-r from-yellow-400 to-yellow-500 text-white shadow-md hover:shadow-lg' 
@@ -1584,7 +1582,7 @@ export default function Home() {
                 }`}
               >
                 {tab}
-              </button>
+              </Link>
             ))}
           </div>
 
@@ -1606,7 +1604,7 @@ export default function Home() {
             ].map((service, index) => (
               <Link
                 key={index}
-                href={`/${service.toLowerCase().replace(/\s+/g, '-')}`}
+                href="/find-tradespeople"
                 className="block p-4 bg-white rounded-xl border border-gray-100 hover:border-yellow-300 hover:shadow-lg transition-all duration-300 group relative overflow-hidden shadow-sm"
               >
                 {/* Subtle glow effect */}
@@ -1625,7 +1623,7 @@ export default function Home() {
           {/* View All Button */}
           <div className="text-center mt-8">
             <Link 
-              href="/all-services"
+              href="/find-tradespeople"
               className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-medium rounded-xl transition-all duration-200 shadow-md hover:shadow-lg group"
             >
               <span>View All Services</span>
@@ -1636,7 +1634,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section - Consistent with InDemand */}
-      <section className="relative py-12 md:py-16 bg-white text-gray-900 overflow-hidden">
+      <section className="relative py-12 md:py-16 my-16 bg-white text-gray-900 overflow-hidden">
         {/* Animated Background Elements - More subtle */}
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-50 via-blue-50 to-indigo-50"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
@@ -1742,13 +1740,13 @@ export default function Home() {
                 Our support team is here to help you find the perfect tradesperson
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <button 
-                  onClick={() => document.getElementById('ai-quote-trigger')?.click()}
+                <Link 
+                  href="/find-tradespeople"
                   className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-medium rounded-xl transition-all duration-200 shadow-md hover:shadow-lg group"
                 >
                   <span>Get Your Free Quote</span>
                   <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" />
-                </button>
+                </Link>
                 <Link 
                   href="/contact"
                   className="inline-flex items-center justify-center px-6 py-3 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 rounded-xl transition-all duration-200 font-medium"
