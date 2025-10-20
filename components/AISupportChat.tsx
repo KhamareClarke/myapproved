@@ -546,38 +546,58 @@ export default function AISupportChat({ userId, userType, userName }: AISupportC
       <Button
         onClick={() => setIsOpen(true)}
         data-ai-chat-trigger
-        className="fixed bottom-6 right-6 h-14 w-14 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all duration-200 z-50"
+        className="fixed bottom-6 right-6 h-14 w-14 rounded-full bg-gradient-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-sm hover:from-blue-900 hover:to-blue-900/95 shadow-lg hover:shadow-xl transition-all duration-200 z-50"
         size="icon"
       >
-        <MessageCircle className="w-6 h-6 text-white" />
+        <img 
+          src="/logo-icon.svg" 
+          alt="MyApproved Chat" 
+          className="w-12 h-12 object-contain"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
+            target.nextElementSibling?.classList.remove('hidden');
+          }}
+        />
+        <MessageCircle className="w-6 h-6 text-white hidden" />
       </Button>
 
       {/* AI Chat Dialog */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="sm:max-w-lg h-[600px] flex flex-col p-0">
-          <DialogHeader className="px-6 py-4 border-b bg-gradient-to-r from-blue-50 to-purple-50">
+        <DialogContent className="sm:max-w-lg h-[600px] flex flex-col p-0 bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 border-white/20">
+          <DialogHeader className="px-6 py-4 border-b border-white/20 bg-gradient-to-r from-blue-900/80 to-indigo-900/80 backdrop-blur-sm">
             <DialogTitle className="flex items-center gap-2">
-              <Bot className="w-5 h-5 text-blue-600" />
-              AI Support Assistant
-              <Badge variant="outline" className="ml-auto">
+              <img 
+                src="/logo-icon.svg" 
+                alt="MyApproved AI" 
+                className="w-5 h-5 object-contain"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.nextElementSibling?.classList.remove('hidden');
+                }}
+              />
+              <Bot className="w-5 h-5 text-blue-600 hidden" />
+              <span className="bg-gradient-to-r from-white to-yellow-200 bg-clip-text text-transparent font-bold">AI Support Assistant</span>
+              <Badge variant="outline" className="ml-auto bg-yellow-400/20 border-yellow-400/50 text-yellow-300">
                 24/7 Available
               </Badge>
             </DialogTitle>
-            <DialogDescription>
+            <DialogDescription className="text-blue-100">
               Get instant help with common questions and issues
             </DialogDescription>
           </DialogHeader>
 
           <div className="flex-1 flex flex-col overflow-hidden">
             {/* Quick Questions - Always Visible */}
-            <div className={`border-b p-3 max-h-48 overflow-y-auto transition-all duration-500 ${
+            <div className={`border-b border-white/20 p-3 max-h-48 overflow-y-auto transition-all duration-500 ${
               highlightQuestions 
-                ? 'bg-blue-100 border-blue-300 shadow-lg' 
-                : 'bg-gray-50'
+                ? 'bg-white/20 border-yellow-400/30 shadow-lg' 
+                : 'bg-white/10 backdrop-blur-sm'
             }`}>
               <div className="space-y-2">
                 <div className={`text-xs font-medium transition-colors duration-500 ${
-                  highlightQuestions ? 'text-blue-800' : 'text-gray-600'
+                  highlightQuestions ? 'text-yellow-300' : 'text-blue-100'
                 }`}>
                   💡 Quick Help:
                 </div>
@@ -590,14 +610,14 @@ export default function AISupportChat({ userId, userType, userName }: AISupportC
                         highlightQuestions ? 'animate-pulse' : ''
                       } ${
                         question.category === 'dispute' 
-                          ? 'border-red-200 bg-red-50 hover:bg-red-100 text-red-700' 
+                          ? 'border-red-400/30 bg-red-500/20 hover:bg-red-500/30 text-red-200' 
                           : question.category === 'escalation'
-                          ? 'border-orange-200 bg-orange-50 hover:bg-orange-100 text-orange-700'
-                          : 'border-blue-200 bg-blue-50 hover:bg-blue-100 text-blue-700'
+                          ? 'border-orange-400/30 bg-orange-500/20 hover:bg-orange-500/30 text-orange-200'
+                          : 'border-blue-400/30 bg-white/10 hover:bg-white/20 text-blue-100'
                       }`}
                     >
                       <div className="flex items-center gap-1">
-                        <span className="font-medium text-xs bg-white px-1 py-0.5 rounded">
+                        <span className="font-medium text-xs bg-yellow-400 text-blue-900 px-1 py-0.5 rounded">
                           {question.id}
                         </span>
                         <span className="text-xs leading-tight">{question.question}</span>
@@ -609,7 +629,7 @@ export default function AISupportChat({ userId, userType, userName }: AISupportC
             </div>
 
             {/* Messages Area */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-blue-900/50 to-indigo-900/50">
 
               {messages.map((message) => (
                 <div
@@ -619,15 +639,27 @@ export default function AISupportChat({ userId, userType, userName }: AISupportC
                   <div
                     className={`max-w-[80%] rounded-lg p-3 ${
                       message.sender_type === 'user'
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-gray-100 text-gray-900'
+                        ? 'bg-gradient-to-r from-yellow-400 to-yellow-500 text-blue-900'
+                        : 'bg-white/10 backdrop-blur-sm border border-white/20 text-white'
                     }`}
                   >
                     <div className="flex items-center gap-2 mb-1">
                       {message.sender_type === 'user' ? (
                         <User className="w-4 h-4" />
                       ) : (
-                        <Bot className="w-4 h-4" />
+                        <>
+                          <img 
+                            src="/logo-icon.svg" 
+                            alt="MyApproved AI" 
+                            className="w-4 h-4 object-contain"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.style.display = 'none';
+                              target.nextElementSibling?.classList.remove('hidden');
+                            }}
+                          />
+                          <Bot className="w-4 h-4 hidden" />
+                        </>
                       )}
                       <span className="text-xs opacity-70">
                         {message.sender_type === 'user' ? 'You' : 'AI Assistant'}
@@ -642,9 +674,19 @@ export default function AISupportChat({ userId, userType, userName }: AISupportC
               
               {sending && (
                 <div className="flex justify-start">
-                  <div className="bg-gray-100 text-gray-900 rounded-lg p-3 max-w-[80%]">
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-lg p-3 max-w-[80%]">
                     <div className="flex items-center gap-2 mb-1">
-                      <Bot className="w-4 h-4" />
+                      <img 
+                        src="/logo-icon.svg" 
+                        alt="MyApproved AI" 
+                        className="w-4 h-4 object-contain"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          target.nextElementSibling?.classList.remove('hidden');
+                        }}
+                      />
+                      <Bot className="w-4 h-4 hidden" />
                       <span className="text-xs opacity-70">AI Assistant</span>
                     </div>
                     <div className="flex items-center gap-2">
@@ -659,18 +701,17 @@ export default function AISupportChat({ userId, userType, userName }: AISupportC
             </div>
 
             {/* Input Area */}
-            <div className="border-t p-4">
+            <div className="border-t border-white/20 p-4 bg-gradient-to-r from-blue-900/80 to-indigo-900/80 backdrop-blur-sm">
               <div className="flex items-center gap-2 mb-2">
                 <Button
                   onClick={clearChat}
-                  variant="outline"
                   size="sm"
-                  className="text-xs"
+                  className="text-xs bg-white/20 border border-white/30 text-white hover:bg-white/30 backdrop-blur-sm"
                 >
                   <RefreshCw className="w-3 h-3 mr-1" />
                   Clear Chat
                 </Button>
-                <div className="text-xs text-gray-500 ml-auto">
+                <div className="text-xs text-blue-200 ml-auto">
                   Press Enter to send
                 </div>
               </div>
@@ -681,18 +722,18 @@ export default function AISupportChat({ userId, userType, userName }: AISupportC
                   onKeyPress={handleKeyPress}
                   placeholder="Ask me anything about MyApproved..."
                   disabled={sending}
-                  className="flex-1"
+                  className="flex-1 bg-white/10 border-white/30 text-white placeholder-blue-200 focus:border-yellow-400"
                 />
                 <Button
                   onClick={sendMessage}
                   disabled={sending || !newMessage.trim()}
                   size="icon"
-                  className="bg-blue-600 hover:bg-blue-700"
+                  className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-blue-900"
                 >
                   <Send className="w-4 h-4" />
                 </Button>
               </div>
-              <div className="text-xs text-gray-500 mt-2">
+              <div className="text-xs text-blue-200 mt-2">
                 💡 Use the quick buttons above or type your own question
               </div>
             </div>

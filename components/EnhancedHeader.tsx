@@ -23,6 +23,7 @@ import {
   Wrench,
   Building2,
   Globe,
+  HelpCircle,
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import {
@@ -63,40 +64,69 @@ const EnhancedHeader = () => {
 
   const navigationItems = [
     {
-      label: 'Find Tradespeople',
-      href: '/find-tradespeople',
-      description: 'Browse verified professionals',
+      label: 'Instant Quote',
+      href: '/instant-quote',
+      description: 'Get quotes in minutes',
       icon: Search
     },
     {
-      label: 'How It Works',
-      href: '/how-it-works',
-      description: 'Simple 3-step process',
+      label: 'Post a Job',
+      href: '/post-job',
+      description: 'Find the right tradesperson',
+      icon: Building2
+    },
+    {
+      label: 'Find Tradespeople',
+      href: '/find-tradespeople',
+      description: 'Browse verified professionals',
       icon: Users
     },
     {
-      label: 'For Tradespeople',
-      href: '/for-tradespeople',
-      description: 'Grow your business',
-      icon: Building2
+      label: 'About',
+      href: '/about',
+      description: 'Learn about us',
+      icon: Shield
+    },
+    {
+      label: 'Contact',
+      href: '/contact',
+      description: 'Get in touch',
+      icon: Phone
+    },
+    {
+      label: 'FAQ',
+      href: '/faq',
+      description: 'Common questions',
+      icon: HelpCircle
     }
   ];
 
   return (
     <>
+      {/* Top Stripe with Offer */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 py-1.5">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center justify-center text-center">
+            <span className="text-blue-900 font-bold text-sm">
+              ⚡ FREE INSTANT QUOTES • NO OBLIGATION • SAVE £1000s TODAY ⚡
+            </span>
+          </div>
+        </div>
+      </div>
+      
       <header
-        className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-sm py-3 shadow-xl"
+        className="fixed top-8 left-0 right-0 z-50 bg-gradient-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-sm py-3 shadow-xl"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-1 sm:px-2 lg:px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-4 group">
+            <Link href="/" className="flex items-center gap-1 group -ml-4">
               {/* Logo Icon */}
-              <div className="w-14 h-14 bg-gradient-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300 overflow-hidden">
+              <div className="w-12 h-12 bg-gradient-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300 overflow-hidden">
                 <img 
                   src="/logo-icon.svg" 
                   alt="MyApproved Logo Icon"
-                  className="w-10 h-10 object-contain"
+                  className="w-8 h-8 object-contain"
                   onError={(e) => {
                     // Fallback to Shield icon if image fails to load
                     const target = e.target as HTMLImageElement;
@@ -111,7 +141,7 @@ const EnhancedHeader = () => {
                 <img 
                   src="/logo-text.svg" 
                   alt="MyApproved Logo"
-                  className="h-16 object-contain"
+                  className="h-12 object-contain"
                   onError={(e) => {
                     // Fallback to text if image fails to load
                     const target = e.target as HTMLImageElement;
@@ -120,16 +150,16 @@ const EnhancedHeader = () => {
                   }}
                 />
                 <div className="hidden">
-                  <div className="text-4xl font-extrabold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+                  <div className="text-2xl font-extrabold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
                     MyApproved
                   </div>
-                  <div className="text-base font-semibold bg-gradient-to-r from-yellow-300 to-yellow-400 bg-clip-text text-transparent tracking-wider">TRUSTED TRADESPEOPLE</div>
+                  <div className="text-xs font-semibold bg-gradient-to-r from-yellow-300 to-yellow-400 bg-clip-text text-transparent tracking-wider">TRUSTED TRADESPEOPLE</div>
                 </div>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1">
+            <nav className="hidden md:flex items-center space-x-0.5">
               {navigationItems.map((item) => {
                 const IconComponent = item.icon;
                 const isActive = pathname === item.href;
@@ -138,7 +168,7 @@ const EnhancedHeader = () => {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`group relative flex items-center gap-2 px-4 py-2.5 rounded-xl transition-all duration-300 font-semibold text-sm hover:scale-105 ${
+                    className={`group relative flex items-center gap-1 px-3 py-2 rounded-lg transition-all duration-300 font-medium text-sm hover:scale-105 ${
                       isActive
                         ? 'bg-white/10 text-white shadow-lg backdrop-blur-md'
                         : 'text-blue-100 hover:text-white hover:bg-white/10'
@@ -153,7 +183,7 @@ const EnhancedHeader = () => {
                       }, 100);
                     }}
                   >
-                    <IconComponent className="w-4 h-4" />
+                    <IconComponent className="w-3 h-3" />
                     <span>{item.label}</span>
                     {isActive && (
                       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-yellow-400 rounded-full" />
@@ -164,7 +194,7 @@ const EnhancedHeader = () => {
             </nav>
 
             {/* Desktop CTA Buttons */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-2">
               {/* Login Dropdown */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -378,29 +408,6 @@ const EnhancedHeader = () => {
           </div>
         </div>
 
-        {/* Trust indicators bar */}
-        <div className="border-t border-gray-100/80 bg-gradient-to-r from-blue-50/30 via-white/50 to-yellow-50/30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5">
-            <div className="flex items-center justify-center gap-6 text-xs">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-green-600" />
-                <span className="font-medium text-gray-700">Verified Trades</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                <span className="font-medium text-gray-700">4.9/5 Rated</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-blue-600" />
-                <span className="font-medium text-gray-700">Fully Insured</span>
-              </div>
-              <div className="hidden md:flex items-center gap-2">
-                <Clock className="w-4 h-4 text-purple-600" />
-                <span className="font-medium text-gray-700">24/7 Support</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </header>
 
       {/* Mobile Menu Overlay */}
@@ -572,24 +579,24 @@ const EnhancedHeader = () => {
       )}
 
       {/* Subheader */}
-      <div className="fixed top-18 left-0 right-0 z-40">
-        <div className="bg-gradient-to-r from-blue-50 via-white to-blue-50 border-b border-blue-100 py-2">
+      <div className="fixed left-0 right-0 z-40" style={{top: '104px'}}>
+        <div className="bg-gradient-to-b from-blue-900/90 to-blue-900/80 backdrop-blur-sm border-b border-blue-800/50 py-2">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center gap-8 text-sm">
-              <div className="flex items-center gap-2 text-blue-700">
-                <Shield className="w-4 h-4 text-green-600" />
+              <div className="flex items-center gap-2 text-blue-100">
+                <Shield className="w-4 h-4 text-green-400" />
                 <span className="font-medium">All Trades Verified</span>
               </div>
-              <div className="flex items-center gap-2 text-blue-700">
-                <Star className="w-4 h-4 text-yellow-500 fill-current" />
+              <div className="flex items-center gap-2 text-blue-100">
+                <Star className="w-4 h-4 text-yellow-400 fill-current" />
                 <span className="font-medium">4.9/5 Rated</span>
               </div>
-              <div className="flex items-center gap-2 text-blue-700">
-                <CheckCircle className="w-4 h-4 text-blue-600" />
+              <div className="flex items-center gap-2 text-blue-100">
+                <CheckCircle className="w-4 h-4 text-blue-400" />
                 <span className="font-medium">Fully Insured</span>
               </div>
-              <div className="flex items-center gap-2 text-blue-700">
-                <Clock className="w-4 h-4 text-purple-600" />
+              <div className="flex items-center gap-2 text-blue-100">
+                <Clock className="w-4 h-4 text-purple-400" />
                 <span className="font-medium">24/7 Support</span>
               </div>
             </div>
@@ -597,8 +604,6 @@ const EnhancedHeader = () => {
         </div>
       </div>
 
-      {/* Spacer to prevent content jump */}
-      <div className="h-22" />
     </>
   );
 };

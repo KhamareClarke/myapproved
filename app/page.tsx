@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import { SchemaMarkup, organizationSchema, WebsiteSchema, ServiceSchema } from '@/components/SchemaMarkup';
 import dynamic from "next/dynamic";
 
 // Dynamically import the InDemandServices component with SSR disabled
@@ -998,9 +999,14 @@ export default function Home() {
 
   return (
     <div suppressHydrationWarning>
+      {/* SEO Schema Markup */}
+      <SchemaMarkup schema={organizationSchema} />
+      <WebsiteSchema />
+      <SchemaMarkup schema={ServiceSchema} />
+      
       <CookieConsent />
       <FloatingAssistant mode="home" />
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-[90vh] flex items-center pt-12">
+      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-[90vh] flex items-center pt-4">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/70 to-indigo-800/60"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.3),transparent_50%)] animate-pulse"></div>
@@ -1010,7 +1016,7 @@ export default function Home() {
         <div className="absolute top-20 left-10 w-20 h-20 bg-yellow-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '0.5s'}}></div>
         <div className="absolute top-40 right-20 w-16 h-16 bg-blue-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '1.5s'}}></div>
         <div className="absolute bottom-32 left-20 w-12 h-12 bg-white/10 rounded-full blur-lg animate-bounce" style={{animationDelay: '2s'}}></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-20 flex flex-col lg:flex-row items-center gap-8 sm:gap-12">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 md:py-12 flex flex-col lg:flex-row items-center gap-8 sm:gap-12">
           {/* Left Column: Text & Search */}
           <div className="flex-1 z-10 flex flex-col items-start justify-center text-left">
             <div className="mb-8">
@@ -1019,11 +1025,11 @@ export default function Home() {
                 <span className="text-xs font-medium text-yellow-100">Rated #1 Tradesperson Platform</span>
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-6 text-balance animate-slide-up">
-                <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl">Find Trusted</span>
+                <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl font-black">Find</span> <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl font-black">Trusted</span>
                 <br className="hidden sm:block" />
-                <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse">Local </span>
-                <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl">Trades</span>
-                <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse">people</span>
+                <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse font-black">Local </span>
+                <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl font-black">Trades</span>
+                <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse font-black">people</span>
               </h1>
               <p className="text-sm sm:text-base md:text-lg text-blue-100 leading-relaxed mb-4 animate-slide-up" style={{animationDelay: '0.1s'}}>
                 Hire vetted professionals near you — fast, reliable, and backed by verified reviews.
@@ -1136,7 +1142,7 @@ export default function Home() {
               <div className="mt-3 flex flex-wrap items-center gap-2 text-xs animate-slide-up" style={{animationDelay: '0.8s'}}>
                 <div className="inline-flex items-center gap-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm px-2 py-1 rounded-full border border-green-400/30 shadow-sm">
                   <ShieldCheck className="w-3 h-3 text-green-400" />
-                  <span className="font-medium text-green-100">All Trades Verified</span>
+                  <span className="font-medium text-green-100">All Trades <span className="text-white">Verified</span></span>
                 </div>
                 <div className="inline-flex items-center gap-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 backdrop-blur-sm px-2 py-1 rounded-full border border-blue-400/30 shadow-sm">
                   <Shield className="w-3 h-3 text-blue-400" />
@@ -1180,7 +1186,7 @@ export default function Home() {
                       <div className="absolute w-2 h-2 bg-white rounded-full animate-ping opacity-75"></div>
                       <div className="w-1 h-1 bg-white rounded-full"></div>
                     </div>
-                    <span className="text-xs font-medium">All Trades Verified</span>
+                    <span className="text-xs font-medium">All Trades <span className="text-white">Verified</span></span>
                   </div>
                   
                   {/* Rating Badge */}

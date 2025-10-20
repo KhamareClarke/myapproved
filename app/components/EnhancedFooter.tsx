@@ -135,14 +135,14 @@ const EnhancedFooter = () => {
             <h3 className="text-lg font-bold text-white mb-6">Quick Links</h3>
             <ul className="space-y-3">
               {[
+                { name: "Home", href: "/" },
+                { name: "Instant Quote", href: "/instant-quote" },
+                { name: "Post a Job", href: "/post-job" },
                 { name: "Find Tradespeople", href: "/find-tradespeople" },
                 { name: "Join as Tradesperson", href: "/register/tradesperson" },
-                { name: "How It Works", href: "/how-it-works" },
-                { name: "Pricing", href: "/pricing" },
                 { name: "About Us", href: "/about" },
                 { name: "Contact", href: "/contact" },
-                { name: "Help Center", href: "/help" },
-                { name: "Blog", href: "/blog" }
+                { name: "FAQ", href: "/faq" }
               ].map((link) => (
                 <li key={link.name}>
                   <Link 
@@ -215,7 +215,7 @@ const EnhancedFooter = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-slate-400 text-sm">
-              © 2024 ApprovedWork. All rights reserved.
+              © 2025 MyApproved. All rights reserved.
             </div>
             <div className="flex items-center gap-6 text-sm">
               <Link href="/privacy" className="text-slate-400 hover:text-white transition-colors duration-200">
@@ -226,6 +226,9 @@ const EnhancedFooter = () => {
               </Link>
               <Link href="/cookies" className="text-slate-400 hover:text-white transition-colors duration-200">
                 Cookie Policy
+              </Link>
+              <Link href="/sitemap.xml" className="text-slate-400 hover:text-white transition-colors duration-200">
+                Sitemap
               </Link>
             </div>
           </div>

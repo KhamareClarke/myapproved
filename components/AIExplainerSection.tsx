@@ -238,7 +238,17 @@ const AIExplainerSection = () => {
                       
                       <div className="bg-[#FDBD18]/20 rounded-2xl p-4 border border-[#FDBD18]/30">
                         <div className="flex items-center gap-2 text-[#FDBD18] font-bold">
-                          <Brain className="w-4 h-4" />
+                          <img 
+                            src="/logo-icon.svg" 
+                            alt="MyApproved AI" 
+                            className="w-4 h-4 object-contain"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.style.display = 'none';
+                              target.nextElementSibling?.classList.remove('hidden');
+                            }}
+                          />
+                          <Brain className="w-4 h-4 hidden" />
                           <span>AI analyzing requirements...</span>
                         </div>
                       </div>
@@ -250,7 +260,17 @@ const AIExplainerSection = () => {
                   <div className="space-y-6">
                     <div className="text-center mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl">
-                        <Brain className="w-8 h-8 text-white" />
+                        <img 
+                          src="/logo-icon.svg" 
+                          alt="MyApproved AI" 
+                          className="w-10 h-10 object-contain"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            target.nextElementSibling?.classList.remove('hidden');
+                          }}
+                        />
+                        <Brain className="w-8 h-8 text-white hidden" />
                       </div>
                       <h4 className="text-xl font-bold text-white mb-2">AI Finding Matches</h4>
                       <p className="text-blue-200 text-sm">Smart matching in seconds</p>

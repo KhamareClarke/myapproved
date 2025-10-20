@@ -3,31 +3,16 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import EnhancedHeader from '@/components/EnhancedHeader';
 import Footer from '@/components/Footer';
-import GlobalAssistant from '@/components/GlobalAssistant';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import { AnalyticsProvider } from '@/components/AnalyticsProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'MyApproved - Find Local Approved Tradespeople | Plumbers, Electricians, Builders',
-  description: 'Find verified, reliable tradespeople in your area. Connect with approved plumbers, electricians, builders, and more. Get quotes, compare services, and hire with confidence on MyApproved.',
-  keywords: 'tradespeople, plumber, electrician, builder, home improvement, local trades, verified professionals, quotes, UK',
-  authors: [{ name: 'MyApproved' }],
-  viewport: 'width=device-width, initial-scale=1',
-  robots: 'index, follow',
-  openGraph: {
-    title: 'MyApproved - Find Local Approved Tradespeople',
-    description: 'Connect with verified, reliable tradespeople in your area. Get quotes and hire with confidence.',
-    type: 'website',
-    locale: 'en_GB',
-    siteName: 'MyApproved',
-  },
-  twitter: {
-    title: 'MyApproved - Find Local Approved Tradespeople',
-    description: 'Connect with verified, reliable tradespeople in your area.',
-  },
+  title: 'MyApproved - Find Trusted Local Tradespeople | UK\'s #1 Platform',
+  description: 'Find verified, reliable tradespeople in your area. Connect with approved plumbers, electricians, builders, and more. Get instant quotes, compare services, and hire with confidence on MyApproved.',
+  keywords: 'tradespeople, plumber, electrician, builder, handyman, home improvement, local trades, verified professionals, quotes, UK, trusted, reliable, approved, certified',
 };
-
-// Add this CSS to ensure proper spacing with fixed header
 const fixedHeaderStyles = `
   :root {
     --header-height: 80px;
@@ -66,11 +51,12 @@ export default function RootLayout({
         <style dangerouslySetInnerHTML={{ __html: fixedHeaderStyles }} />
       </head>
       <body className={`${inter.className} bg-gray-50`}>
-        <EnhancedHeader />
-        {children}
-        <Footer />
-        {/* Global AI Assistant visible on every page */}
-        <GlobalAssistant />
+        <AnalyticsProvider>
+          <EnhancedHeader />
+          <Breadcrumbs />
+          <main>{children}</main>
+          <Footer />
+        </AnalyticsProvider>
       </body>
     </html>
   );
