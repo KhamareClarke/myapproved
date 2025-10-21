@@ -1006,17 +1006,17 @@ export default function Home() {
       
       <CookieConsent />
       <FloatingAssistant mode="home" />
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-[90vh] flex items-center pt-4 mb-16">
+      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-screen flex items-center pt-24 mb-16">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/70 to-indigo-800/60"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.3),transparent_50%)] animate-pulse"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(251,191,36,0.2),transparent_50%)] animate-pulse" style={{animationDelay: '1s'}}></div>
         
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-yellow-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '0.5s'}}></div>
-        <div className="absolute top-40 right-20 w-16 h-16 bg-blue-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '1.5s'}}></div>
-        <div className="absolute bottom-32 left-20 w-12 h-12 bg-white/10 rounded-full blur-lg animate-bounce" style={{animationDelay: '2s'}}></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 md:py-12 flex flex-col lg:flex-row items-start lg:items-end gap-8 sm:gap-12">
+        {/* Floating Elements - Hidden on mobile for better performance */}
+        <div className="hidden sm:block absolute top-20 left-10 w-20 h-20 bg-yellow-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '0.5s'}}></div>
+        <div className="hidden sm:block absolute top-40 right-20 w-16 h-16 bg-blue-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '1.5s'}}></div>
+        <div className="hidden sm:block absolute bottom-32 left-20 w-12 h-12 bg-white/10 rounded-full blur-lg animate-bounce" style={{animationDelay: '2s'}}></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pt-2 sm:pt-3 md:pt-4 pb-8 sm:pb-12 md:pb-16 flex flex-col lg:flex-row items-center lg:items-start gap-4 sm:gap-6 md:gap-8">
           {/* Left Column: Text & Search */}
           <div className="flex-1 z-10 flex flex-col items-start justify-center text-left">
             <div className="mb-8">
@@ -1024,31 +1024,31 @@ export default function Home() {
                 <Star className="w-3.5 h-3.5 text-yellow-400" />
                 <span className="text-xs font-medium text-yellow-100">Rated #1 Tradesperson Platform</span>
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-6 text-balance animate-slide-up">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] tracking-tight mb-4 sm:mb-6 text-balance animate-slide-up">
                 <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl font-black">Find</span> <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl font-black">Trusted</span>
                 <br className="hidden sm:block" />
                 <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse font-black">Local </span>
                 <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl font-black">Trades</span>
                 <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse font-black">people</span>
               </h1>
-              <p className="text-sm sm:text-base md:text-lg text-blue-100 leading-relaxed mb-2 animate-slide-up" style={{animationDelay: '0.1s'}}>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-blue-100 leading-relaxed mb-4 sm:mb-6 animate-slide-up" style={{animationDelay: '0.1s'}}>
                 Hire vetted professionals near you — fast, reliable, and backed by verified reviews.
               </p>
             </div>
             
-            {/* Statistics Bar - Single Line */}
-            <div className="flex items-center gap-4 mb-3 animate-slide-up whitespace-nowrap overflow-x-auto pb-2 -mx-2 px-2" style={{animationDelay: '0.4s'}}>
-              <div className="flex items-center gap-1 text-white/90 bg-white/5 backdrop-blur-sm px-2 py-1 rounded-full border border-white/10">
-                <div className="w-1 h-1 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
-                <span className="text-xs font-medium">50,000+ Happy Customers</span>
+            {/* Statistics Bar - Mobile Responsive */}
+            <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 animate-slide-up overflow-x-auto pb-2 -mx-2 px-2" style={{animationDelay: '0.4s'}}>
+              <div className="flex items-center gap-2 text-white/90 bg-white/10 backdrop-blur-sm px-3 py-2 rounded-full border border-white/20 flex-shrink-0">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
+                <span className="text-sm font-semibold whitespace-nowrap">50K+ Customers</span>
               </div>
-              <div className="flex items-center gap-1 text-white/90 bg-white/5 backdrop-blur-sm px-2 py-1 rounded-full border border-white/10">
-                <div className="w-1 h-1 bg-yellow-400 rounded-full animate-pulse flex-shrink-0" style={{animationDelay: '0.5s'}}></div>
-                <span className="text-xs font-medium">5,000+ Verified Trades</span>
+              <div className="flex items-center gap-2 text-white/90 bg-white/10 backdrop-blur-sm px-3 py-2 rounded-full border border-white/20 flex-shrink-0">
+                <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse flex-shrink-0" style={{animationDelay: '0.5s'}}></div>
+                <span className="text-sm font-semibold whitespace-nowrap">5K+ Trades</span>
               </div>
-              <div className="flex items-center gap-1 text-white/90 bg-white/5 backdrop-blur-sm px-2 py-1 rounded-full border border-white/10">
-                <div className="w-1 h-1 bg-blue-400 rounded-full animate-pulse flex-shrink-0" style={{animationDelay: '1s'}}></div>
-                <span className="text-xs font-medium">4.9★ Average Rating</span>
+              <div className="flex items-center gap-2 text-white/90 bg-white/10 backdrop-blur-sm px-3 py-2 rounded-full border border-white/20 flex-shrink-0">
+                <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse flex-shrink-0" style={{animationDelay: '1s'}}></div>
+                <span className="text-sm font-semibold whitespace-nowrap">4.9★ Rating</span>
               </div>
             </div>
             <div className="w-full max-w-4xl animate-slide-up" style={{animationDelay: '0.6s'}}>
@@ -1059,48 +1059,49 @@ export default function Home() {
                     <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 rounded-3xl blur-lg opacity-40 group-hover:opacity-60 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
                     <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/50 via-white/30 to-yellow-400/50 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
                     
-                    <div className="relative flex items-center bg-white backdrop-blur-sm rounded-xl shadow-xl p-3 border-2 border-yellow-400/60 group-hover:border-yellow-400 transition-all duration-300">
-                      <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg shadow-md group-hover:scale-105 transition-transform duration-200">
-                        <Search className="w-5 h-5 text-white" />
+                    <div className="relative flex items-center bg-white backdrop-blur-sm rounded-xl shadow-xl p-3 sm:p-4 border-2 border-yellow-400/60 group-hover:border-yellow-400 transition-all duration-300">
+                      <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg shadow-md group-hover:scale-105 transition-transform duration-200 flex-shrink-0">
+                        <Search className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </div>
                       <input
                         type="text"
                         placeholder={typed || typingPhrases[phraseIndex]}
-                        className="flex-1 py-3 px-4 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none text-base font-medium bg-transparent cursor-pointer"
+                        className="flex-1 py-3 sm:py-4 px-3 sm:px-4 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none text-base sm:text-lg font-medium bg-transparent cursor-pointer"
                         readOnly
                       />
                       <Button
                         type="button"
-                        className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-medium rounded-lg px-6 h-12 text-sm shadow-md hover:shadow-lg transition-all duration-200"
+                        className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-semibold rounded-lg px-4 sm:px-6 h-12 sm:h-14 text-sm sm:text-base shadow-md hover:shadow-lg transition-all duration-200 flex-shrink-0"
                       >
-                        Get Started
-                        <ArrowRight className="w-4 h-4 ml-2" />
+                        <span className="hidden sm:inline">Get Started</span>
+                        <span className="sm:hidden">Start</span>
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
                       </Button>
                     </div>
                   </div>
                 </DialogTrigger>
-                <DialogContent className="max-w-2xl w-full p-0 bg-white max-h-[90vh] overflow-y-auto">
-                  <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-                    {/* 4-Step AI Quote Form (Stepper) */}
-                    <div className="flex items-center justify-between mb-8 md:mb-10">
+                <DialogContent className="max-w-lg sm:max-w-2xl w-full p-0 bg-white max-h-[95vh] sm:max-h-[90vh] overflow-y-auto">
+                  <div className="p-3 sm:p-4 md:p-6 lg:p-8">
+                    {/* 4-Step AI Quote Form (Stepper) - Mobile Responsive */}
+                    <div className="flex items-center justify-between mb-6 sm:mb-8 md:mb-10">
                       {steps.map((step, index) => (
                         <div key={step.number} className="flex items-center flex-1">
                           <div
-                            className={`flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full text-sm md:text-base font-semibold transition-all duration-300 ${
+                            className={`flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full text-xs sm:text-sm md:text-base font-semibold transition-all duration-300 ${
                               currentStep >= step.number
                                 ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg scale-110"
                                 : "bg-gray-100 text-gray-500 border-2 border-gray-200"
                             }`}
                           >
                             {currentStep > step.number ? (
-                              <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+                              <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                             ) : (
                               step.number
                             )}
                           </div>
                           {index < steps.length - 1 && (
                             <div
-                              className={`flex-1 h-1 mx-2 md:mx-4 rounded-full transition-all duration-300 ${
+                              className={`flex-1 h-1 mx-1 sm:mx-2 md:mx-4 rounded-full transition-all duration-300 ${
                                 currentStep > step.number
                                   ? "bg-gradient-to-r from-blue-600 to-blue-700"
                                   : "bg-gray-200"
@@ -1110,15 +1111,15 @@ export default function Home() {
                         </div>
                       ))}
                     </div>
-                    <div className="min-h-[350px] md:min-h-[400px]">{renderStep()}</div>
-                    <div className="flex flex-col sm:flex-row justify-between gap-4 mt-8 md:mt-10">
+                    <div className="min-h-[300px] sm:min-h-[350px] md:min-h-[400px]">{renderStep()}</div>
+                    <div className="flex flex-col sm:flex-row justify-between gap-3 sm:gap-4 mt-6 sm:mt-8 md:mt-10">
                       <Button
                         variant="outline"
                         onClick={prevStep}
                         disabled={currentStep === 1}
-                        className="flex items-center justify-center bg-white text-gray-900 border-gray-300 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 px-6 py-3 text-base font-medium"
+                        className="flex items-center justify-center bg-white text-gray-900 border-gray-300 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-medium"
                       >
-                        <ChevronLeft className="w-4 h-4 mr-2" />
+                        <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                         Previous
                       </Button>
                       {currentStep < 4 && (
@@ -1129,7 +1130,7 @@ export default function Home() {
                             (currentStep === 2 && (!formData.description || !formData.urgency)) ||
                             (currentStep === 3 && !formData.postcode)
                           }
-                          className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-semibold px-8 py-3 text-base shadow-lg hover:shadow-xl transition-all duration-200"
+                          className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-semibold px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-200"
                         >
                           Next
                         </Button>
@@ -1138,67 +1139,67 @@ export default function Home() {
                   </div>
                 </DialogContent>
               </Dialog>
-              {/* Enhanced Trust badges - Compact */}
-              <div className="mt-3 flex flex-wrap items-center gap-2 text-xs animate-slide-up" style={{animationDelay: '0.8s'}}>
-                <div className="inline-flex items-center gap-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm px-2 py-1 rounded-full border border-green-400/30 shadow-sm">
-                  <ShieldCheck className="w-3 h-3 text-green-400" />
-                  <span className="font-medium text-green-100">All Trades <span className="text-white">Verified</span></span>
+              {/* Enhanced Trust badges - Mobile Responsive */}
+              <div className="mt-4 sm:mt-6 flex flex-wrap items-center gap-2 sm:gap-3 text-sm animate-slide-up" style={{animationDelay: '0.8s'}}>
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm px-3 py-2 rounded-full border border-green-400/30 shadow-sm">
+                  <ShieldCheck className="w-4 h-4 text-green-400 flex-shrink-0" />
+                  <span className="font-semibold text-green-100 whitespace-nowrap">Verified</span>
                 </div>
-                <div className="inline-flex items-center gap-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 backdrop-blur-sm px-2 py-1 rounded-full border border-blue-400/30 shadow-sm">
-                  <Shield className="w-3 h-3 text-blue-400" />
-                  <span className="font-medium text-blue-100">Insurance Guaranteed</span>
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 backdrop-blur-sm px-3 py-2 rounded-full border border-blue-400/30 shadow-sm">
+                  <Shield className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                  <span className="font-semibold text-blue-100 whitespace-nowrap">Insured</span>
                 </div>
-                <div className="inline-flex items-center gap-1 bg-gradient-to-r from-yellow-400/90 to-yellow-500/90 backdrop-blur-sm px-2 py-1 rounded-full border border-yellow-300 shadow-sm">
-                  <Star className="w-3 h-3 text-yellow-900 fill-current" />
-                  <span className="font-semibold text-yellow-900">4.9★ by 50K+</span>
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400/90 to-yellow-500/90 backdrop-blur-sm px-3 py-2 rounded-full border border-yellow-300 shadow-sm">
+                  <Star className="w-4 h-4 text-yellow-900 fill-current flex-shrink-0" />
+                  <span className="font-bold text-yellow-900 whitespace-nowrap">4.9★</span>
                 </div>
               </div>
             </div>
-            <div className="mt-4">
-              <div className="flex items-center gap-4">
-                <img src="/logo.svg" alt="Testimonial" className="w-14 h-14 rounded-full border-2 border-yellow-400 shadow" />
-                <div>
-                  <p className="text-base text-blue-100 italic">"The easiest way to find a reliable tradesperson. Highly recommended!"</p>
-                  <span className="text-yellow-300 font-semibold text-xs">— Sarah M., London</span>
+            <div className="mt-6 sm:mt-8">
+              <div className="flex items-center gap-4 sm:gap-6">
+                <img src="/logo.svg" alt="Testimonial" className="w-16 h-16 sm:w-18 sm:h-18 rounded-full border-2 border-yellow-400 shadow flex-shrink-0" />
+                <div className="min-w-0 flex-1">
+                  <p className="text-base sm:text-lg text-blue-100 italic leading-relaxed">"The easiest way to find a reliable tradesperson. Highly recommended!"</p>
+                  <span className="text-yellow-300 font-bold text-sm sm:text-base">— Sarah M., London</span>
                 </div>
               </div>
             </div>
           </div>
           {/* Right Column: Enlarged Hero Visual */}
-          <div className="flex-1 z-10 flex items-end justify-center relative animate-slide-up" style={{animationDelay: '0.4s'}}>
+          <div className="flex-1 z-10 flex items-start justify-center relative animate-slide-up mt-2 lg:mt-0 lg:-mt-16" style={{animationDelay: '0.4s'}}>
             <div className="relative w-full max-w-2xl">
-              {/* Glow effect behind image */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-yellow-400/20 via-blue-500/20 to-yellow-400/20 rounded-3xl blur-2xl animate-pulse"></div>
+              {/* Glow effect behind image - Hidden on mobile for performance */}
+              <div className="hidden sm:block absolute -inset-4 bg-gradient-to-r from-yellow-400/20 via-blue-500/20 to-yellow-400/20 rounded-3xl blur-2xl animate-pulse"></div>
               
               <div className="relative">
                 <img
                   src="/hero.png"
                   alt="Trusted Tradespeople"
-                  className="w-full h-[450px] sm:h-[500px] md:h-[550px] lg:h-[600px] object-cover object-top transition-transform duration-700 hover:scale-[1.02]"
-                  style={{ objectFit: 'cover', objectPosition: 'top center' }}
+                  className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] object-contain object-center transition-transform duration-700 hover:scale-[1.02] rounded-xl sm:rounded-none shadow-2xl"
+                  style={{ objectFit: 'contain', objectPosition: 'center' }}
                 />
                 
-                {/* Trust Badges Container */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-wrap justify-center gap-3 w-full px-4">
+                {/* Trust Badges Container - Mobile Responsive */}
+                <div className="absolute bottom-3 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex flex-wrap justify-center gap-2 sm:gap-3 w-full px-3 sm:px-4">
                   {/* Verification Badge */}
-                  <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white px-4 py-2 rounded-lg shadow-xl font-medium flex items-center gap-2 border-2 border-white backdrop-blur-sm transition-all duration-300 hover:scale-105">
+                  <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg shadow-xl font-medium flex items-center gap-2 sm:gap-2 border-2 border-white backdrop-blur-sm transition-all duration-300 hover:scale-105">
                     <div className="relative flex items-center justify-center">
-                      <div className="absolute w-2 h-2 bg-white rounded-full animate-ping opacity-75"></div>
-                      <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                      <div className="absolute w-2 h-2 sm:w-2.5 sm:h-2.5 bg-white rounded-full animate-ping opacity-75"></div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full"></div>
                     </div>
-                    <span className="text-sm font-semibold">All Trades Verified</span>
+                    <span className="text-sm sm:text-base font-bold">Verified</span>
                   </div>
                   
                   {/* Rating Badge */}
-                  <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 text-blue-900 px-4 py-2 rounded-lg shadow-xl font-medium flex items-center gap-2 border-2 border-yellow-300 backdrop-blur-sm transition-all duration-300 hover:scale-105">
-                    <Star className="w-4 h-4 fill-current text-amber-600" />
-                    <span className="text-sm font-semibold">4.9★ Rating</span>
+                  <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 text-blue-900 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg shadow-xl font-medium flex items-center gap-2 sm:gap-2 border-2 border-yellow-300 backdrop-blur-sm transition-all duration-300 hover:scale-105">
+                    <Star className="w-4 h-4 sm:w-5 sm:h-5 fill-current text-amber-600" />
+                    <span className="text-sm sm:text-base font-bold">4.9★</span>
                   </div>
                   
                   {/* User Count Badge */}
-                  <div className="bg-gradient-to-br from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg shadow-xl font-medium flex items-center gap-2 border-2 border-white backdrop-blur-sm transition-all duration-300 hover:scale-105">
-                    <Users className="w-4 h-4 text-blue-100" />
-                    <span className="text-sm font-semibold">50K+ Users</span>
+                  <div className="bg-gradient-to-br from-blue-600 to-blue-700 text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg shadow-xl font-medium flex items-center gap-2 sm:gap-2 border-2 border-white backdrop-blur-sm transition-all duration-300 hover:scale-105">
+                    <Users className="w-4 h-4 sm:w-5 sm:h-5 text-blue-100" />
+                    <span className="text-sm sm:text-base font-bold">50K+</span>
                   </div>
                 </div>
               </div>
@@ -1217,28 +1218,28 @@ export default function Home() {
       <InDemandServices />
 
       {/* Customer Testimonials Section */}
-      <section className="relative py-16 md:py-20 my-16 bg-white text-gray-900 overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-20 my-12 sm:my-16 bg-white text-gray-900 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-50 via-blue-50 to-indigo-50"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400/20 to-blue-400/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-blue-100 mb-3">
               <Star className="w-3.5 h-3.5 text-yellow-600" />
               <span className="text-xs font-medium text-blue-800">Customer Reviews</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-3">
+            <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-3">
               <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">What Customers</span>{' '}
               <span className="text-gray-900">Say</span>
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
+            <p className="text-gray-600 text-xs xs:text-sm sm:text-base max-w-2xl mx-auto">
               Real reviews from customers across the UK
             </p>
           </div>
 
-          {/* Testimonials Grid */}
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {/* Testimonials Grid - Mobile Responsive */}
+          <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 name: "Sarah Thompson",
@@ -1273,32 +1274,32 @@ export default function Home() {
             ].map((testimonial, index) => (
               <div 
                 key={index}
-                className="group bg-white rounded-xl p-5 border border-gray-100 hover:border-yellow-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 relative overflow-hidden flex flex-col h-full"
+                className="group bg-white rounded-xl p-4 sm:p-5 border border-gray-100 hover:border-yellow-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 relative overflow-hidden flex flex-col h-full"
               >
                 <div className="relative z-10 flex flex-col h-full">
                   {/* Customer Info */}
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center font-semibold text-blue-700">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center font-semibold text-blue-700 text-sm sm:text-base flex-shrink-0">
                       {`${testimonial.name.split(' ')[0][0]}${testimonial.name.split(' ').slice(-1)[0][0]}`.toUpperCase()}
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                      <div className="flex items-center gap-1 text-gray-500 text-sm">
-                        <MapPin className="w-3.5 h-3.5" />
-                        {testimonial.city}
+                    <div className="min-w-0 flex-1">
+                      <h4 className="font-semibold text-gray-900 text-sm sm:text-base">{testimonial.name}</h4>
+                      <div className="flex items-center gap-1 text-gray-500 text-xs sm:text-sm">
+                        <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" />
+                        <span className="truncate">{testimonial.city}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Quote */}
-                  <blockquote className="text-gray-600 text-sm leading-relaxed mb-4 flex-1">
+                  <blockquote className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 flex-1">
                     "{testimonial.quote}"
                   </blockquote>
 
                   {/* Star Rating */}
                   <div className="flex items-center gap-1 mt-auto">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current flex-shrink-0" />
                     ))}
                   </div>
                 </div>
@@ -1306,20 +1307,20 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Trust Stats */}
-          <div className="mt-16">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {/* Trust Stats - Mobile Responsive */}
+          <div className="mt-12 sm:mt-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 max-w-4xl mx-auto">
               {[
                 { value: '4.9/5', label: 'Average Rating' },
                 { value: '50k+', label: 'Happy Customers' },
                 { value: '98%', label: 'Would Recommend' },
                 { value: '24/7', label: 'Customer Support' },
               ].map((stat, i) => (
-                <div key={i} className="bg-white rounded-xl p-5 border border-gray-100 text-center">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent mb-1">
+                <div key={i} className="bg-white rounded-xl p-3 sm:p-5 border border-gray-100 text-center">
+                  <div className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent mb-1">
                     {stat.value}
                   </div>
-                  <p className="text-gray-600 text-sm">{stat.label}</p>
+                  <p className="text-gray-600 text-xs sm:text-sm">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -1334,76 +1335,76 @@ export default function Home() {
       
 
       {/* Get Started Section - Consistent with InDemand */}
-      <section className="relative py-12 md:py-16 my-16 bg-white text-gray-900 overflow-hidden">
+      <section className="relative py-12 sm:py-16 my-12 sm:my-16 bg-white text-gray-900 overflow-hidden">
         {/* Animated Background Elements - More subtle */}
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-50 via-blue-50 to-indigo-50"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400/20 to-blue-400/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-blue-100 mb-3">
               <Sparkles className="w-3.5 h-3.5 text-yellow-600" />
               <span className="text-xs font-medium text-blue-800">Get Started Today</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-3">
+            <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-3">
               <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">Choose Your</span>{' '}
               <span className="text-gray-900">Path</span>
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
+            <p className="text-gray-600 text-xs xs:text-sm sm:text-base max-w-2xl mx-auto">
               Whether you need a service or provide one, we've got you covered
             </p>
           </div>
 
-          {/* Action Cards Grid */}
-          <div className="grid gap-6 md:grid-cols-3">
+          {/* Action Cards Grid - Mobile Responsive */}
+          <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {/* Hire a tradesperson */}
             <Link href="/find-tradespeople" className="h-full flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-yellow-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 shadow-sm group relative">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               <div className="relative z-10 flex flex-col h-full">
-                {/* Hero Image */}
-                <div className="relative h-96 overflow-hidden">
+                {/* Hero Image - Mobile Responsive */}
+                <div className="relative h-64 sm:h-72 md:h-80 overflow-hidden">
                   <img 
                     src="/hire-tradesperson.jpg" 
                     alt="Professional tradesperson at work"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-3 right-3">
+                  <div className="absolute top-2 sm:top-3 right-2 sm:right-3">
                     <span className="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full text-xs font-medium">
                       Popular
                     </span>
                   </div>
                 </div>
 
-                <div className="p-5 flex flex-col flex-1">
+                <div className="p-4 sm:p-5 flex flex-col flex-1">
                   {/* Service Header */}
-                  <div className="flex items-start gap-3 mb-4">
-                    <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                  <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 group-hover:scale-110 transition-transform duration-300 shadow-sm">
                       <div className="text-blue-600 group-hover:text-blue-700 transition-colors duration-300">
-                        <Search className="w-6 h-6" />
+                        <Search className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-base font-bold text-gray-900 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
                         Hire a tradesperson
                       </h3>
                     </div>
                   </div>
 
                   {/* Service Details */}
-                  <div className="flex-1 space-y-3 mb-4">
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                  <div className="flex-1 space-y-3 mb-4 sm:mb-5">
+                    <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
                       Find your local pro and get quotes in minutes.
                     </p>
                     
-                    <div className="flex items-center justify-between text-xs text-gray-500">
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5" />
+                    <div className="flex items-center justify-between text-sm sm:text-base text-gray-500">
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
                         <span>Instant quotes</span>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <MapPin className="w-3.5 h-3.5" />
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
                         <span>Local pros</span>
                       </div>
                     </div>
@@ -1411,7 +1412,7 @@ export default function Home() {
 
                   {/* CTA Button */}
                   <div className="mt-auto">
-                    <div className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-medium py-2.5 px-4 rounded-xl text-center transition-all duration-200 shadow-md hover:shadow-lg text-sm">
+                    <div className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-semibold py-3 sm:py-4 px-4 sm:px-5 rounded-xl text-center transition-all duration-200 shadow-md hover:shadow-lg text-sm sm:text-base">
                       Hire now
                     </div>
                   </div>
@@ -1425,48 +1426,48 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               <div className="relative z-10 flex flex-col h-full">
-                {/* Hero Image */}
-                <div className="relative h-96 overflow-hidden">
+                {/* Hero Image - Mobile Responsive */}
+                <div className="relative h-64 sm:h-72 md:h-80 overflow-hidden">
                   <img 
                     src="/tradesperson-signup.jpg" 
                     alt="Successful tradesperson growing business"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-3 right-3">
+                  <div className="absolute top-2 sm:top-3 right-2 sm:right-3">
                     <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-xs font-medium">
                       Business
                     </span>
                   </div>
                 </div>
 
-                <div className="p-5 flex flex-col flex-1">
+                <div className="p-4 sm:p-5 flex flex-col flex-1">
                   {/* Service Header */}
-                  <div className="flex items-start gap-3 mb-4">
-                    <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-green-50 to-green-100 group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                  <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-green-50 to-green-100 group-hover:scale-110 transition-transform duration-300 shadow-sm">
                       <div className="text-green-600 group-hover:text-green-700 transition-colors duration-300">
-                        <UserPlus className="w-6 h-6" />
+                        <UserPlus className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-base font-bold text-gray-900 group-hover:text-green-700 transition-colors duration-300 leading-tight">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-green-700 transition-colors duration-300 leading-tight">
                         Tradesperson sign up
                       </h3>
                     </div>
                   </div>
 
                   {/* Service Details */}
-                  <div className="flex-1 space-y-3 mb-4">
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                  <div className="flex-1 space-y-3 mb-4 sm:mb-5">
+                    <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
                       Join 10,000+ approved tradespeople and grow your business.
                     </p>
                     
-                    <div className="flex items-center justify-between text-xs text-gray-500">
-                      <div className="flex items-center gap-1">
-                        <ShieldCheck className="w-3.5 h-3.5" />
+                    <div className="flex items-center justify-between text-sm sm:text-base text-gray-500">
+                      <div className="flex items-center gap-2">
+                        <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
                         <span>Verified</span>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Users className="w-3.5 h-3.5" />
+                      <div className="flex items-center gap-2">
+                        <Users className="w-4 h-4 sm:w-5 sm:h-5" />
                         <span>10k+ members</span>
                       </div>
                     </div>
@@ -1474,7 +1475,7 @@ export default function Home() {
 
                   {/* CTA Button */}
                   <div className="mt-auto">
-                    <div className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-medium py-2.5 px-4 rounded-xl text-center transition-all duration-200 shadow-md hover:shadow-lg text-sm">
+                    <div className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 sm:py-4 px-4 sm:px-5 rounded-xl text-center transition-all duration-200 shadow-md hover:shadow-lg text-sm sm:text-base">
                       Join today
                     </div>
                   </div>
@@ -1488,48 +1489,48 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               <div className="relative z-10 flex flex-col h-full">
-                {/* Hero Image */}
-                <div className="relative h-96 overflow-hidden">
+                {/* Hero Image - Mobile Responsive */}
+                <div className="relative h-64 sm:h-72 md:h-80 overflow-hidden">
                   <img 
                     src="/request-quote.jpg" 
                     alt="Customer requesting quotes from tradespeople"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-3 right-3">
+                  <div className="absolute top-2 sm:top-3 right-2 sm:right-3">
                     <span className="bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full text-xs font-medium">
                       Instant
                     </span>
                   </div>
                 </div>
 
-                <div className="p-5 flex flex-col flex-1">
+                <div className="p-4 sm:p-5 flex flex-col flex-1">
                   {/* Service Header */}
-                  <div className="flex items-start gap-3 mb-4">
-                    <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                  <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 group-hover:scale-110 transition-transform duration-300 shadow-sm">
                       <div className="text-purple-600 group-hover:text-purple-700 transition-colors duration-300">
-                        <MessageSquareText className="w-6 h-6" />
+                        <MessageSquareText className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-base font-bold text-gray-900 group-hover:text-purple-700 transition-colors duration-300 leading-tight">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-purple-700 transition-colors duration-300 leading-tight">
                         Request a quote
                       </h3>
                     </div>
                   </div>
 
                   {/* Service Details */}
-                  <div className="flex-1 space-y-3 mb-4">
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                  <div className="flex-1 space-y-3 mb-4 sm:mb-5">
+                    <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
                       Tell us your job and we'll match you instantly with 3 vetted tradespeople.
                     </p>
                     
-                    <div className="flex items-center justify-between text-xs text-gray-500">
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5" />
+                    <div className="flex items-center justify-between text-sm sm:text-base text-gray-500">
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
                         <span>Instant match</span>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Shield className="w-3.5 h-3.5" />
+                      <div className="flex items-center gap-2">
+                        <Shield className="w-4 h-4 sm:w-5 sm:h-5" />
                         <span>3 vetted pros</span>
                       </div>
                     </div>
@@ -1537,7 +1538,7 @@ export default function Home() {
 
                   {/* CTA Button */}
                   <div className="mt-auto">
-                    <div className="w-full bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-medium py-2.5 px-4 rounded-xl text-center transition-all duration-200 shadow-md hover:shadow-lg text-sm">
+                    <div className="w-full bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-semibold py-3 sm:py-4 px-4 sm:px-5 rounded-xl text-center transition-all duration-200 shadow-md hover:shadow-lg text-sm sm:text-base">
                       Request a quote
                     </div>
                   </div>
@@ -1555,27 +1556,27 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400/20 to-blue-400/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-blue-100 mb-3">
               <TrendingUp className="w-3.5 h-3.5 text-yellow-600" />
               <span className="text-xs font-medium text-blue-800">Popular Services</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-3">
+            <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-3">
               <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">Find Trusted</span>{' '}
               <span className="text-gray-900">Tradespeople</span>
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
+            <p className="text-gray-600 text-xs xs:text-sm sm:text-base max-w-2xl mx-auto">
               Connect with top-rated professionals in your area for all your home service needs
             </p>
           </div>
 
-          {/* Tabs Navigation */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
+          {/* Tabs Navigation - Mobile Responsive */}
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
             {['Popular Jobs', 'Find Tradespeople', 'Find Out More'].map((tab, index) => (
               <Link
                 key={index}
                 href="/find-tradespeople"
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                   index === 0 
                     ? 'bg-gradient-to-r from-yellow-400 to-yellow-500 text-white shadow-md hover:shadow-lg' 
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200 border border-gray-200'
@@ -1586,8 +1587,8 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Services Grid - Mobile Responsive */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {[
               'Electricians in London',
               'Roofers in Edinburgh', 
@@ -1605,57 +1606,57 @@ export default function Home() {
               <Link
                 key={index}
                 href="/find-tradespeople"
-                className="block p-4 bg-white rounded-xl border border-gray-100 hover:border-yellow-300 hover:shadow-lg transition-all duration-300 group relative overflow-hidden shadow-sm"
+                className="block p-3 sm:p-4 bg-white rounded-xl border border-gray-100 hover:border-yellow-300 hover:shadow-lg transition-all duration-300 group relative overflow-hidden shadow-sm"
               >
                 {/* Subtle glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
                 <div className="relative z-10 flex items-center justify-between">
-                  <span className="text-gray-900 font-medium group-hover:text-blue-700 transition-colors duration-300">
+                  <span className="text-gray-900 font-medium group-hover:text-blue-700 transition-colors duration-300 text-sm sm:text-base truncate pr-2">
                     {service}
                   </span>
-                  <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-yellow-500 group-hover:translate-x-1 transition-all duration-300" />
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 group-hover:text-yellow-500 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" />
                 </div>
               </Link>
             ))}
           </div>
 
-          {/* View All Button */}
-          <div className="text-center mt-8">
+          {/* View All Button - Mobile Responsive */}
+          <div className="text-center mt-6 sm:mt-8">
             <Link 
               href="/find-tradespeople"
-              className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-medium rounded-xl transition-all duration-200 shadow-md hover:shadow-lg group"
+              className="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-medium rounded-xl transition-all duration-200 shadow-md hover:shadow-lg group text-sm sm:text-base"
             >
               <span>View All Services</span>
-              <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-1.5 sm:ml-2 w-3.5 h-3.5 sm:w-4 sm:h-4 transform group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* FAQ Section - Consistent with InDemand */}
-      <section className="relative py-12 md:py-16 my-16 bg-white text-gray-900 overflow-hidden">
+      <section className="relative py-12 sm:py-16 my-12 sm:my-16 bg-white text-gray-900 overflow-hidden">
         {/* Animated Background Elements - More subtle */}
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-50 via-blue-50 to-indigo-50"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400/20 to-blue-400/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-blue-100 mb-3">
               <Star className="w-3.5 h-3.5 text-yellow-600" />
               <span className="text-xs font-medium text-blue-800">Frequently Asked Questions</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-3">
+            <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-3">
               <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">Got</span>{' '}
               <span className="text-gray-900">Questions?</span>
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
+            <p className="text-gray-600 text-xs xs:text-sm sm:text-base max-w-2xl mx-auto">
               Everything you need to know about finding trusted tradespeople
             </p>
           </div>
 
-          {/* FAQ Items */}
-          <div className="space-y-4 max-w-4xl mx-auto">
+          {/* FAQ Items - Mobile Responsive */}
+          <div className="space-y-3 sm:space-y-4 max-w-4xl mx-auto">
             {[
               {
                 icon: <ShieldCheck className="w-5 h-5" />,
@@ -1691,35 +1692,35 @@ export default function Home() {
                 
                 <Accordion type="single" collapsible className="w-full">
                   <AccordionItem value={`faq-${index + 1}`} className="border-none">
-                    <AccordionTrigger className="relative px-6 py-5 text-left hover:no-underline group/trigger">
-                      <div className="flex items-center gap-4 w-full">
-                        <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 group-hover/trigger:scale-110 transition-transform duration-300 shadow-sm flex-shrink-0">
+                    <AccordionTrigger className="relative px-4 sm:px-6 py-4 sm:py-5 text-left hover:no-underline group/trigger">
+                      <div className="flex items-center gap-3 sm:gap-4 w-full">
+                        <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 group-hover/trigger:scale-110 transition-transform duration-300 shadow-sm flex-shrink-0">
                           <div className="text-blue-600 group-hover/trigger:text-blue-700 transition-colors duration-300">
-                            {faq.icon}
+                            <div className="w-4 h-4 sm:w-5 sm:h-5">{faq.icon}</div>
                           </div>
                         </div>
-                        <div className="flex-1">
-                          <h3 className="text-base font-bold text-gray-900 group-hover/trigger:text-blue-700 transition-colors duration-300 leading-tight">
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-sm sm:text-base font-bold text-gray-900 group-hover/trigger:text-blue-700 transition-colors duration-300 leading-tight">
                             {faq.question}
                           </h3>
                         </div>
-                        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 group-hover/trigger:bg-yellow-100 transition-colors duration-300 flex-shrink-0">
-                          <ChevronDown className="w-4 h-4 text-gray-500 group-hover/trigger:text-yellow-600 transition-transform duration-300 group-data-[state=open]/trigger:rotate-180" />
+                        <div className="flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gray-100 group-hover/trigger:bg-yellow-100 transition-colors duration-300 flex-shrink-0">
+                          <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-gray-500 group-hover/trigger:text-yellow-600 transition-transform duration-300 group-data-[state=open]/trigger:rotate-180" />
                         </div>
                       </div>
                     </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-5">
-                      <div className="ml-14 space-y-3">
-                        <p className="text-gray-600 leading-relaxed text-sm">
+                    <AccordionContent className="px-4 sm:px-6 pb-4 sm:pb-5">
+                      <div className="ml-10 sm:ml-14 space-y-2 sm:space-y-3">
+                        <p className="text-gray-600 leading-relaxed text-xs sm:text-sm">
                           {faq.answer}
                         </p>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2 sm:gap-3">
                           <Link 
                             href={faq.link.href}
-                            className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg border border-yellow-200 text-yellow-700 hover:text-yellow-800 hover:bg-yellow-200 transition-all duration-200 group/link text-sm"
+                            className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg border border-yellow-200 text-yellow-700 hover:text-yellow-800 hover:bg-yellow-200 transition-all duration-200 group/link text-xs sm:text-sm"
                           >
                             <span className="font-medium">{faq.link.text}</span>
-                            <ArrowRight className="w-3.5 h-3.5 transform group-hover/link:translate-x-0.5 transition-transform" />
+                            <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 transform group-hover/link:translate-x-0.5 transition-transform" />
                           </Link>
                         </div>
                       </div>
@@ -1730,26 +1731,26 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Call to Action */}
-          <div className="mt-12 text-center">
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100 max-w-2xl mx-auto">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+          {/* Call to Action - Mobile Responsive */}
+          <div className="mt-8 sm:mt-12 text-center">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 sm:p-8 border border-blue-100 max-w-2xl mx-auto">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
                 Still have questions?
               </h3>
-              <p className="text-gray-600 mb-6 text-sm">
+              <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm">
                 Our support team is here to help you find the perfect tradesperson
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
                 <Link 
                   href="/find-tradespeople"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-medium rounded-xl transition-all duration-200 shadow-md hover:shadow-lg group"
+                  className="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-medium rounded-xl transition-all duration-200 shadow-md hover:shadow-lg group text-sm sm:text-base"
                 >
                   <span>Get Your Free Quote</span>
-                  <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="ml-1.5 sm:ml-2 w-3.5 h-3.5 sm:w-4 sm:h-4 transform group-hover:translate-x-0.5 transition-transform" />
                 </Link>
                 <Link 
                   href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 rounded-xl transition-all duration-200 font-medium"
+                  className="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 rounded-xl transition-all duration-200 font-medium text-sm sm:text-base"
                 >
                   Contact Support
                 </Link>

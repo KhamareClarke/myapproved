@@ -119,14 +119,14 @@ const EnhancedHeader = () => {
       >
         <div className="max-w-7xl mx-auto px-1 sm:px-2 lg:px-4">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-1 group -ml-4">
-              {/* Logo Icon */}
-              <div className="w-12 h-12 bg-gradient-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300 overflow-hidden">
+            {/* Logo - Mobile Responsive */}
+            <Link href="/" className="flex items-center gap-1 sm:gap-2 group -ml-2 sm:-ml-4">
+              {/* Logo Icon - Mobile Responsive */}
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300 overflow-hidden">
                 <img 
                   src="/logo-icon.svg" 
                   alt="MyApproved Logo Icon"
-                  className="w-8 h-8 object-contain"
+                  className="w-7 h-7 sm:w-8 sm:h-8 object-contain"
                   onError={(e) => {
                     // Fallback to Shield icon if image fails to load
                     const target = e.target as HTMLImageElement;
@@ -134,14 +134,14 @@ const EnhancedHeader = () => {
                     target.nextElementSibling?.classList.remove('hidden');
                   }}
                 />
-                <Shield className="w-8 h-8 text-white hidden" />
+                <Shield className="w-7 h-7 sm:w-8 sm:h-8 text-white hidden" />
               </div>
-              {/* Logo Text/Image */}
-              <div className="hidden sm:block flex items-center">
+              {/* Logo Text/Image - Mobile Responsive */}
+              <div className="flex items-center">
                 <img 
                   src="/logo-text.svg" 
                   alt="MyApproved Logo"
-                  className="h-12 object-contain"
+                  className="h-6 sm:h-8 md:h-10 lg:h-12 object-contain"
                   onError={(e) => {
                     // Fallback to text if image fails to load
                     const target = e.target as HTMLImageElement;
@@ -149,8 +149,8 @@ const EnhancedHeader = () => {
                     target.nextElementSibling?.classList.remove('hidden');
                   }}
                 />
-                <div className="hidden">
-                  <div className="text-2xl font-extrabold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+                <div className="hidden flex flex-col">
+                  <div className="text-sm sm:text-lg md:text-xl lg:text-2xl font-extrabold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
                     MyApproved
                   </div>
                   <div className="text-xs font-semibold bg-gradient-to-r from-yellow-300 to-yellow-400 bg-clip-text text-transparent tracking-wider">TRUSTED TRADESPEOPLE</div>
@@ -407,16 +407,16 @@ const EnhancedHeader = () => {
               </DropdownMenu>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Mobile Responsive */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+              className="lg:hidden p-2 sm:p-3 rounded-lg hover:bg-white/10 transition-colors duration-200 text-white"
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5 sm:w-6 sm:h-6" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
               )}
             </button>
           </div>
@@ -426,25 +426,25 @@ const EnhancedHeader = () => {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden">
+        <div className="fixed inset-0 z-[9999] lg:hidden">
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-black/50"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
             onClick={() => setIsMobileMenuOpen(false)}
           />
           
-          {/* Menu Panel */}
-          <div className="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl border-l border-gray-100">
+          {/* Menu Panel - Mobile Responsive */}
+          <div className="fixed top-0 right-0 h-full w-full max-w-xs sm:max-w-sm bg-white shadow-2xl border-l border-gray-100 transform transition-transform duration-300 ease-in-out z-[10000]">
             <div className="flex flex-col h-full">
-              {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-gray-100 bg-gradient-to-r from-blue-50/50 to-yellow-50/50">
-                <div className="flex items-center gap-4">
+              {/* Header - Mobile Responsive */}
+              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-100 bg-gradient-to-r from-blue-900 to-blue-800">
+                <div className="flex items-center gap-3 sm:gap-4">
                   {/* Mobile Logo Icon */}
-                  <div className="w-12 h-12 bg-gradient-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-md overflow-hidden">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-b from-blue-900 to-blue-800 rounded-xl flex items-center justify-center shadow-md overflow-hidden">
                     <img 
                       src="/logo-icon.svg" 
                       alt="MyApproved Logo Icon"
-                      className="w-8 h-8 object-contain"
+                      className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
                       onError={(e) => {
                         // Fallback to Shield icon if image fails to load
                         const target = e.target as HTMLImageElement;
@@ -452,14 +452,14 @@ const EnhancedHeader = () => {
                         target.nextElementSibling?.classList.remove('hidden');
                       }}
                     />
-                    <Shield className="w-6 h-6 text-white hidden" />
+                    <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-white hidden" />
                   </div>
                   {/* Mobile Logo Text */}
                   <div>
                     <img 
                       src="/logo-text.svg" 
                       alt="MyApproved Logo"
-                      className="h-16 object-contain"
+                      className="h-12 sm:h-14 object-contain"
                       onError={(e) => {
                         // Fallback to text if image fails to load
                         const target = e.target as HTMLImageElement;
@@ -467,22 +467,22 @@ const EnhancedHeader = () => {
                         target.nextElementSibling?.classList.remove('hidden');
                       }}
                     />
-                    <div className="hidden">
-                      <div className="font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent text-2xl">MyApproved</div>
-                      <div className="text-base text-blue-600 font-semibold tracking-wide uppercase">Trusted Tradespeople</div>
+                    <div className="hidden flex flex-col">
+                      <div className="font-bold text-white text-lg sm:text-xl">MyApproved</div>
+                      <div className="text-xs sm:text-sm text-yellow-300 font-semibold tracking-wide uppercase">Trusted Tradespeople</div>
                     </div>
                   </div>
                 </div>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                  className="p-2 rounded-lg hover:bg-white/20 transition-colors text-white"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               </div>
 
-              {/* Navigation */}
-              <div className="flex-1 overflow-y-auto p-6">
+              {/* Navigation - Mobile Responsive */}
+              <div className="flex-1 overflow-y-auto p-3 sm:p-4">
                 <div className="space-y-2">
                   {navigationItems.map((item) => {
                     const IconComponent = item.icon;
@@ -501,10 +501,10 @@ const EnhancedHeader = () => {
                           }}
                           className="w-full flex items-center gap-3 p-4 rounded-xl transition-all duration-200 hover:bg-gray-50 text-gray-700 hover:text-blue-600 border border-transparent"
                         >
-                          <IconComponent className="w-5 h-5" />
-                          <div>
-                            <div className="font-semibold text-left">{item.label}</div>
-                            <div className="text-xs text-gray-500 text-left">{item.description}</div>
+                          <IconComponent className="w-5 h-5 flex-shrink-0" />
+                          <div className="flex-1 min-w-0">
+                            <div className="font-semibold text-left text-base">{item.label}</div>
+                            <div className="text-sm text-gray-500 text-left">{item.description}</div>
                           </div>
                         </button>
                       );
@@ -530,9 +530,9 @@ const EnhancedHeader = () => {
                             : 'hover:bg-gray-50 text-gray-700 hover:text-blue-600 border border-transparent'
                         }`}
                       >
-                        <IconComponent className="w-5 h-5" />
-                        <div>
-                          <div className="font-semibold">{item.label}</div>
+                        <IconComponent className="w-5 h-5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <div className="font-semibold text-base">{item.label}</div>
                           <div className="text-sm text-gray-500">{item.description}</div>
                         </div>
                       </Link>
@@ -541,55 +541,55 @@ const EnhancedHeader = () => {
                 </div>
 
                 {/* Login Options */}
-                <div className="mt-8 space-y-2">
-                  <h3 className="font-semibold text-gray-900 mb-3">Account Access</h3>
+                <div className="mt-6 space-y-2">
+                  <h3 className="font-semibold text-gray-900 mb-3 text-sm">Account Access</h3>
                   <Link
                     href="/login/client"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-blue-600 transition-colors"
                   >
-                    <User className="w-4 h-4" />
-                    <span className="font-medium">Customer Login</span>
+                    <User className="w-4 h-4 flex-shrink-0" />
+                    <span className="font-medium text-sm">Customer Login</span>
                   </Link>
                   <Link
                     href="/login/trade"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-blue-600 transition-colors"
                   >
-                    <Wrench className="w-4 h-4" />
-                    <span className="font-medium">Tradesperson Login</span>
+                    <Wrench className="w-4 h-4 flex-shrink-0" />
+                    <span className="font-medium text-sm">Tradesperson Login</span>
                   </Link>
                 </div>
 
                 {/* Sign Up Options */}
-                <div className="mt-8 space-y-2">
-                  <h3 className="font-semibold text-gray-900 mb-3">Create Account</h3>
+                <div className="mt-6 space-y-2">
+                  <h3 className="font-semibold text-gray-900 mb-3 text-sm">Create Account</h3>
                   <Link
                     href="/register/client"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-blue-600 transition-colors"
                   >
-                    <User className="w-4 h-4" />
-                    <span className="font-medium">Register as Customer</span>
+                    <User className="w-4 h-4 flex-shrink-0" />
+                    <span className="font-medium text-sm">Register as Customer</span>
                   </Link>
                   <Link
                     href="/register/tradesperson"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-blue-600 transition-colors"
                   >
-                    <Wrench className="w-4 h-4" />
-                    <span className="font-medium">Register as Tradesperson</span>
+                    <Wrench className="w-4 h-4 flex-shrink-0" />
+                    <span className="font-medium text-sm">Register as Tradesperson</span>
                   </Link>
                 </div>
 
                 {/* Contact */}
-                <div className="mt-8 p-4 bg-gradient-to-r from-blue-50 to-yellow-50 rounded-xl border border-blue-100">
-                  <h3 className="font-semibold text-gray-900 mb-2">Need Help?</h3>
+                <div className="mt-6 p-3 bg-gradient-to-r from-blue-50 to-yellow-50 rounded-xl border border-blue-100">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-sm">Need Help?</h3>
                   <Link
                     href="tel:08001234567"
-                    className="flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+                    className="flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors text-sm"
                   >
-                    <Phone className="w-4 h-4" />
+                    <Phone className="w-4 h-4 flex-shrink-0" />
                     <span>0800 123 4567</span>
                   </Link>
                   <div className="text-xs text-gray-600 mt-1">Available 24/7</div>
@@ -614,26 +614,26 @@ const EnhancedHeader = () => {
         </div>
       )}
 
-      {/* Subheader */}
-      <div className="fixed left-0 right-0 z-40" style={{top: '104px'}}>
-        <div className="bg-gradient-to-b from-blue-900/90 to-blue-900/80 backdrop-blur-sm border-b border-blue-800/50 py-2">
+      {/* Subheader - Trust Badges */}
+      <div className="fixed left-0 right-0 z-30 top-24">
+        <div className="bg-gradient-to-b from-blue-900 to-blue-800 backdrop-blur-sm border-b border-blue-700 py-3 shadow-lg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-center gap-8 text-sm">
-              <div className="flex items-center gap-2 text-blue-100">
+            <div className="flex items-center justify-center gap-3 sm:gap-4 lg:gap-6 text-sm">
+              <div className="flex items-center gap-2 text-white">
                 <Shield className="w-4 h-4 text-green-400" />
-                <span className="font-medium">All Trades Verified</span>
+                <span className="font-semibold">All Trades Verified</span>
               </div>
-              <div className="flex items-center gap-2 text-blue-100">
+              <div className="flex items-center gap-2 text-white">
                 <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                <span className="font-medium">4.9/5 Rated</span>
+                <span className="font-semibold">4.9/5 Rated</span>
               </div>
-              <div className="flex items-center gap-2 text-blue-100">
+              <div className="flex items-center gap-2 text-white">
                 <CheckCircle className="w-4 h-4 text-blue-400" />
-                <span className="font-medium">Fully Insured</span>
+                <span className="font-semibold">Fully Insured</span>
               </div>
-              <div className="flex items-center gap-2 text-blue-100">
+              <div className="flex items-center gap-2 text-white">
                 <Clock className="w-4 h-4 text-purple-400" />
-                <span className="font-medium">24/7 Support</span>
+                <span className="font-semibold">24/7 Support</span>
               </div>
             </div>
           </div>
