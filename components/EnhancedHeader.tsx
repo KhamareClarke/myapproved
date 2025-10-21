@@ -115,18 +115,18 @@ const EnhancedHeader = () => {
       </div>
       
       <header
-        className="fixed top-8 left-0 right-0 z-50 bg-gradient-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-sm py-3 shadow-xl"
+        className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-sm py-1 sm:py-2 shadow-xl"
       >
         <div className="max-w-7xl mx-auto px-1 sm:px-2 lg:px-4">
           <div className="flex items-center justify-between">
             {/* Logo - Mobile Responsive */}
-            <Link href="/" className="flex items-center gap-1 sm:gap-2 group -ml-2 sm:-ml-4">
+            <Link href="/" className="flex items-center gap-2 sm:gap-3 group -ml-1 sm:-ml-2">
               {/* Logo Icon - Mobile Responsive */}
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300 overflow-hidden">
                 <img 
                   src="/logo-icon.svg" 
                   alt="MyApproved Logo Icon"
-                  className="w-7 h-7 sm:w-8 sm:h-8 object-contain"
+                  className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
                   onError={(e) => {
                     // Fallback to Shield icon if image fails to load
                     const target = e.target as HTMLImageElement;
@@ -134,7 +134,7 @@ const EnhancedHeader = () => {
                     target.nextElementSibling?.classList.remove('hidden');
                   }}
                 />
-                <Shield className="w-7 h-7 sm:w-8 sm:h-8 text-white hidden" />
+                <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-white hidden" />
               </div>
               {/* Logo Text/Image - Mobile Responsive */}
               <div className="flex items-center">
@@ -153,7 +153,7 @@ const EnhancedHeader = () => {
                   <div className="text-sm sm:text-lg md:text-xl lg:text-2xl font-extrabold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
                     MyApproved
                   </div>
-                  <div className="text-xs font-semibold bg-gradient-to-r from-yellow-300 to-yellow-400 bg-clip-text text-transparent tracking-wider">TRUSTED TRADESPEOPLE</div>
+                  <div className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-yellow-300 to-yellow-400 bg-clip-text text-transparent tracking-wider">TRUSTED TRADESPEOPLE</div>
                 </div>
               </div>
             </Link>
@@ -421,6 +421,30 @@ const EnhancedHeader = () => {
             </button>
           </div>
         </div>
+        
+        {/* Trust Badges - Integrated into Header */}
+        <div className="bg-gradient-to-b from-blue-900 to-blue-800 backdrop-blur-sm border-b border-blue-700 py-2 sm:py-3 shadow-lg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-center gap-2 sm:gap-3 lg:gap-6 text-xs sm:text-sm">
+              <div className="flex items-center gap-1.5 sm:gap-2 text-white">
+                <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-green-400" />
+                <span className="font-semibold">All Trades Verified</span>
+              </div>
+              <div className="flex items-center gap-1.5 sm:gap-2 text-white">
+                <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
+                <span className="font-semibold">4.9/5 Rated</span>
+              </div>
+              <div className="flex items-center gap-1.5 sm:gap-2 text-white">
+                <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
+                <span className="font-semibold">Fully Insured</span>
+              </div>
+              <div className="flex items-center gap-1.5 sm:gap-2 text-white">
+                <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400" />
+                <span className="font-semibold">24/7 Support</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </header>
 
@@ -438,13 +462,13 @@ const EnhancedHeader = () => {
             <div className="flex flex-col h-full">
               {/* Header - Mobile Responsive */}
               <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-100 bg-gradient-to-r from-blue-900 to-blue-800">
-                <div className="flex items-center gap-3 sm:gap-4">
+                <div className="flex items-center gap-4 sm:gap-5">
                   {/* Mobile Logo Icon */}
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-b from-blue-900 to-blue-800 rounded-xl flex items-center justify-center shadow-md overflow-hidden">
+                  <div className="w-16 h-16 sm:w-18 sm:h-18 bg-gradient-to-b from-blue-900 to-blue-800 rounded-xl flex items-center justify-center shadow-md overflow-hidden">
                     <img 
                       src="/logo-icon.svg" 
                       alt="MyApproved Logo Icon"
-                      className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
+                      className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
                       onError={(e) => {
                         // Fallback to Shield icon if image fails to load
                         const target = e.target as HTMLImageElement;
@@ -452,14 +476,14 @@ const EnhancedHeader = () => {
                         target.nextElementSibling?.classList.remove('hidden');
                       }}
                     />
-                    <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-white hidden" />
+                    <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-white hidden" />
                   </div>
                   {/* Mobile Logo Text */}
                   <div>
                     <img 
                       src="/logo-text.svg" 
                       alt="MyApproved Logo"
-                      className="h-12 sm:h-14 object-contain"
+                      className="h-16 sm:h-18 object-contain"
                       onError={(e) => {
                         // Fallback to text if image fails to load
                         const target = e.target as HTMLImageElement;
@@ -468,8 +492,8 @@ const EnhancedHeader = () => {
                       }}
                     />
                     <div className="hidden flex flex-col">
-                      <div className="font-bold text-white text-lg sm:text-xl">MyApproved</div>
-                      <div className="text-xs sm:text-sm text-yellow-300 font-semibold tracking-wide uppercase">Trusted Tradespeople</div>
+                      <div className="font-bold text-white text-2xl sm:text-3xl">MyApproved</div>
+                      <div className="text-base sm:text-lg text-yellow-300 font-semibold tracking-wide uppercase">Trusted Tradespeople</div>
                     </div>
                   </div>
                 </div>
@@ -614,31 +638,6 @@ const EnhancedHeader = () => {
         </div>
       )}
 
-      {/* Subheader - Trust Badges */}
-      <div className="fixed left-0 right-0 z-30 top-24">
-        <div className="bg-gradient-to-b from-blue-900 to-blue-800 backdrop-blur-sm border-b border-blue-700 py-3 shadow-lg">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-center gap-3 sm:gap-4 lg:gap-6 text-sm">
-              <div className="flex items-center gap-2 text-white">
-                <Shield className="w-4 h-4 text-green-400" />
-                <span className="font-semibold">All Trades Verified</span>
-              </div>
-              <div className="flex items-center gap-2 text-white">
-                <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                <span className="font-semibold">4.9/5 Rated</span>
-              </div>
-              <div className="flex items-center gap-2 text-white">
-                <CheckCircle className="w-4 h-4 text-blue-400" />
-                <span className="font-semibold">Fully Insured</span>
-              </div>
-              <div className="flex items-center gap-2 text-white">
-                <Clock className="w-4 h-4 text-purple-400" />
-                <span className="font-semibold">24/7 Support</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
     </>
   );
