@@ -422,25 +422,25 @@ const EnhancedHeader = () => {
           </div>
         </div>
         
-        {/* Trust Badges - Integrated into Header */}
-        <div className="bg-gradient-to-b from-blue-900 to-blue-800 backdrop-blur-sm border-b border-blue-700 py-2 sm:py-3 shadow-lg">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-center gap-2 sm:gap-3 lg:gap-6 text-xs sm:text-sm">
-              <div className="flex items-center gap-1.5 sm:gap-2 text-white">
-                <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-green-400" />
-                <span className="font-semibold">All Trades Verified</span>
+        {/* Trust Badges - Mobile Responsive */}
+        <div className="bg-gradient-to-b from-blue-900 to-blue-800 backdrop-blur-sm border-b border-blue-700 py-1.5 sm:py-2 shadow-lg">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+            <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 lg:gap-4 text-xs">
+              <div className="flex items-center gap-1 text-white">
+                <Shield className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-green-400" />
+                <span className="font-medium text-xs">All Trades Verified</span>
               </div>
-              <div className="flex items-center gap-1.5 sm:gap-2 text-white">
-                <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
-                <span className="font-semibold">4.9/5 Rated</span>
+              <div className="flex items-center gap-1 text-white">
+                <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-yellow-400 fill-current" />
+                <span className="font-medium text-xs">4.9/5 Rated</span>
               </div>
-              <div className="flex items-center gap-1.5 sm:gap-2 text-white">
-                <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
-                <span className="font-semibold">Fully Insured</span>
+              <div className="flex items-center gap-1 text-white">
+                <CheckCircle className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-blue-400" />
+                <span className="font-medium text-xs">Fully Insured</span>
               </div>
-              <div className="flex items-center gap-1.5 sm:gap-2 text-white">
-                <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400" />
-                <span className="font-semibold">24/7 Support</span>
+              <div className="flex items-center gap-1 text-white">
+                <Clock className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-purple-400" />
+                <span className="font-medium text-xs">24/7 Support</span>
               </div>
             </div>
           </div>

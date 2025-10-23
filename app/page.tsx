@@ -1016,67 +1016,67 @@ export default function Home() {
         <div className="hidden sm:block absolute top-20 left-10 w-20 h-20 bg-yellow-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '0.5s'}}></div>
         <div className="hidden sm:block absolute top-40 right-20 w-16 h-16 bg-blue-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '1.5s'}}></div>
         <div className="hidden sm:block absolute bottom-32 left-20 w-12 h-12 bg-white/10 rounded-full blur-lg animate-bounce" style={{animationDelay: '2s'}}></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pt-8 pb-12 sm:pb-16 md:pb-20 flex flex-col lg:flex-row items-center lg:items-start gap-8 sm:gap-12 md:gap-16">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-4 pb-6 sm:pb-8 md:pb-12 lg:pb-16 xl:pb-20 flex flex-col lg:flex-row items-center lg:items-start gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-16">
           {/* Left Column: Text & Search - Ultra Impressive Mobile Design */}
           <div className="flex-1 z-10 flex flex-col items-center text-center lg:items-start lg:text-left lg:flex-1">
-            <div className="mb-8 sm:mb-12">
-              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-yellow-400/40 to-yellow-500/40 backdrop-blur-md px-6 py-3 rounded-2xl border-2 border-yellow-400/60 mb-6 animate-fade-in shadow-2xl">
+            <div className="mb-4 sm:mb-6">
+              <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-yellow-400/40 to-yellow-500/40 backdrop-blur-md px-3 py-1.5 rounded-lg border-2 border-yellow-400/60 mb-3 animate-fade-in shadow-lg">
                 <div className="relative">
-                  <Star className="w-5 h-5 text-yellow-400 animate-pulse" />
-                  <div className="absolute -inset-1 bg-yellow-400/30 rounded-full blur-sm animate-ping"></div>
+                  <Star className="w-3 h-3 text-yellow-400 animate-pulse" />
+                  <div className="absolute -inset-0.5 bg-yellow-400/30 rounded-full blur-sm animate-ping"></div>
                 </div>
-                <span className="text-base font-bold text-yellow-100">Rated #1 Tradesperson Platform</span>
+                <span className="text-xs font-bold text-yellow-100">Rated #1 Tradesperson Platform</span>
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.05] tracking-tight mb-6 sm:mb-8 text-balance animate-slide-up">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.15] tracking-tight mb-3 sm:mb-4 text-balance animate-slide-up">
                 <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl font-black">Find</span> <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl font-black">Trusted</span>
                 <br />
                 <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse font-black">Local</span> <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl font-black">Trades</span><span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse font-black">people</span>
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-blue-100 leading-relaxed mb-8 sm:mb-10 animate-slide-up max-w-3xl mx-auto lg:mx-0 font-medium" style={{animationDelay: '0.1s'}}>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-blue-100 leading-relaxed mb-4 sm:mb-6 animate-slide-up max-w-xl mx-auto lg:mx-0 font-medium" style={{animationDelay: '0.1s'}}>
                 Hire vetted professionals near you — fast, reliable, and backed by verified reviews.
               </p>
             </div>
             
             {/* Statistics Bar - Exact Badge Style */}
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 animate-slide-up" style={{animationDelay: '0.4s'}}>
-              <div className="flex items-center gap-2 bg-blue-800 px-4 py-2 rounded-full border border-blue-700/50 shadow-sm">
-                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                <span className="text-sm font-semibold text-white">50K+ Customers</span>
+            <div className="flex flex-wrap justify-center items-center gap-1 sm:gap-1.5 mb-3 sm:mb-4 animate-slide-up" style={{animationDelay: '0.4s'}}>
+              <div className="flex items-center gap-1 bg-blue-800 px-2 py-1 rounded-full border border-blue-700/50 shadow-sm">
+                <div className="w-1 h-1 bg-green-400 rounded-full"></div>
+                <span className="text-xs font-medium text-white">50K+ Customers</span>
               </div>
-              <div className="flex items-center gap-2 bg-blue-800 px-4 py-2 rounded-full border border-blue-700/50 shadow-sm">
-                <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                <span className="text-sm font-semibold text-white">5K+ Trades</span>
+              <div className="flex items-center gap-1 bg-blue-800 px-2 py-1 rounded-full border border-blue-700/50 shadow-sm">
+                <div className="w-1 h-1 bg-yellow-400 rounded-full"></div>
+                <span className="text-xs font-medium text-white">5K+ Trades</span>
               </div>
-              <div className="flex items-center gap-2 bg-blue-800 px-4 py-2 rounded-full border border-blue-700/50 shadow-sm">
-                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                <span className="text-sm font-semibold text-white">4.9★ Rating</span>
+              <div className="flex items-center gap-1 bg-blue-800 px-2 py-1 rounded-full border border-blue-700/50 shadow-sm">
+                <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                <span className="text-xs font-medium text-white">4.9★ Rating</span>
               </div>
             </div>
-            <div className="w-full max-w-lg sm:max-w-2xl lg:max-w-4xl animate-slide-up" style={{animationDelay: '0.6s'}}>
+            <div className="w-full max-w-sm sm:max-w-lg lg:max-w-2xl animate-slide-up" style={{animationDelay: '0.6s'}}>
               <Dialog>
                 <DialogTrigger asChild>
                   <div id="ai-quote-trigger" className="relative group cursor-pointer">
                     {/* Enhanced Glow Effect with Gold Accent */}
-                    <div className="absolute -inset-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-                    <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400/40 via-white/20 to-yellow-400/40 rounded-2xl blur-lg opacity-20 group-hover:opacity-30 transition duration-500"></div>
+                    <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 rounded-2xl sm:rounded-3xl blur-xl sm:blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                    <div className="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-yellow-400/40 via-white/20 to-yellow-400/40 rounded-xl sm:rounded-2xl blur-md sm:blur-lg opacity-20 group-hover:opacity-30 transition duration-500"></div>
                     
-                    <div className="relative flex items-center bg-white backdrop-blur-sm rounded-2xl shadow-2xl p-4 sm:p-6 border-2 border-yellow-400/60 group-hover:border-yellow-400 transition-all duration-300">
-                      <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-200 flex-shrink-0">
-                        <Search className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+                    <div className="relative flex items-center bg-white backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl p-2 sm:p-4 lg:p-6 border-2 border-yellow-400/60 group-hover:border-yellow-400 transition-all duration-300">
+                      <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg sm:rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-200 flex-shrink-0">
+                        <Search className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
                       </div>
                       <input
                         type="text"
                         placeholder={typed || typingPhrases[phraseIndex]}
-                        className="flex-1 py-3 sm:py-4 px-4 sm:px-6 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none text-base sm:text-lg font-medium bg-transparent cursor-pointer"
+                        className="flex-1 py-2 sm:py-3 lg:py-4 px-2 sm:px-4 lg:px-6 rounded-lg sm:rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none text-sm sm:text-base lg:text-lg font-medium bg-transparent cursor-pointer"
                         readOnly
                       />
                       <Button
                         type="button"
-                        className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-bold rounded-xl px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-200 flex-shrink-0"
+                        className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-bold rounded-lg sm:rounded-xl px-3 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-sm sm:text-base lg:text-lg shadow-lg hover:shadow-xl transition-all duration-200 flex-shrink-0"
                       >
                         <span className="hidden sm:inline">Get Started</span>
                         <span className="sm:hidden">Go</span>
-                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
+                        <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 ml-1 sm:ml-2" />
                       </Button>
                     </div>
                   </div>
@@ -1141,18 +1141,18 @@ export default function Home() {
                 </DialogContent>
               </Dialog>
               {/* Enhanced Trust badges - Exact Badge Style */}
-              <div className="mt-6 sm:mt-8 flex flex-wrap justify-center gap-3 sm:gap-4 animate-slide-up" style={{animationDelay: '0.8s'}}>
-                <div className="flex items-center gap-2 bg-teal-600 px-4 py-2 rounded-full border border-teal-500/30 shadow-sm">
-                  <ShieldCheck className="w-4 h-4 text-white" />
-                  <span className="text-sm font-semibold text-white">Verified</span>
+              <div className="mt-4 sm:mt-6 flex flex-wrap justify-center gap-1.5 sm:gap-2 animate-slide-up" style={{animationDelay: '0.8s'}}>
+                <div className="flex items-center gap-1 bg-teal-600 px-2 py-1 rounded-full border border-teal-500/30 shadow-sm">
+                  <ShieldCheck className="w-3 h-3 text-white" />
+                  <span className="text-xs font-semibold text-white">Verified</span>
                 </div>
-                <div className="flex items-center gap-2 bg-blue-600 px-4 py-2 rounded-full border border-blue-500/30 shadow-sm">
-                  <Shield className="w-4 h-4 text-white" />
-                  <span className="text-sm font-semibold text-white">Insured</span>
+                <div className="flex items-center gap-1 bg-blue-600 px-2 py-1 rounded-full border border-blue-500/30 shadow-sm">
+                  <Shield className="w-3 h-3 text-white" />
+                  <span className="text-xs font-semibold text-white">Insured</span>
                 </div>
-                <div className="flex items-center gap-2 bg-yellow-400 px-4 py-2 rounded-full border border-yellow-300/30 shadow-sm">
-                  <Star className="w-4 h-4 text-yellow-800 fill-current" />
-                  <span className="text-sm font-semibold text-yellow-900">4.9★</span>
+                <div className="flex items-center gap-1 bg-yellow-400 px-2 py-1 rounded-full border border-yellow-300/30 shadow-sm">
+                  <Star className="w-3 h-3 text-yellow-800 fill-current" />
+                  <span className="text-xs font-semibold text-yellow-900">4.9★</span>
                 </div>
               </div>
             </div>
