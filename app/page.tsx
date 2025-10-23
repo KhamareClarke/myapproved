@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { SchemaMarkup, organizationSchema, WebsiteSchema, ServiceSchema } from '@/components/SchemaMarkup';
+import { SchemaMarkup, organizationSchema, ServiceSchema } from '@/components/SchemaMarkup';
 import dynamic from "next/dynamic";
 
 // Dynamically import the InDemandServices component with SSR disabled
@@ -84,8 +84,8 @@ import Link from "next/link";
 import InitialsAvatar from "@/components/InitialsAvatar";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
-import CookieConsent from "@/components/CookieConsent";
-import FloatingAssistant from "@/components/FloatingAssistant";
+// import CookieConsent from "@/components/CookieConsent";
+// import FloatingAssistant from "@/components/FloatingAssistant";
 
  // Map trade to icon for Select menu (visual only)
  const tradeIconFor = (name: string) => {
@@ -1001,12 +1001,9 @@ export default function Home() {
     <div suppressHydrationWarning>
       {/* SEO Schema Markup */}
       <SchemaMarkup schema={organizationSchema} />
-      <WebsiteSchema />
       <SchemaMarkup schema={ServiceSchema} />
-      
-      <CookieConsent />
-      <FloatingAssistant mode="home" />
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-screen flex items-center pt-1 sm:pt-2 md:pt-3 lg:pt-4 xl:pt-6 mb-16">
+      {/* World-Class Mobile-First Hero Section */}
+      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-screen">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/70 to-indigo-800/60"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.3),transparent_50%)] animate-pulse"></div>
@@ -1016,42 +1013,55 @@ export default function Home() {
         <div className="hidden sm:block absolute top-20 left-10 w-20 h-20 bg-yellow-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '0.5s'}}></div>
         <div className="hidden sm:block absolute top-40 right-20 w-16 h-16 bg-blue-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '1.5s'}}></div>
         <div className="hidden sm:block absolute bottom-32 left-20 w-12 h-12 bg-white/10 rounded-full blur-lg animate-bounce" style={{animationDelay: '2s'}}></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-1 pb-2 sm:pt-2 sm:pb-3 md:pt-3 md:pb-4 lg:pt-4 lg:pb-6 xl:pb-8 flex flex-col lg:flex-row items-center lg:items-start gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-6">
-          {/* Left Column: Text & Search - Ultra Impressive Mobile Design */}
-          <div className="flex-1 z-10 flex flex-col items-center text-center lg:items-start lg:text-left lg:flex-1">
-            <div className="mb-0.5 sm:mb-1 md:mb-1.5 lg:mb-2 xl:mb-3">
-              <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-yellow-400/40 to-yellow-500/40 backdrop-blur-md px-3 py-1.5 rounded-lg border-2 border-yellow-400/60 mb-0.5 sm:mb-1 md:mb-1.5 lg:mb-2 animate-fade-in shadow-lg">
-                <div className="relative">
-                  <Star className="w-3 h-3 text-yellow-400 animate-pulse" />
-                  <div className="absolute -inset-0.5 bg-yellow-400/30 rounded-full blur-sm animate-ping"></div>
+        {/* Mobile-First Container */}
+        <div className="relative z-10 min-h-screen flex flex-col justify-center px-4 py-8 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+          <div className="max-w-4xl lg:max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
+            {/* Mobile-First Content */}
+            <div className="flex-1 z-10 flex flex-col items-center text-center lg:items-start lg:text-left w-full">
+              {/* Premium Badge - Mobile Optimized */}
+              <div className="flex justify-center lg:justify-start mb-6 sm:mb-8">
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400/90 to-yellow-500/90 backdrop-blur-sm px-4 py-2 rounded-full border border-yellow-300/50 shadow-lg">
+                  <div className="relative">
+                    <Star className="w-4 h-4 text-yellow-900 animate-pulse" />
+                    <div className="absolute -inset-1 bg-yellow-300/40 rounded-full blur-sm animate-ping"></div>
+                  </div>
+                  <span className="text-sm font-bold text-yellow-900">Rated #1 Tradesperson Platform</span>
                 </div>
-                <span className="text-xs font-bold text-yellow-100">Rated #1 Tradesperson Platform</span>
               </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.15] tracking-tight mb-0.5 sm:mb-1 md:mb-1.5 lg:mb-2 xl:mb-3 text-balance animate-slide-up">
-                <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl font-black">Find</span> <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl font-black">Trusted</span>
-                <br />
-                <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse font-black">Local</span> <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl font-black">Trades</span><span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse font-black">people</span>
-              </h1>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-blue-100 leading-relaxed mb-0.5 sm:mb-1 md:mb-1.5 lg:mb-2 xl:mb-3 animate-slide-up max-w-xl mx-auto lg:mx-0 font-medium" style={{animationDelay: '0.1s'}}>
-                Hire vetted professionals near you — fast, reliable, and backed by verified reviews.
-              </p>
-            </div>
+
+              {/* Hero Title - World-Class Mobile Typography */}
+              <div className="text-center lg:text-left mb-8 sm:mb-10">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.05] tracking-tight mb-6 sm:mb-8">
+                  <span className="block">
+                    <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent">Find</span>
+                    <span className="text-white"> Trusted</span>
+                  </span>
+                  <span className="block">
+                    <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent">Local</span>
+                    <span className="text-white"> Tradespeople</span>
+                  </span>
+                </h1>
+                
+                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-blue-100 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
+                  Hire vetted professionals near you — fast, reliable, and backed by verified reviews.
+                </p>
+              </div>
             
-            {/* Statistics Bar - Exact Badge Style */}
-            <div className="flex flex-wrap justify-center items-center gap-1 sm:gap-1.5 mb-2 sm:mb-3 md:mb-4 lg:mb-5 xl:mb-6 animate-slide-up" style={{animationDelay: '0.4s'}}>
-              <div className="flex items-center gap-1 bg-blue-800 px-2 py-1 rounded-full border border-blue-700/50 shadow-sm">
-                <div className="w-1 h-1 bg-green-400 rounded-full"></div>
-                <span className="text-xs font-medium text-white">50K+ Customers</span>
+              {/* Premium Statistics - Mobile Optimized */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-10">
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 shadow-lg">
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <span className="text-sm font-semibold text-white">50K+ Customers</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 shadow-lg">
+                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                  <span className="text-sm font-semibold text-white">5K+ Trades</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 shadow-lg">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                  <span className="text-sm font-semibold text-white">4.9★ Rating</span>
+                </div>
               </div>
-              <div className="flex items-center gap-1 bg-blue-800 px-2 py-1 rounded-full border border-blue-700/50 shadow-sm">
-                <div className="w-1 h-1 bg-yellow-400 rounded-full"></div>
-                <span className="text-xs font-medium text-white">5K+ Trades</span>
-              </div>
-              <div className="flex items-center gap-1 bg-blue-800 px-2 py-1 rounded-full border border-blue-700/50 shadow-sm">
-                <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
-                <span className="text-xs font-medium text-white">4.9★ Rating</span>
-              </div>
-            </div>
             <div className="w-full max-w-sm sm:max-w-lg lg:max-w-2xl animate-slide-up" style={{animationDelay: '0.6s'}}>
               <Dialog>
                 <DialogTrigger asChild>
@@ -1208,6 +1218,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </section>
 
