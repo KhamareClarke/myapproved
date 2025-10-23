@@ -1006,7 +1006,7 @@ export default function Home() {
       
       <CookieConsent />
       <FloatingAssistant mode="home" />
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-screen flex items-center pt-24 mb-16">
+      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-screen flex items-center pt-1 sm:pt-2 md:pt-3 lg:pt-4 xl:pt-6 mb-16">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/70 to-indigo-800/60"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.3),transparent_50%)] animate-pulse"></div>
@@ -1016,29 +1016,29 @@ export default function Home() {
         <div className="hidden sm:block absolute top-20 left-10 w-20 h-20 bg-yellow-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '0.5s'}}></div>
         <div className="hidden sm:block absolute top-40 right-20 w-16 h-16 bg-blue-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '1.5s'}}></div>
         <div className="hidden sm:block absolute bottom-32 left-20 w-12 h-12 bg-white/10 rounded-full blur-lg animate-bounce" style={{animationDelay: '2s'}}></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-4 pb-6 sm:pb-8 md:pb-12 lg:pb-16 xl:pb-20 flex flex-col lg:flex-row items-center lg:items-start gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-16">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-1 pb-2 sm:pt-2 sm:pb-3 md:pt-3 md:pb-4 lg:pt-4 lg:pb-6 xl:pb-8 flex flex-col lg:flex-row items-center lg:items-start gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-6">
           {/* Left Column: Text & Search - Ultra Impressive Mobile Design */}
           <div className="flex-1 z-10 flex flex-col items-center text-center lg:items-start lg:text-left lg:flex-1">
-            <div className="mb-4 sm:mb-6">
-              <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-yellow-400/40 to-yellow-500/40 backdrop-blur-md px-3 py-1.5 rounded-lg border-2 border-yellow-400/60 mb-3 animate-fade-in shadow-lg">
+            <div className="mb-0.5 sm:mb-1 md:mb-1.5 lg:mb-2 xl:mb-3">
+              <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-yellow-400/40 to-yellow-500/40 backdrop-blur-md px-3 py-1.5 rounded-lg border-2 border-yellow-400/60 mb-0.5 sm:mb-1 md:mb-1.5 lg:mb-2 animate-fade-in shadow-lg">
                 <div className="relative">
                   <Star className="w-3 h-3 text-yellow-400 animate-pulse" />
                   <div className="absolute -inset-0.5 bg-yellow-400/30 rounded-full blur-sm animate-ping"></div>
                 </div>
                 <span className="text-xs font-bold text-yellow-100">Rated #1 Tradesperson Platform</span>
               </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.15] tracking-tight mb-3 sm:mb-4 text-balance animate-slide-up">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.15] tracking-tight mb-0.5 sm:mb-1 md:mb-1.5 lg:mb-2 xl:mb-3 text-balance animate-slide-up">
                 <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl font-black">Find</span> <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl font-black">Trusted</span>
                 <br />
                 <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse font-black">Local</span> <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl font-black">Trades</span><span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse font-black">people</span>
               </h1>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-blue-100 leading-relaxed mb-4 sm:mb-6 animate-slide-up max-w-xl mx-auto lg:mx-0 font-medium" style={{animationDelay: '0.1s'}}>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-blue-100 leading-relaxed mb-0.5 sm:mb-1 md:mb-1.5 lg:mb-2 xl:mb-3 animate-slide-up max-w-xl mx-auto lg:mx-0 font-medium" style={{animationDelay: '0.1s'}}>
                 Hire vetted professionals near you — fast, reliable, and backed by verified reviews.
               </p>
             </div>
             
             {/* Statistics Bar - Exact Badge Style */}
-            <div className="flex flex-wrap justify-center items-center gap-1 sm:gap-1.5 mb-3 sm:mb-4 animate-slide-up" style={{animationDelay: '0.4s'}}>
+            <div className="flex flex-wrap justify-center items-center gap-1 sm:gap-1.5 mb-2 sm:mb-3 md:mb-4 lg:mb-5 xl:mb-6 animate-slide-up" style={{animationDelay: '0.4s'}}>
               <div className="flex items-center gap-1 bg-blue-800 px-2 py-1 rounded-full border border-blue-700/50 shadow-sm">
                 <div className="w-1 h-1 bg-green-400 rounded-full"></div>
                 <span className="text-xs font-medium text-white">50K+ Customers</span>
@@ -1156,12 +1156,14 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="mt-2 sm:mt-3 md:mt-4">
-              <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
-                <img src="/logo.svg" alt="Testimonial" className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 rounded-full border-2 border-yellow-400 shadow flex-shrink-0" />
+            <div className="mt-2 sm:mt-3 md:mt-4 lg:mt-5 xl:mt-6">
+              <div className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-6">
                 <div className="min-w-0 flex-1">
-                  <p className="text-sm sm:text-base md:text-lg text-blue-100 italic leading-relaxed">"The easiest way to find a reliable tradesperson. Highly recommended!"</p>
-                  <span className="text-yellow-300 font-bold text-xs sm:text-sm md:text-base">— Sarah M., London</span>
+                  <p className="text-xs sm:text-sm md:text-base lg:text-lg text-blue-100 italic leading-relaxed">"The easiest way to find a reliable tradesperson. Highly recommended!"</p>
+                  <div className="flex items-center gap-2 mt-1">
+                    <span className="text-yellow-300 font-bold text-xs sm:text-sm md:text-base">— Sarah M., London</span>
+                    <img src="/logo.svg" alt="MyApproved Logo" className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:w-10 xl:h-10 rounded-full border-2 border-yellow-400 shadow flex-shrink-0" />
+                  </div>
                 </div>
               </div>
             </div>
