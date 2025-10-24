@@ -55,11 +55,11 @@ export default function SitemapPage() {
       title: 'Locations',
       icon: Search,
       pages: [
-        { name: 'London', href: '/location/london', description: 'Tradespeople in London' },
-        { name: 'Manchester', href: '/location/manchester', description: 'Tradespeople in Manchester' },
-        { name: 'Birmingham', href: '/location/birmingham', description: 'Tradespeople in Birmingham' },
-        { name: 'Leeds', href: '/location/leeds', description: 'Tradespeople in Leeds' },
-        { name: 'Glasgow', href: '/location/glasgow', description: 'Tradespeople in Glasgow' }
+        { name: 'London', href: '/find-tradespeople', description: 'Tradespeople in London' },
+        { name: 'Manchester', href: '/find-tradespeople', description: 'Tradespeople in Manchester' },
+        { name: 'Birmingham', href: '/find-tradespeople', description: 'Tradespeople in Birmingham' },
+        { name: 'Leeds', href: '/find-tradespeople', description: 'Tradespeople in Leeds' },
+        { name: 'Glasgow', href: '/find-tradespeople', description: 'Tradespeople in Glasgow' }
       ]
     },
     {

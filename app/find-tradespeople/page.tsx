@@ -657,7 +657,9 @@ export default function FindTradespeople() {
               <CardContent className="p-4 sm:p-6">
                 <h3 className="font-extrabold text-lg sm:text-xl mb-1">Need Help Choosing?</h3>
                 <p className="text-blue-100 mb-3 sm:mb-4 text-xs sm:text-sm">Post your job for free and let verified tradespeople come to you with quotes.</p>
-                <Button className="w-full bg-[#fdbd18] hover:brightness-95 text-blue-900 font-bold text-sm sm:text-base" onClick={() => setShowPostJob(true)}>Post a Job</Button>
+                <Button className="w-full bg-[#fdbd18] hover:brightness-95 text-blue-900 font-bold text-sm sm:text-base" asChild>
+                  <Link href="/login/client">Post a Job</Link>
+                </Button>
                 <span className="block mt-2 text-[10px] sm:text-[12px] text-blue-100">Same‑day responses from local pros</span>
               </CardContent>
             </Card>

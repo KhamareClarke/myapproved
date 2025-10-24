@@ -9,16 +9,16 @@ const Footer = () => {
     { name: "Home", href: "/" },
     { name: "Find a tradesperson", href: "/find-tradespeople" },
     { name: "How it works", href: "/how-it-works" },
-    { name: "Customer reviews", href: "/reviews" },
+    { name: "Customer reviews", href: "/find-tradespeople" },
     { name: "Help centre", href: "/help" },
   ];
 
   const locations = [
-    { name: "Electricians in London", href: "/electrician-london" },
-    { name: "Plumbers in Manchester", href: "/plumber-manchester" },
-    { name: "Roofers in Birmingham", href: "/roofer-birmingham" },
-    { name: "Cleaners in Leeds", href: "/cleaner-leeds" },
-    { name: "Carpenters in Bristol", href: "/carpenter-bristol" },
+    { name: "Electricians in London", href: "/find-tradespeople" },
+    { name: "Plumbers in Manchester", href: "/find-tradespeople" },
+    { name: "Roofers in Birmingham", href: "/find-tradespeople" },
+    { name: "Cleaners in Leeds", href: "/find-tradespeople" },
+    { name: "Carpenters in Bristol", href: "/find-tradespeople" },
   ];
 
   const companyLinks = [

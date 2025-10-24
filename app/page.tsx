@@ -85,7 +85,7 @@ import InitialsAvatar from "@/components/InitialsAvatar";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 // import CookieConsent from "@/components/CookieConsent";
-// import FloatingAssistant from "@/components/FloatingAssistant";
+import FloatingAssistant from "@/components/FloatingAssistant";
 
  // Map trade to icon for Select menu (visual only)
  const tradeIconFor = (name: string) => {
@@ -1435,7 +1435,7 @@ export default function Home() {
             </Link>
 
             {/* Tradesperson sign up */}
-            <Link href="/trades/signup" className="h-full flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-yellow-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 shadow-sm group relative">
+            <Link href="/register/tradesperson" className="h-full flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-yellow-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 shadow-sm group relative">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
@@ -1702,7 +1702,7 @@ export default function Home() {
                 className="bg-white rounded-2xl border border-gray-100 hover:border-yellow-300 transition-all duration-300 hover:shadow-lg shadow-sm group relative overflow-hidden"
               >
                 {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-blue-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
                 
                 <Accordion type="single" collapsible className="w-full">
                   <AccordionItem value={`faq-${index + 1}`} className="border-none">
@@ -1822,6 +1822,8 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Floating Assistant Chat */}
+      <FloatingAssistant mode="home" />
     </div>
   );
 }

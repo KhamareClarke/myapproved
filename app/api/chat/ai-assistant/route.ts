@@ -10,7 +10,7 @@ const supabaseAdmin = createClient(
 const AI_RESPONSES = {
   // General Support
   'hello': {
-    response: "Hello! 👋 I'm the MyApproved AI Assistant. I'm here to help you with common questions about our platform. How can I assist you today?",
+    response: "Hello! I'm the MyApproved AI Assistant. I'm here to help you with common questions about our platform. How can I assist you today?",
     category: 'greeting'
   },
   'help': {
@@ -20,91 +20,91 @@ const AI_RESPONSES = {
   
   // Job-related queries
   'job': {
-    response: "📋 **Job Help Available:**\n• How to post a job\n• Finding the right tradesperson\n• Managing job applications\n• Job completion process\n\nWhat would you like to know about jobs?",
+    response: "Job Help Available:\n• How to post a job\n• Finding the right tradesperson\n• Managing job applications\n• Job completion process\n\nWhat would you like to know about jobs?",
     category: 'jobs'
   },
   'post job': {
-    response: "📝 **How to Post a Job:**\n\n1. **Go to your dashboard** - Click the dashboard link\n2. **Click 'Post New Job'** - Big button on your dashboard\n3. **Fill in details:**\n   • Select trade (Plumber, Electrician, etc.)\n   • Describe the work needed\n   • Set your budget\n   • Add your postcode\n4. **Submit for approval** - Jobs are reviewed for quality\n\n⏱️ **Approval time:** 2-4 hours\n🎯 **Then:** Tradespeople will apply with quotes\n\nNeed help with any specific step?",
+    response: "How to Post a Job:\n\n1. Go to your dashboard - Click the dashboard link\n2. Click 'Post New Job' - Big button on your dashboard\n3. Fill in details:\n   • Select trade (Plumber, Electrician, etc.)\n   • Describe the work needed\n   • Set your budget\n   • Add your postcode\n4. Submit for approval - Jobs are reviewed for quality\n\nApproval time: 2-4 hours\nThen: Tradespeople will apply with quotes\n\nNeed help with any specific step?",
     category: 'jobs'
   },
   'how do i post a job': {
-    response: "📝 **How to Post a Job:**\n\n1. **Go to your dashboard** - Click the dashboard link\n2. **Click 'Post New Job'** - Big button on your dashboard\n3. **Fill in details:**\n   • Select trade (Plumber, Electrician, etc.)\n   • Describe the work needed\n   • Set your budget\n   • Add your postcode\n4. **Submit for approval** - Jobs are reviewed for quality\n\n⏱️ **Approval time:** 2-4 hours\n🎯 **Then:** Tradespeople will apply with quotes\n\nNeed help with any specific step?",
+    response: "How to Post a Job:\n\n1. Go to your dashboard - Click the dashboard link\n2. Click 'Post New Job' - Big button on your dashboard\n3. Fill in details:\n   • Select trade (Plumber, Electrician, etc.)\n   • Describe the work needed\n   • Set your budget\n   • Add your postcode\n4. Submit for approval - Jobs are reviewed for quality\n\nApproval time: 2-4 hours\nThen: Tradespeople will apply with quotes\n\nNeed help with any specific step?",
     category: 'jobs'
   },
   'application': {
-    response: "📝 **Job Applications:**\n• Check your dashboard for new applications\n• Review tradesperson profiles and quotes\n• Accept the best candidate\n• Start chatting with your chosen tradesperson\n\nNeed help choosing the right tradesperson?",
+    response: "Job Applications:\n• Check your dashboard for new applications\n• Review tradesperson profiles and quotes\n• Accept the best candidate\n• Start chatting with your chosen tradesperson\n\nNeed help choosing the right tradesperson?",
     category: 'jobs'
   },
   
   // Payment & Disputes  
   'payment': {
-    response: "💰 **Payment & Billing Help:**\n\n**How payments work:**\n• Pay securely through our platform\n• Payment released when job is completed\n• Full protection for all transactions\n\n**Payment methods:**\n• Credit/Debit cards\n• Bank transfers\n• Secure online payment\n\n**Billing issues:**\n• Refunds available for unsatisfactory work\n• Dispute resolution if needed\n• 24/7 payment support\n\nWhat specific payment question do you have?",
+    response: "Payment & Billing Help:\n\nHow payments work:\n• Pay securely through our platform\n• Payment released when job is completed\n• Full protection for all transactions\n\nPayment methods:\n• Credit/Debit cards\n• Bank transfers\n• Secure online payment\n\nBilling issues:\n• Refunds available for unsatisfactory work\n• Dispute resolution if needed\n• 24/7 payment support\n\nWhat specific payment question do you have?",
     category: 'payment'
   },
   'payment and billing help': {
-    response: "💰 **Payment & Billing Help:**\n\n**How payments work:**\n• Pay securely through our platform\n• Payment released when job is completed\n• Full protection for all transactions\n\n**Payment methods:**\n• Credit/Debit cards\n• Bank transfers\n• Secure online payment\n\n**Billing issues:**\n• Refunds available for unsatisfactory work\n• Dispute resolution if needed\n• 24/7 payment support\n\nWhat specific payment question do you have?",
+    response: "Payment & Billing Help:\n\nHow payments work:\n• Pay securely through our platform\n• Payment released when job is completed\n• Full protection for all transactions\n\nPayment methods:\n• Credit/Debit cards\n• Bank transfers\n• Secure online payment\n\nBilling issues:\n• Refunds available for unsatisfactory work\n• Dispute resolution if needed\n• 24/7 payment support\n\nWhat specific payment question do you have?",
     category: 'payment'
   },
   'dispute': {
-    response: "⚖️ **Dispute Resolution:**\n• Flag any job with issues using the 'Flag Issue' button\n• Our support team reviews all flagged jobs\n• Resolution typically within 2-4 hours\n• Full refund protection available\n\nWould you like to report a specific issue?",
+    response: "Dispute Resolution:\n• Flag any job with issues using the 'Flag Issue' button\n• Our support team reviews all flagged jobs\n• Resolution typically within 2-4 hours\n• Full refund protection available\n\nWould you like to report a specific issue?",
     category: 'dispute'
   },
   'refund': {
-    response: "💵 **Refund Policy:**\n• Full refunds available for unsatisfactory work\n• Use the dispute system to report issues\n• Our team will investigate and resolve within 4 hours\n• Protection covers all payments made through MyApproved\n\nDo you need to report a specific issue?",
+    response: "Refund Policy:\n• Full refunds available for unsatisfactory work\n• Use the dispute system to report issues\n• Our team will investigate and resolve within 4 hours\n• Protection covers all payments made through MyApproved\n\nDo you need to report a specific issue?",
     category: 'dispute'
   },
   
   // Account Issues
   'account': {
-    response: "👤 **Account Help:**\n• Profile updates\n• Verification status\n• Password reset\n• Account settings\n\nWhat account issue are you experiencing?",
+    response: "Account Help:\n• Profile updates\n• Verification status\n• Password reset\n• Account settings\n\nWhat account issue are you experiencing?",
     category: 'account'
   },
   'verification': {
-    response: "✅ **Account Verification:**\n• Upload ID and relevant trade certificates\n• Verification typically takes 24-48 hours\n• Verified accounts get priority in job applications\n• Check your dashboard for verification status\n\nNeed help with specific documents?",
+    response: "Account Verification:\n• Upload ID and relevant trade certificates\n• Verification typically takes 24-48 hours\n• Verified accounts get priority in job applications\n• Check your dashboard for verification status\n\nNeed help with specific documents?",
     category: 'account'
   },
   'account verification help': {
-    response: "✅ **Account Verification Help:**\n\n**What you need:**\n• Government-issued ID (passport, driving license)\n• Proof of trade qualifications\n• Insurance certificates (for tradespeople)\n• Proof of address\n\n**How to upload:**\n1. Go to your dashboard\n2. Click 'Account Settings'\n3. Upload documents in 'Verification' section\n4. Wait 24-48 hours for review\n\n**Benefits:**\n• Higher trust rating\n• Priority in job applications\n• Access to premium features\n\nNeed help with specific documents?",
+    response: "Account Verification Help:\n\nWhat you need:\n• Government-issued ID (passport, driving license)\n• Proof of trade qualifications\n• Insurance certificates (for tradespeople)\n• Proof of address\n\nHow to upload:\n1. Go to your dashboard\n2. Click 'Account Settings'\n3. Upload documents in 'Verification' section\n4. Wait 24-48 hours for review\n\nBenefits:\n• Higher trust rating\n• Priority in job applications\n• Access to premium features\n\nNeed help with specific documents?",
     category: 'account'
   },
   'how to find tradespeople': {
-    response: "🔍 **How to Find Tradespeople:**\n\n**Post a job first:**\n1. Create a job posting\n2. Tradespeople will apply with quotes\n3. Review their profiles and ratings\n\n**What to look for:**\n• ⭐ High ratings and reviews\n• ✅ Verified accounts\n• 💼 Relevant experience\n• 💰 Fair pricing\n• 📞 Quick response time\n\n**Tips:**\n• Compare multiple quotes\n• Check previous work photos\n• Read customer reviews\n• Ask questions before hiring\n\nReady to post your first job?",
+    response: "How to Find Tradespeople:\n\nPost a job first:\n1. Create a job posting\n2. Tradespeople will apply with quotes\n3. Review their profiles and ratings\n\nWhat to look for:\n• High ratings and reviews\n• Verified accounts\n• Relevant experience\n• Fair pricing\n• Quick response time\n\nTips:\n• Compare multiple quotes\n• Check previous work photos\n• Read customer reviews\n• Ask questions before hiring\n\nReady to post your first job?",
     category: 'jobs'
   },
   'contact human support': {
-    response: "👨‍💼 **Human Support Available:**\n\n**Contact options:**\n• Live chat escalation (that's me!)\n• Email support team\n• Phone support available\n\n**Response times:**\n• Chat escalation: 2-4 hours\n• Email: Within 24 hours\n• Urgent issues: 1 hour\n\n**I'm escalating your request now** to our human support team. They will contact you within 2-4 hours.\n\nIs there anything specific I can help with while you wait?",
+    response: "Human Support Available:\n\nContact options:\n• Live chat escalation (that's me!)\n• Email support team\n• Phone support available\n\nResponse times:\n• Chat escalation: 2-4 hours\n• Email: Within 24 hours\n• Urgent issues: 1 hour\n\nI'm escalating your request now to our human support team. They will contact you within 2-4 hours.\n\nIs there anything specific I can help with while you wait?",
     category: 'escalation',
     escalate: true
   },
   'password': {
-    response: "🔐 **Password Help:**\n• Use 'Forgot Password' on the login page\n• Check your email for reset instructions\n• Create a strong password with 8+ characters\n• Contact support if you don't receive the email\n\nStill having trouble logging in?",
+    response: "Password Help:\n• Use 'Forgot Password' on the login page\n• Check your email for reset instructions\n• Create a strong password with 8+ characters\n• Contact support if you don't receive the email\n\nStill having trouble logging in?",
     category: 'account'
   },
   
   // Quality & Trust
   'quality': {
-    response: "⭐ **Quality Assurance:**\n• All tradespeople are verified and background-checked\n• Real customer reviews and ratings\n• Insurance protection on all jobs\n• 24/7 support available\n\nWhat quality concerns do you have?",
+    response: "Quality Assurance:\n• All tradespeople are verified and background-checked\n• Real customer reviews and ratings\n• Insurance protection on all jobs\n• 24/7 support available\n\nWhat quality concerns do you have?",
     category: 'quality'
   },
   'trust': {
-    response: "🛡️ **Trust & Safety:**\n• Identity verification for all users\n• Secure payment processing\n• Full insurance coverage\n• 24/7 monitoring and support\n\nYour safety and satisfaction are our top priorities!",
+    response: "Trust & Safety:\n• Identity verification for all users\n• Secure payment processing\n• Full insurance coverage\n• 24/7 monitoring and support\n\nYour safety and satisfaction are our top priorities!",
     category: 'quality'
   },
   
   // Contact & Escalation
   'human': {
-    response: "👨‍💼 **Human Support:**\n• Our support team is available 24/7\n• Average response time: 2-4 hours\n• Priority support for urgent issues\n• Live chat escalation available\n\nI'm escalating your query to our human support team now. They will respond within 2-4 hours.",
+    response: "Human Support:\n• Our support team is available 24/7\n• Average response time: 2-4 hours\n• Priority support for urgent issues\n• Live chat escalation available\n\nI'm escalating your query to our human support team now. They will respond within 2-4 hours.",
     category: 'escalation',
     escalate: true
   },
   'urgent': {
-    response: "🚨 **Urgent Support:**\n• Flagging this as urgent for immediate attention\n• Our support team will contact you within 1 hour\n• Emergency support available for critical issues\n\nI'm escalating your urgent query now. Expect contact within 1 hour.",
+    response: "Urgent Support:\n• Flagging this as urgent for immediate attention\n• Our support team will contact you within 1 hour\n• Emergency support available for critical issues\n\nI'm escalating your urgent query now. Expect contact within 1 hour.",
     category: 'escalation',
     escalate: true,
     priority: 'urgent'
   },
   'support': {
-    response: "🎯 **Professional Support:**\n• AI assistance for common questions (that's me!)\n• Human support team for complex issues\n• Average resolution time: 2-4 hours\n• Full dispute resolution process\n\nWould you like me to escalate to human support?",
+    response: "Professional Support:\n• AI assistance for common questions (that's me!)\n• Human support team for complex issues\n• Average resolution time: 2-4 hours\n• Full dispute resolution process\n\nWould you like me to escalate to human support?",
     category: 'escalation'
   }
 };

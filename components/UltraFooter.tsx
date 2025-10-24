@@ -34,11 +34,11 @@ const UltraFooter = () => {
       title: 'For Customers',
       links: [
         { name: 'Find Tradespeople', href: '/find-tradespeople', popular: true },
-        { name: 'Get Instant Quote', href: '#', onClick: () => document.getElementById('ai-quote-trigger')?.click(), popular: true },
+        { name: 'Get Instant Quote', href: '/instant-quote', popular: true },
         { name: 'How It Works', href: '/how-it-works' },
         { name: 'Emergency Services', href: '/emergency' },
         { name: 'Price Guide', href: '/pricing-guide' },
-        { name: 'Customer Reviews', href: '/reviews' },
+        { name: 'Customer Reviews', href: '/find-tradespeople' },
         { name: 'Help & Support', href: '/help' }
       ]
     },

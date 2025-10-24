@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 interface QuoteFormData {
   trade: string;
@@ -370,13 +371,12 @@ export default function AIQuoteForm({ isOpen, onClose, initialTrade = '', initia
             {estimate && (
               <div className="text-center space-y-4">
                 <Button
-                  onClick={() => {
-                    // Handle quote submission
-                    console.log('Quote submitted:', { ...formData, estimate });
-                  }}
+                  asChild
                   className="bg-blue-700 hover:bg-blue-800 text-white text-lg font-medium py-4 px-8 rounded-lg w-full"
                 >
-                  Get Quotes from Tradespeople
+                  <Link href="/find-tradespeople">
+                    Get Quotes from Tradespeople
+                  </Link>
                 </Button>
                 <p className="text-sm text-gray-500">
                   We'll connect you with verified tradespeople in your area

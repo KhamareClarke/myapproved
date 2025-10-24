@@ -31,9 +31,9 @@ const EnhancedFooter = () => {
       title: 'For Customers',
       links: [
         { name: 'Find Tradespeople', href: '/find-tradespeople' },
-        { name: 'Get Instant Quote', href: '#', onClick: () => document.getElementById('ai-quote-trigger')?.click() },
+        { name: 'Get Instant Quote', href: '/instant-quote' },
         { name: 'How It Works', href: '/how-it-works' },
-        { name: 'Customer Reviews', href: '/reviews' },
+        { name: 'Customer Reviews', href: '/find-tradespeople' },
         { name: 'Emergency Services', href: '/emergency' },
         { name: 'Price Guide', href: '/pricing-guide' }
       ]

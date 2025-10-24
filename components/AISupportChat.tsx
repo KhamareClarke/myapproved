@@ -66,7 +66,7 @@ export default function AISupportChat({ userId, userType, userName }: AISupportC
   const welcomeMessage: Message = {
     id: 'welcome',
     sender_type: 'ai',
-    message_text: `Hello ${userName || 'there'}! 👋 I'm the MyApproved AI Assistant.\n\nClick on any question below to get instant help, or type your own question:`,
+    message_text: `Hello ${userName || 'there'}! I'm the MyApproved AI Assistant.\n\nClick on any question below to get instant help, or type your own question:`,
     created_at: new Date().toISOString()
   };
 
@@ -174,7 +174,7 @@ export default function AISupportChat({ userId, userType, userName }: AISupportC
           const questionsMessage: Message = {
             id: (Date.now() + 2).toString(),
             sender_type: 'ai',
-            message_text: '💡 **Need more help?** Click any question above or ask something else:',
+            message_text: 'Need more help? Click any question above or ask something else:',
             created_at: new Date().toISOString()
           };
           setMessages(prev => [...prev, questionsMessage]);
@@ -188,7 +188,7 @@ export default function AISupportChat({ userId, userType, userName }: AISupportC
           const escalationMessage: Message = {
             id: (Date.now() + 3).toString(),
             sender_type: 'ai',
-            message_text: '🎯 **Your query has been escalated to our human support team.**\n\nOur support team will contact you within 2-4 hours (or 1 hour for urgent issues).',
+            message_text: 'Your query has been escalated to our human support team.\n\nOur support team will contact you within 2-4 hours (or 1 hour for urgent issues).',
             created_at: new Date().toISOString()
           };
           setTimeout(() => {
@@ -245,7 +245,7 @@ export default function AISupportChat({ userId, userType, userName }: AISupportC
         const phoneMessage: Message = {
           id: (Date.now() + 1).toString(),
           sender_type: 'ai',
-          message_text: '✅ **Email Saved**\n\n**Step 2 of 3: Phone Number**\n\nPlease provide your phone number:\n\nExample: +1234567890 or 01234567890',
+          message_text: 'Email Saved\n\nStep 2 of 3: Phone Number\n\nPlease provide your phone number:\n\nExample: +1234567890 or 01234567890',
           created_at: new Date().toISOString()
         };
         setMessages(prev => [...prev, phoneMessage]);
@@ -273,7 +273,7 @@ export default function AISupportChat({ userId, userType, userName }: AISupportC
         const problemMessage: Message = {
           id: (Date.now() + 1).toString(),
           sender_type: 'ai',
-          message_text: '✅ **Phone Number Saved**\n\n**Step 3 of 3: Problem Description**\n\nPlease describe your issue in detail:\n\n• What is the problem about?\n• Which job or tradesperson is involved?\n• What happened?\n\nExample: Payment not received for completed plumbing work. Job was finished 3 days ago but tradesperson hasn\'t paid me.',
+          message_text: 'Phone Number Saved\n\nStep 3 of 3: Problem Description\n\nPlease describe your issue in detail:\n\n• What is the problem about?\n• Which job or tradesperson is involved?\n• What happened?\n\nExample: Payment not received for completed plumbing work. Job was finished 3 days ago but tradesperson hasn\'t paid me.',
           created_at: new Date().toISOString()
         };
         setMessages(prev => [...prev, problemMessage]);
@@ -337,7 +337,7 @@ export default function AISupportChat({ userId, userType, userName }: AISupportC
           const questionsMessage: Message = {
             id: (Date.now() + 2).toString(),
             sender_type: 'ai',
-            message_text: '💡 **Need more help?** Click any question above or ask something else:',
+            message_text: 'Need more help? Click any question above or ask something else:',
             created_at: new Date().toISOString()
           };
           setMessages(prev => [...prev, questionsMessage]);
@@ -396,7 +396,7 @@ export default function AISupportChat({ userId, userType, userName }: AISupportC
       const confirmMessage: Message = {
         id: (Date.now() + 1).toString(),
         sender_type: 'ai',
-        message_text: `✅ **Dispute Submitted Successfully**\n\nYour dispute has been submitted to our admin team:\n\n**Email:** ${disputeData.email}\n**Phone:** ${disputeData.phone}\n**Issue:** ${disputeData.problem}\n\n**Priority:** HIGH\n\n• Admin will review within 2-4 hours\n• You will be contacted directly\n• All disputes are resolved quickly\n\nTicket ID: #${ticketId}`,
+        message_text: `Dispute Submitted Successfully\n\nYour dispute has been submitted to our admin team:\n\nEmail: ${disputeData.email}\nPhone: ${disputeData.phone}\nIssue: ${disputeData.problem}\n\nPriority: HIGH\n\n• Admin will review within 2-4 hours\n• You will be contacted directly\n• All disputes are resolved quickly\n\nTicket ID: #${ticketId}`,
         created_at: new Date().toISOString()
       };
       setMessages(prev => [...prev, confirmMessage]);
@@ -483,7 +483,7 @@ export default function AISupportChat({ userId, userType, userName }: AISupportC
       const confirmMessage: Message = {
         id: (Date.now() + 1).toString(),
         sender_type: 'ai',
-        message_text: `✅ **${messageTitle} Submitted**\n\nYour request has been submitted to our support team:\n\n**Email:** ${contactData.email}\n**Phone:** ${contactData.phone}\n**Details:** ${contactData.problem}\n\n**Priority:** MEDIUM\n\n• Support team will contact you within 4-6 hours\n• You will be contacted directly\n• All requests are handled professionally\n\nTicket ID: #${ticketId}`,
+        message_text: `${messageTitle} Submitted\n\nYour request has been submitted to our support team:\n\nEmail: ${contactData.email}\nPhone: ${contactData.phone}\nDetails: ${contactData.problem}\n\nPriority: MEDIUM\n\n• Support team will contact you within 4-6 hours\n• You will be contacted directly\n• All requests are handled professionally\n\nTicket ID: #${ticketId}`,
         created_at: new Date().toISOString()
       };
       setMessages(prev => [...prev, confirmMessage]);

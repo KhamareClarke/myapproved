@@ -111,127 +111,84 @@ export default function TradespersonProfile() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="text-2xl font-bold">
-              <span className="text-blue-700">My</span>
-              <span className="text-yellow-500">Approved</span>
-            </Link>
-            <nav className="hidden md:flex space-x-8">
-              <Link
-                href="/find-tradespeople"
-                className="text-blue-700 font-medium"
-              >
-                Find Tradespeople
-              </Link>
-              <Link
-                href="/how-it-works"
-                className="text-gray-700 hover:text-blue-700 transition-colors"
-              >
-                How It Works
-              </Link>
-              <Link
-                href="/for-tradespeople"
-                className="text-gray-700 hover:text-blue-700 transition-colors"
-              >
-                For Tradespeople
-              </Link>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Button variant="outline" asChild>
-                <Link href="/login">Login</Link>
-              </Button>
-              <Button
-                className="bg-yellow-500 hover:bg-yellow-600 text-black"
-                asChild
-              >
-                <Link href="/join">Join as Trade</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
         {/* Back button */}
-        <Button variant="ghost" className="mb-6" asChild>
+        <Button variant="ghost" className="mb-4 sm:mb-6 text-sm sm:text-base" asChild>
           <Link href="/find-tradespeople">
-            <ChevronLeft className="w-4 h-4 mr-2" />
+            <ChevronLeft className="w-4 h-4 mr-1 sm:mr-2" />
             Back to Search
           </Link>
         </Button>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {/* Main Profile */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-4 sm:space-y-6">
             {/* Profile Header */}
             <Card>
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-6">
+              <CardContent className="p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
                   {tradesperson.image ? (
                     <img
                       src={tradesperson.image}
                       alt={tradesperson.name}
-                      className="w-24 h-24 rounded-xl object-cover"
+                      className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover mx-auto sm:mx-0"
                     />
                   ) : (
                     <InitialsAvatar
                       initials={tradesperson.initials}
                       size="lg"
-                      className="w-24 h-24 text-2xl"
+                      className="w-20 h-20 sm:w-24 sm:h-24 text-xl sm:text-2xl mx-auto sm:mx-0"
                     />
                   )}
 
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center space-x-3">
-                        <h1 className="text-2xl font-bold text-gray-900">
+                  <div className="flex-1 w-full">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-2">
+                      <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-3 mb-3 sm:mb-0">
+                        <h1 className="text-xl sm:text-2xl font-bold text-gray-900 text-center sm:text-left">
                           {tradesperson.name}
                         </h1>
                         {tradesperson.verified && (
-                          <Shield className="w-6 h-6 text-green-500" />
+                          <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 mx-auto sm:mx-0" />
                         )}
                       </div>
-                      <div className="text-right">
-                        <div className="text-xl font-bold text-blue-700">
+                      <div className="text-center sm:text-right">
+                        <div className="text-lg sm:text-xl font-bold text-blue-700">
                           {tradesperson.hourlyRate}
                         </div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-xs sm:text-sm text-gray-600">
                           Response: {tradesperson.responseTime}
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex items-center space-x-4 mb-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 mb-4">
                       <Badge
                         variant="secondary"
-                        className="bg-yellow-100 text-yellow-800"
+                        className="bg-yellow-100 text-yellow-800 w-fit mx-auto sm:mx-0"
                       >
                         {tradesperson.trade}
                       </Badge>
-                      <div className="flex items-center space-x-1">
+                      <div className="flex items-center justify-center sm:justify-start space-x-1">
                         {renderStars(tradesperson.rating)}
-                        <span className="ml-1 font-semibold">
+                        <span className="ml-1 font-semibold text-sm sm:text-base">
                           {tradesperson.rating || "No rating"}
                         </span>
-                        <span className="text-gray-600">
+                        <span className="text-gray-600 text-sm sm:text-base">
                           ({tradesperson.reviews} reviews)
                         </span>
                       </div>
                     </div>
 
-                    <p className="text-gray-700 mb-4">
+                    <p className="text-gray-700 mb-4 text-sm sm:text-base text-center sm:text-left">
                       {tradesperson.description}
                     </p>
 
-                    <div className="flex items-center space-x-6 text-sm text-gray-600">
-                      <div className="flex items-center">
+                    <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 text-xs sm:text-sm text-gray-600">
+                      <div className="flex items-center justify-center sm:justify-start">
                         <MapPin className="w-4 h-4 mr-1" />
                         {tradesperson.location} • {tradesperson.distance}
                       </div>
-                      <div className="flex items-center">
+                      <div className="flex items-center justify-center sm:justify-start">
                         <Calendar className="w-4 h-4 mr-1" />
                         {tradesperson.yearsExperience} years experience
                       </div>
@@ -243,8 +200,8 @@ export default function TradespersonProfile() {
 
             {/* Reviews Section */}
             <Card>
-              <CardContent className="p-6">
-                <h2 className="text-xl font-bold mb-4">
+              <CardContent className="p-4 sm:p-6">
+                <h2 className="text-lg sm:text-xl font-bold mb-4">
                   Reviews ({tradesperson.reviews})
                 </h2>
                 {tradesperson.reviewsData.length > 0 ? (
@@ -254,20 +211,20 @@ export default function TradespersonProfile() {
                         key={review.id}
                         className="border-b border-gray-200 pb-4 last:border-b-0"
                       >
-                        <div className="flex items-center justify-between mb-2">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 space-y-2 sm:space-y-0">
                           <div className="flex items-center space-x-2">
                             <div className="flex">
                               {renderStars(review.rating)}
                             </div>
-                            <span className="font-semibold">
+                            <span className="font-semibold text-sm sm:text-base">
                               {review.rating}/5
                             </span>
                           </div>
-                          <span className="text-sm text-gray-500">
+                          <span className="text-xs sm:text-sm text-gray-500">
                             {new Date(review.reviewedAt).toLocaleDateString()}
                           </span>
                         </div>
-                        <p className="text-gray-700">{review.text}</p>
+                        <p className="text-gray-700 text-sm sm:text-base">{review.text}</p>
                         <span className="text-xs text-gray-500 capitalize">
                           {review.reviewerType}
                         </span>
@@ -275,7 +232,7 @@ export default function TradespersonProfile() {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-gray-500 text-center py-8">
+                  <p className="text-gray-500 text-center py-6 sm:py-8 text-sm sm:text-base">
                     No reviews yet
                   </p>
                 )}
@@ -284,22 +241,22 @@ export default function TradespersonProfile() {
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {/* Contact Card */}
             <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold mb-4">Get in Touch</h3>
-                <div className="space-y-4">
+              <CardContent className="p-4 sm:p-6">
+                <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Get in Touch</h3>
+                <div className="space-y-3 sm:space-y-4">
                   <Button
-                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black"
+                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black text-sm sm:text-base py-2 sm:py-3"
                     onClick={() => setShowQuoteModal(true)}
                   >
                     Get Quote
                   </Button>
                 </div>
 
-                <div className="mt-6 space-y-3 text-center">
-                  <p className="text-sm text-gray-600">
+                <div className="mt-4 sm:mt-6 space-y-2 sm:space-y-3 text-center">
+                  <p className="text-xs sm:text-sm text-gray-600">
                     Contact details will be shared after quote request
                   </p>
                 </div>
@@ -308,30 +265,30 @@ export default function TradespersonProfile() {
 
             {/* Stats Card */}
             <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold mb-4">Statistics</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Total Reviews</span>
-                    <span className="font-semibold">
+              <CardContent className="p-4 sm:p-6">
+                <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Statistics</h3>
+                <div className="space-y-2 sm:space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 text-xs sm:text-sm">Total Reviews</span>
+                    <span className="font-semibold text-sm sm:text-base">
                       {tradesperson.reviews}
                     </span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Average Rating</span>
-                    <span className="font-semibold">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 text-xs sm:text-sm">Average Rating</span>
+                    <span className="font-semibold text-sm sm:text-base">
                       {tradesperson.rating || "N/A"}
                     </span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Years Experience</span>
-                    <span className="font-semibold">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 text-xs sm:text-sm">Years Experience</span>
+                    <span className="font-semibold text-sm sm:text-base">
                       {tradesperson.yearsExperience}
                     </span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Response Time</span>
-                    <span className="font-semibold">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 text-xs sm:text-sm">Response Time</span>
+                    <span className="font-semibold text-sm sm:text-base">
                       {tradesperson.responseTime}
                     </span>
                   </div>

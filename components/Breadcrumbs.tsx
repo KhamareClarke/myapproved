@@ -36,7 +36,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' 
       'faq': 'FAQ',
       'register': 'Register',
       'client': 'Client',
-      'tradesperson': 'Tradesperson',
+      'tradesperson': 'Tradesperson Profile',
       'login': 'Login',
       'privacy': 'Privacy Policy',
       'terms': 'Terms & Conditions',
@@ -46,8 +46,19 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' 
     let currentPath = '';
     pathSegments.forEach((segment, index) => {
       currentPath += `/${segment}`;
-      const name = pageNames[segment] || segment.charAt(0).toUpperCase() + segment.slice(1);
-      breadcrumbs.push({ name, href: currentPath });
+      
+      // Special handling for tradesperson profile pages
+      if (segment === 'tradesperson' && pathSegments[index + 1]) {
+        // This is a tradesperson profile page, show "Tradesperson Profile" instead of the ID
+        const name = pageNames[segment] || segment.charAt(0).toUpperCase() + segment.slice(1);
+        breadcrumbs.push({ name, href: currentPath });
+      } else if (pathSegments[index - 1] === 'tradesperson' && segment.length > 20) {
+        // This is likely a tradesperson ID, skip it or show a generic name
+        return; // Skip adding this segment to breadcrumbs
+      } else {
+        const name = pageNames[segment] || segment.charAt(0).toUpperCase() + segment.slice(1);
+        breadcrumbs.push({ name, href: currentPath });
+      }
     });
 
     return breadcrumbs;
@@ -75,31 +86,31 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' 
   return (
     <>
       <SchemaMarkup schema={breadcrumbSchema} />
-      <nav className={`bg-gray-50 border-b border-gray-200 ${className}`} aria-label="Breadcrumb">
+      <nav className={`bg-white border-b-2 border-blue-100 shadow-sm ${className}`} aria-label="Breadcrumb">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ol className="flex items-center space-x-2 py-3 text-sm">
+          <ol className="flex items-center space-x-2 py-4 text-sm font-medium">
             {breadcrumbItems.map((item, index) => (
               <li key={item.href} className="flex items-center">
                 {index > 0 && (
-                  <ChevronRight className="w-4 h-4 text-gray-400 mx-2" />
+                  <ChevronRight className="w-4 h-4 text-blue-400 mx-2" />
                 )}
                 
                 {index === 0 ? (
                   <Link
                     href={item.href}
-                    className="flex items-center text-gray-500 hover:text-gray-700 transition-colors"
+                    className="flex items-center text-blue-600 hover:text-blue-800 transition-colors bg-blue-50 px-3 py-1 rounded-md"
                   >
                     <Home className="w-4 h-4 mr-1" />
                     <span>{item.name}</span>
                   </Link>
                 ) : index === breadcrumbItems.length - 1 ? (
-                  <span className="text-gray-900 font-medium" aria-current="page">
+                  <span className="text-gray-800 font-semibold bg-gray-100 px-3 py-1 rounded-md" aria-current="page">
                     {item.name}
                   </span>
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-gray-500 hover:text-gray-700 transition-colors"
+                    className="text-blue-600 hover:text-blue-800 transition-colors bg-blue-50 hover:bg-blue-100 px-3 py-1 rounded-md"
                   >
                     {item.name}
                   </Link>

@@ -164,19 +164,7 @@ const EnhancedHeader = () => {
                 const IconComponent = item.icon;
                 const isActive = pathname === item.href;
                 
-                // Special handling for Instant Quote to trigger dialog
-                if (item.label === 'Instant Quote') {
-                  return (
-                    <button
-                      key={item.href}
-                      onClick={() => document.getElementById('ai-quote-trigger')?.click()}
-                      className={`group relative flex items-center gap-1 px-3 py-2 rounded-lg transition-all duration-300 font-medium text-sm hover:scale-105 text-blue-100 hover:text-white hover:bg-white/10`}
-                    >
-                      <IconComponent className="w-3 h-3" />
-                      <span>{item.label}</span>
-                    </button>
-                  );
-                }
+                // Regular link handling for all navigation items including Instant Quote
                 
                 return (
                   <Link
@@ -623,14 +611,13 @@ const EnhancedHeader = () => {
               {/* CTA Button */}
               <div className="p-6 border-t border-gray-100 bg-gray-50/50">
                 <Button
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    document.getElementById('ai-quote-trigger')?.click();
-                  }}
+                  asChild
                   className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-gray-900 font-bold py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-200"
                 >
-                  <span>Get Free Quote</span>
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  <Link href="/instant-quote" onClick={() => setIsMobileMenuOpen(false)}>
+                    <span>Get Free Quote</span>
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Link>
                 </Button>
               </div>
             </div>
