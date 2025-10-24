@@ -91,14 +91,14 @@ export async function POST(request: NextRequest) {
       const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'sajidasaif93@gmail.com',
+          user: 'khamareclarke@gmail.com',
           pass: 'tsus gznu cyya xnna'
         }
       });
 
       // Email options
       const mailOptions = {
-        from: '"My Approved" <sajidasaif93@gmail.com>',
+        from: '"My Approved" <khamareclarke@gmail.com>',
         to: email,
         subject: 'Verify Your Email - My Approved',
         html: emailContent

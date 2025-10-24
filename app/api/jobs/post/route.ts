@@ -118,6 +118,49 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Send client confirmation email (non-blocking)
+    setTimeout(async () => {
+      try {
+        const transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: 'khamareclarke@gmail.com',
+            pass: 'ovga hgzy rltc ifyh'
+          }
+        });
+
+        const clientEmailContent = `
+          <div style="font-family:Arial,sans-serif;max-width:600px;margin:auto;padding:20px;border:1px solid #eee;border-radius:8px;">
+            <h2 style="color:#2d3748;">Job Posted Successfully!</h2>
+            <p>Hello ${client?.first_name} ${client?.last_name},</p>
+            <p>Your job has been posted successfully and is now pending admin approval.</p>
+            <div style="background-color:#f7fafc;padding:16px;border-radius:8px;margin:16px 0;">
+              <h3 style="margin-top:0;">Your Job Details:</h3>
+              <p><strong>Trade:</strong> ${trade}</p>
+              <p><strong>Description:</strong> ${job_description}</p>
+              <p><strong>Location:</strong> ${postcode}</p>
+              <p><strong>Budget:</strong> £${budget || 'Not specified'} (${budget_type || 'fixed'})</p>
+              <p><strong>Preferred Date:</strong> ${preferred_date || 'Not specified'}</p>
+              ${imageUrls.length > 0 ? `<p><strong>Images:</strong> ${imageUrls.length} uploaded</p>` : ''}
+            </div>
+            <p style="color:#666;font-size:14px;">You will receive quotes from verified tradespeople once your job is approved by our admin team.</p>
+          </div>
+        `;
+
+        const clientEmail = {
+          from: 'My Approved <khamareclarke@gmail.com>',
+          to: client?.email,
+          subject: 'Job Posted Successfully - My Approved',
+          html: clientEmailContent
+        };
+
+        await transporter.sendMail(clientEmail);
+        console.log('Client confirmation email sent');
+      } catch (emailError) {
+        console.error('Failed to send client confirmation email:', emailError);
+      }
+    }, 50);
+
     // Get client details for email
     const { data: client } = await supabaseAdmin
       .from('clients')
@@ -158,7 +201,7 @@ export async function POST(request: NextRequest) {
         };
 
         await transporter.sendMail(mailOptions);
-        console.log('Admin notification email sent');
+        console.log('Admin notification email sent to khamareclarke@gmail.com');
       } catch (emailError) {
         console.error('Failed to send admin notification email:', emailError);
       }
@@ -209,8 +252,8 @@ export async function POST(request: NextRequest) {
         const transporter = nodemailer.createTransport({
           service: 'gmail',
           auth: {
-            user: 'sajidasaif93@gmail.com',
-            pass: 'idsp lvmm vmcp iynp'
+            user: 'khamareclarke@gmail.com',
+            pass: 'ovga hgzy rltc ifyh'
           }
         });
 

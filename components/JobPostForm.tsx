@@ -35,18 +35,165 @@ export default function JobPostForm({ onJobPosted }: JobPostFormProps) {
 
 
   const tradeOptions = [
-    'Plumbing',
-    'Electrical',
-    'Carpentry',
-    'Painting & Decorating',
-    'Roofing',
-    'Heating & Ventilation',
-    'Garden & Landscaping',
-    'Cleaning',
-    'Carpet & Flooring',
-    'Kitchen & Bathroom',
-    'General Handyman',
-    'Other'
+    // Plumbing & Water
+    'Plumber',
+    'Heating Engineer',
+    'Gas Engineer',
+    'Bathroom Fitter',
+    'Shower Installer',
+    'Boiler Engineer',
+    'Water Heater Specialist',
+    
+    // Electrical
+    'Electrician',
+    'Electrical Engineer',
+    'Security Installer',
+    'TV Aerial Installer',
+    'Smart Home Installer',
+    'EV Charger Installer',
+    
+    // Building & Construction
+    'Builder',
+    'General Contractor',
+    'Bricklayer',
+    'Concrete Specialist',
+    'Scaffolder',
+    'Demolition Expert',
+    'Extensions Specialist',
+    
+    // Painting & Decorating
+    'Painter',
+    'Decorator',
+    'Wallpaper Specialist',
+    'Exterior Painter',
+    'Industrial Painter',
+    
+    // Roofing & Exterior
+    'Roofer',
+    'Gutter Specialist',
+    'Chimney Sweep',
+    'Fascia & Soffit Specialist',
+    'Flat Roof Specialist',
+    'Slate Roofer',
+    'Tile Roofer',
+    
+    // Flooring & Tiling
+    'Tiler',
+    'Flooring Specialist',
+    'Carpet Fitter',
+    'Hardwood Flooring',
+    'Laminate Flooring',
+    'Vinyl Flooring',
+    'Marble Specialist',
+    'Granite Specialist',
+    
+    // Plastering & Drywall
+    'Plasterer',
+    'Drywall Specialist',
+    'Artex Specialist',
+    'Coving Specialist',
+    
+    // Carpentry & Woodwork
+    'Carpenter',
+    'Joiner',
+    'Cabinet Maker',
+    'Stair Specialist',
+    'Door Fitter',
+    'Window Fitter',
+    'Skirting Board Specialist',
+    
+    // Kitchen & Bathroom
+    'Kitchen Fitter',
+    'Kitchen Designer',
+    'Bathroom Designer',
+    'Bathroom Renovator',
+    'Kitchen Appliance Installer',
+    
+    // Landscaping & Garden
+    'Gardener',
+    'Landscaper',
+    'Tree Surgeon',
+    'Lawn Care Specialist',
+    'Hedge Trimmer',
+    'Garden Designer',
+    'Paving Specialist',
+    'Decking Specialist',
+    'Fencing Specialist',
+    'Fencer',
+    
+    // Cleaning & Maintenance
+    'Cleaner',
+    'Window Cleaner',
+    'Carpet Cleaner',
+    'Upholstery Cleaner',
+    'Gutter Cleaner',
+    'Pressure Washer',
+    'Deep Clean Specialist',
+    
+    // Handyman Services
+    'Handyman',
+    'General Repair',
+    'Furniture Assembly',
+    'Picture Hanging',
+    'Shelf Installation',
+    'Curtain Fitting',
+    
+    // Security & Locks
+    'Locksmith',
+    'Security System Installer',
+    'CCTV Installer',
+    'Alarm Installer',
+    'Safe Specialist',
+    
+    // Specialized Services
+    'Welder',
+    'Metal Worker',
+    'Glazier',
+    'Glass Specialist',
+    'Mirror Installer',
+    'Upholsterer',
+    'Furniture Repair',
+    'Antique Restorer',
+    
+    // Pest & Wildlife
+    'Pest Control',
+    'Wildlife Removal',
+    'Bird Control',
+    'Rodent Specialist',
+    
+    // Appliance & Electronics
+    'Appliance Repair',
+    'Washing Machine Repair',
+    'Dishwasher Repair',
+    'Oven Repair',
+    'Fridge Repair',
+    'TV Repair',
+    'Computer Repair',
+    
+    // Automotive
+    'Car Mechanic',
+    'Mobile Mechanic',
+    'Car Electrician',
+    'Tyre Fitter',
+    'MOT Tester',
+    
+    // Moving & Storage
+    'Removal Specialist',
+    'Packing Service',
+    'Storage Solutions',
+    'Man with Van',
+    
+    // Health & Safety
+    'Health & Safety Consultant',
+    'Fire Safety Specialist',
+    'Asbestos Removal',
+    'Mold Specialist',
+    
+    // Renewable Energy
+    'Solar Panel Installer',
+    'Heat Pump Installer',
+    'Insulation Specialist',
+    'Energy Assessor'
   ];
 
   const budgetTypeOptions = [
@@ -65,65 +212,185 @@ export default function JobPostForm({ onJobPosted }: JobPostFormProps) {
   // AI-powered job description suggestions based on trade
   const getAISuggestions = (trade: string) => {
     const suggestions = {
-      'Plumbing': [
+      'Plumber': [
         "I need a qualified plumber to fix a leaking kitchen tap. The tap has been dripping constantly for 2 days. Located under the sink, easy access. Please bring necessary parts.",
         "Bathroom toilet is blocked and won't flush properly. Need urgent plumbing help. Have tried basic unblocking but issue persists. Ground floor bathroom.",
         "Installing a new washing machine in utility room. Need plumber to connect water supply and drainage. All pipes are accessible. Machine is already delivered.",
         "Shower pressure is very low in upstairs bathroom. All other taps work fine. Need diagnosis and repair. Prefer morning appointment if possible."
       ],
-      'Electrical': [
+      'Electrician': [
         "Need qualified electrician to install 3 new power sockets in living room. Walls are plasterboard, easy access. All materials to be provided by tradesperson.",
         "Kitchen lights keep flickering and sometimes go off completely. Need urgent electrical inspection and repair. Safety concern with young children in house.",
         "Installing new electric oven in kitchen. Need electrician to connect to mains supply. Existing connection point available. Oven is already purchased.",
         "Outdoor security lights not working after recent storm. Need electrician to check wiring and replace if necessary. 2 lights on front of house."
       ],
-      'Carpentry': [
-        "Need custom-built shelving unit for living room alcove. Measurements: 2m wide x 2.5m high x 30cm deep. Pine wood preferred. Include 4 adjustable shelves.",
-        "Kitchen cabinet door has come off hinges and won't close properly. Need carpenter to repair or replace hinges. Door is solid wood, standard size.",
-        "Building a garden shed foundation and frame. Concrete base already laid. Need experienced carpenter for wooden frame construction. Materials list available.",
-        "Wooden stairs creaking badly, especially 3rd and 7th steps. Need carpenter to inspect and repair. Stairs are painted softwood, straight flight."
+      'Builder': [
+        "Need experienced builder for kitchen extension. Planning permission approved. Extension is 3m x 4m, single story. Need foundation work, walls, and roof.",
+        "Converting garage into home office. Need builder to remove garage door, install window, and create proper entrance. Garage is attached to house.",
+        "Building garden wall along property boundary. Wall is 15m long x 1.8m high. Need proper foundations and drainage. Planning permission already obtained.",
+        "Loft conversion - need builder for structural work including steel beams, floor joists, and staircase installation. Architect drawings available."
       ],
-      'Painting & Decorating': [
+      'Painter': [
         "Need living room painted - 2 coats throughout. Room size: 4m x 5m, standard height ceiling. Currently magnolia, want to change to light grey. Include ceiling.",
         "Exterior front door needs stripping and repainting. Door is wooden, currently blue paint is peeling. Want professional finish in black. Include frame touch-up.",
         "Bedroom wallpaper removal and painting. One feature wall has textured wallpaper that needs careful removal. Room is 3m x 4m. Paint in neutral colors.",
         "Hallway and stairs decorating. Walls need filling and painting, woodwork needs gloss paint. High ceiling area, need experienced decorator with proper equipment."
       ],
-      'Roofing': [
+      'Roofer': [
         "Several roof tiles are loose/missing after recent storm. Need roofer to inspect and replace tiles. Two-story house, pitched roof. Safety equipment essential.",
         "Guttering is overflowing during rain. Need cleaning and possible repair/replacement. Full house perimeter, includes downpipes. Access from garden available.",
         "Small leak in bedroom ceiling during heavy rain. Need roof inspection to find source and repair. Leak appears to be above window area.",
         "Flat roof garage needs waterproofing. Current felt is cracking and letting water in. Garage is 3m x 6m. Need durable solution."
       ],
-      'Heating & Ventilation': [
-        "Central heating boiler not working - no hot water or heating. Boiler is 8 years old, serviced annually. Need urgent repair, family with young children.",
-        "Installing new bathroom extractor fan. Bathroom gets very steamy, need powerful fan with timer. Ducting to external wall required.",
-        "Radiator in bedroom not heating up while others work fine. Need heating engineer to diagnose and repair. System was working fine until last week.",
-        "Annual boiler service required. Gas boiler, last serviced 12 months ago. Need Gas Safe registered engineer. Prefer morning appointment."
-      ],
-      'Garden & Landscaping': [
+      'Gardener': [
         "Garden lawn needs complete renovation. Current grass is patchy and full of weeds. Garden is 10m x 8m, south-facing. Want professional lawn laying.",
         "Building raised flower beds along garden fence. Need 3 beds, each 2m long x 1m wide x 0.5m high. Include soil and basic planting advice.",
-        "Tree pruning required - large oak tree overhanging neighbor's property. Need qualified tree surgeon with insurance. Tree is approximately 15m tall.",
+        "Garden maintenance contract - need regular gardener for weekly maintenance. Garden is 200sqm with lawn, borders, and small trees. Prefer Friday mornings.",
         "Patio area needs pressure washing and re-pointing. Patio is 4m x 6m, natural stone. Some slabs are loose and need re-laying."
       ],
-      'Cleaning': [
+      'Tiler': [
+        "Bathroom needs complete tiling - walls and floor. Bathroom is 2m x 2m. Want white subway tiles on walls, grey porcelain tiles on floor. Include grouting.",
+        "Kitchen splashback tiling. Need 3m of splashback tiled behind cooker and sink. Want white metro tiles with grey grout. Easy access, no obstacles.",
+        "Floor tiling in hallway. Hallway is 2m x 4m, currently carpeted. Want porcelain tiles throughout. Need to remove carpet and prepare subfloor.",
+        "Shower cubicle tiling - need waterproof tiling for walk-in shower. Shower is 1m x 1m. Need proper waterproofing and drainage. Tiles already purchased."
+      ],
+      'Carpenter': [
+        "Need custom-built shelving unit for living room alcove. Measurements: 2m wide x 2.5m high x 30cm deep. Pine wood preferred. Include 4 adjustable shelves.",
+        "Kitchen cabinet door has come off hinges and won't close properly. Need carpenter to repair or replace hinges. Door is solid wood, standard size.",
+        "Building a garden shed foundation and frame. Concrete base already laid. Need experienced carpenter for wooden frame construction. Materials list available.",
+        "Wooden stairs creaking badly, especially 3rd and 7th steps. Need carpenter to inspect and repair. Stairs are painted softwood, straight flight."
+      ],
+      'Locksmith': [
+        "Front door lock is jammed and won't open with key. Need urgent locksmith to repair or replace lock. Family locked out of house. Emergency call-out required.",
+        "Installing new security locks on all external doors. Need high-security locks with anti-snap protection. 3 doors total - front, back, and side door.",
+        "Lost keys for front door and need new keys cut. Lock is a standard 5-lever mortice lock. Need locksmith to make new keys from lock.",
+        "Garage door lock broken - won't lock properly. Need locksmith to repair or replace. Garage is detached, good access. Prefer morning appointment."
+      ],
+      'Cleaner': [
         "Deep clean of entire house after renovation work. 3-bedroom house, lots of dust and debris. Need professional cleaning team with industrial equipment.",
         "End of tenancy cleaning required. 2-bedroom flat, good condition but needs thorough clean for deposit return. Include oven, carpets, windows.",
         "Office cleaning contract - small office with 6 desks, kitchen area, 2 bathrooms. Need weekly cleaning service. Prefer early morning or evening.",
         "Carpet cleaning for living room and stairs. High-traffic areas with some stains. Carpets are light colored, need professional steam cleaning."
       ],
-      'Kitchen & Bathroom': [
-        "Complete bathroom renovation - remove old suite and install new. Bathroom is 2m x 2m, includes tiling, plumbing, electrical work. New suite already purchased.",
-        "Kitchen worktop replacement - current laminate is damaged. Kitchen is L-shaped, approximately 4m total length. Prefer granite or quartz surface.",
-        "Installing new bathroom shower - converting bath to walk-in shower. Need tiling, plumbing, and waterproofing. Bathroom is upstairs, good access.",
-        "Kitchen cabinet doors need replacing - existing carcasses are good. 12 doors and 4 drawer fronts. Prefer modern white gloss finish."
-      ],
-      'General Handyman': [
+      'Handyman': [
         "Various small jobs around the house: fix squeaky door hinges, replace broken light switch, adjust wardrobe door, touch up paint in hallway.",
         "Flat-pack furniture assembly - large wardrobe and chest of drawers for bedroom. All parts and instructions included. Need someone with experience.",
         "Picture hanging and wall mounting - need 8 large pictures hung securely, plus TV wall mount in living room. Walls are plasterboard over brick.",
         "Garden gate repair - wooden gate is sagging and won't close properly. Hinges may need replacing. Gate is 1.8m high, standard width."
+      ],
+      'Plasterer': [
+        "Living room ceiling needs re-plastering after water damage. Ceiling is 4m x 5m, standard height. Need proper preparation and smooth finish.",
+        "New wall needs plastering - recently built partition wall in bedroom. Wall is 3m x 2.5m. Need professional finish ready for painting.",
+        "Artex ceiling needs skimming over. Ceiling is 3m x 4m. Want smooth finish without removing artex. Need experienced plasterer.",
+        "Hallway walls need patching and re-plastering. Several holes and cracks need filling. Walls are standard height, good access."
+      ],
+      'Flooring': [
+        "Living room needs new laminate flooring. Room is 4m x 5m. Need underlay, skirting boards, and door trims. Floor is level, no preparation needed.",
+        "Carpet fitting for 3 bedrooms. Rooms are standard size, need carpet, underlay, and gripper rods. Stairs also need carpeting.",
+        "Kitchen vinyl flooring installation. Kitchen is 3m x 4m. Need waterproof vinyl suitable for kitchen use. Easy access, no obstacles.",
+        "Bathroom floor tiling. Bathroom is 2m x 2m. Need waterproof tiles suitable for bathroom. Include proper sealing and grouting."
+      ],
+      'Kitchen Fitter': [
+        "Complete kitchen installation - new kitchen units, worktops, and appliances. Kitchen is L-shaped, 4m total length. All units and appliances delivered.",
+        "Kitchen worktop replacement - current laminate is damaged. Kitchen is L-shaped, approximately 4m total length. Prefer granite or quartz surface.",
+        "Kitchen cabinet doors need replacing - existing carcasses are good. 12 doors and 4 drawer fronts. Prefer modern white gloss finish.",
+        "Kitchen island installation - need freestanding island unit with electrical connection. Island is 2m x 1m. Need proper electrical work included."
+      ],
+      'Bathroom Fitter': [
+        "Complete bathroom renovation - remove old suite and install new. Bathroom is 2m x 2m, includes tiling, plumbing, electrical work. New suite already purchased.",
+        "Installing new bathroom shower - converting bath to walk-in shower. Need tiling, plumbing, and waterproofing. Bathroom is upstairs, good access.",
+        "Bathroom suite replacement - new toilet, basin, and bath. Bathroom is 2m x 2m. Need proper plumbing connections and waste disposal.",
+        "Bathroom extractor fan installation. Bathroom gets very steamy, need powerful fan with timer. Ducting to external wall required."
+      ],
+      'Heating Engineer': [
+        "Central heating boiler not working - no hot water or heating. Boiler is 8 years old, serviced annually. Need urgent repair, family with young children.",
+        "Radiator in bedroom not heating up while others work fine. Need heating engineer to diagnose and repair. System was working fine until last week.",
+        "Annual boiler service required. Gas boiler, last serviced 12 months ago. Need Gas Safe registered engineer. Prefer morning appointment.",
+        "New radiator installation in extension. Need heating engineer to connect new radiator to existing system. Extension is 3m x 4m."
+      ],
+      'Gas Engineer': [
+        "Gas boiler service and safety check. Boiler is 5 years old, last serviced 12 months ago. Need Gas Safe registered engineer with certificate.",
+        "Gas cooker installation - new gas cooker needs connecting to gas supply. Need qualified gas engineer for safe installation.",
+        "Gas fire installation in living room. Need gas engineer to install new gas fire with proper ventilation and safety checks.",
+        "Gas leak investigation - smell of gas in kitchen area. Need urgent gas engineer to check for leaks and make safe."
+      ],
+      'Landscaper': [
+        "Garden design and landscaping - complete garden makeover. Garden is 10m x 8m, currently overgrown. Want low-maintenance design with patio area.",
+        "Patio installation - need new patio area 4m x 3m. Want natural stone paving with proper foundations and drainage.",
+        "Garden lighting installation - need outdoor lighting for garden paths and patio area. Need qualified electrician for electrical work.",
+        "Garden drainage - garden floods during heavy rain. Need proper drainage system installed. Garden is 8m x 6m, good access."
+      ],
+      'Tree Surgeon': [
+        "Tree pruning required - large oak tree overhanging neighbor's property. Need qualified tree surgeon with insurance. Tree is approximately 15m tall.",
+        "Tree removal - dead tree needs removing from garden. Tree is 10m tall, good access. Need proper disposal of wood and stump grinding.",
+        "Hedge trimming - large hedge needs professional trimming. Hedge is 20m long x 3m high. Need experienced tree surgeon with proper equipment.",
+        "Tree inspection - concerned about tree health. Need qualified arborist to inspect and provide report on tree condition."
+      ],
+      'Window Cleaner': [
+        "Regular window cleaning service - need monthly cleaning for 3-bedroom house. Windows are standard size, easy access from ground level.",
+        "One-off deep clean - windows haven't been cleaned for 6 months. Need professional cleaning inside and out. House has 12 windows total.",
+        "Commercial window cleaning - office building needs monthly cleaning. Building has 20 windows, some on first floor. Need experienced cleaner.",
+        "Gutter cleaning and window cleaning - need both services. House is 2-story, gutters are accessible. Windows are standard residential size."
+      ],
+      'Carpet Fitter': [
+        "Carpet fitting for 3 bedrooms. Rooms are standard size, need carpet, underlay, and gripper rods. Stairs also need carpeting.",
+        "Carpet replacement in living room. Room is 4m x 5m, need carpet removal and new carpet fitting. Easy access, no obstacles.",
+        "Carpet stretching - existing carpet is loose and needs stretching. Living room carpet is 4m x 5m, good condition otherwise.",
+        "Carpet repair - carpet has tear near door. Need professional repair to make good. Carpet is good quality, worth repairing."
+      ],
+      'Decorator': [
+        "Living room decorating - walls need painting, woodwork needs gloss paint. Room is 4m x 5m, standard height ceiling. Paint in neutral colors.",
+        "Exterior painting - front of house needs repainting. Walls are rendered, need proper preparation and weather-resistant paint.",
+        "Wallpaper hanging - bedroom needs wallpaper on feature wall. Wall is 3m x 2.5m, need professional hanging with proper alignment.",
+        "Kitchen decorating - walls need painting, woodwork needs gloss paint. Kitchen is 3m x 4m, need paint suitable for kitchen use."
+      ],
+      'Welder': [
+        "Metal gate repair - garden gate needs welding repair. Gate is 1.8m high, standard width. Need professional welding to make good.",
+        "Metal railing installation - need new metal railing for stairs. Railing is 3m long, need proper welding and finishing.",
+        "Metal furniture repair - garden furniture needs welding repair. Table and chairs are metal, need professional welding work.",
+        "Metal gate installation - need new metal gate for driveway. Gate is 3m wide, need proper installation with hinges and lock."
+      ],
+      'Fencer': [
+        "Garden fence replacement - need new fence along property boundary. Fence is 15m long x 1.8m high. Need proper posts and panels.",
+        "Fence repair - existing fence has damaged panels. Need replacement panels and post repair. Fence is 10m long, good access.",
+        "Garden gate installation - need new gate in fence. Gate is 1m wide, need proper hinges and lock. Fence is 1.8m high.",
+        "Fence staining - wooden fence needs staining for protection. Fence is 20m long x 1.8m high, need professional application."
+      ],
+      'Pest Control': [
+        "Wasp nest removal - large wasp nest in garden shed. Need professional removal with proper safety equipment. Nest is accessible.",
+        "Mouse problem - mice in kitchen area. Need pest control treatment and prevention. Kitchen is 3m x 4m, need thorough treatment.",
+        "Ant problem - ants in kitchen and bathroom. Need pest control treatment and prevention. Need professional treatment for both areas.",
+        "Bed bug treatment - suspected bed bug infestation. Need professional inspection and treatment. Bedrooms need thorough treatment."
+      ],
+      'Security Installer': [
+        "CCTV installation - need 4 cameras around property. Need professional installation with proper wiring and recording system.",
+        "Alarm system installation - need burglar alarm for house. Need professional installation with proper sensors and monitoring.",
+        "Security lighting - need outdoor security lighting. Need qualified electrician for proper installation and wiring.",
+        "Smart doorbell installation - need video doorbell with app connection. Need professional installation with proper wiring."
+      ],
+      'TV Aerial Installer': [
+        "TV aerial installation - need new aerial for digital TV. House is 2-story, need proper installation and alignment.",
+        "Satellite dish installation - need satellite dish for TV. Need professional installation with proper alignment and wiring.",
+        "TV aerial repair - existing aerial not working properly. Need professional inspection and repair. Aerial is accessible.",
+        "Multiple TV points - need TV points in 3 rooms. Need professional installation with proper wiring and connections."
+      ],
+      'Appliance Repair': [
+        "Washing machine repair - machine not spinning properly. Need professional repair with proper diagnosis and parts.",
+        "Dishwasher repair - dishwasher not cleaning properly. Need professional repair with proper diagnosis and parts.",
+        "Oven repair - oven not heating properly. Need professional repair with proper diagnosis and parts.",
+        "Fridge repair - fridge not cooling properly. Need professional repair with proper diagnosis and parts."
+      ],
+      'Upholsterer': [
+        "Sofa reupholstering - 3-seater sofa needs new fabric. Sofa is good condition, need professional reupholstering.",
+        "Chair repair - dining chair needs reupholstering. Chair is good condition, need professional repair.",
+        "Cushion making - need new cushions for sofa. Need professional making with proper fabric and filling.",
+        "Furniture repair - armchair needs reupholstering. Chair is good condition, need professional repair."
+      ],
+      'Glazier': [
+        "Window glass replacement - broken window pane needs replacing. Window is standard size, need professional replacement.",
+        "Door glass replacement - door has broken glass panel. Need professional replacement with proper sealing.",
+        "Mirror installation - need large mirror installed on wall. Mirror is 1m x 1.5m, need professional installation.",
+        "Glass door repair - sliding glass door needs repair. Door is 2m wide, need professional repair work."
       ]
     };
 

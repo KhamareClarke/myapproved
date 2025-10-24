@@ -11,8 +11,8 @@ export async function POST(request: NextRequest) {
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
-        user: 'sajidasaif93@gmail.com',
-        pass: 'idsp lvmm vmcp iynp'
+        user: 'khamareclarke@gmail.com',
+        pass: 'ovga hgzy rltc ifyh'
       },
       tls: {
         rejectUnauthorized: false
@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
     console.log('Connection verified successfully');
 
     const mailOptions = {
-      from: 'sajidasaif93@gmail.com',
+      from: 'khamareclarke@gmail.com',
       to: 'fizasaif0233@gmail.com',
       subject: 'Simple Test Email',
       text: 'This is a simple test email to verify SMTP configuration.',

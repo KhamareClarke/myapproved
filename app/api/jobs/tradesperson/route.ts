@@ -5,8 +5,8 @@ export const dynamic = 'force-dynamic';
 
 // Initialize Supabase client
 const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
+  'https://jismdkfjkngwbpddhomx.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imppc21ka2Zqa25nd2JwZGRob214Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI5Mzc2MzksImV4cCI6MjA2ODUxMzYzOX0.1pK4G-Mu5v8lSdDJUAsPsoDAlK9d7ocFaUH9dd2vl3A'
 );
 
 export async function GET(request: NextRequest) {
@@ -58,12 +58,12 @@ export async function GET(request: NextRequest) {
         )
       `)
       .eq('is_approved', true)
-      .eq('status', 'approved')
       .eq('is_completed', false)
-      .eq('application_status', 'open')
       .is('assigned_tradesperson_id', null)
       .eq('is_flagged', false)
       .order('created_at', { ascending: false });
+
+    console.log('Initial query conditions: is_approved=true, is_completed=false, assigned_tradesperson_id=null, is_flagged=false');
 
     // Exclude jobs the tradesperson has already applied to
     if (appliedJobIds.length > 0) {
@@ -117,9 +117,7 @@ export async function GET(request: NextRequest) {
       .from('jobs')
       .select('*', { count: 'exact', head: true })
       .eq('is_approved', true)
-      .eq('status', 'approved')
       .eq('is_completed', false)
-      .eq('application_status', 'open')
       .is('assigned_tradesperson_id', null)
       .eq('is_flagged', false);
 
@@ -183,6 +181,27 @@ export async function GET(request: NextRequest) {
     }
 
     console.log(`Found ${jobs?.length || 0} jobs matching filters (excluded ${appliedJobIds.length} already applied jobs)`);
+    
+    if (jobs && jobs.length > 0) {
+      console.log('Job details:', jobs.map(j => ({
+        id: j.id,
+        trade: j.trade,
+        status: j.status,
+        isApproved: j.is_approved,
+        isCompleted: j.is_completed,
+        applicationStatus: j.application_status,
+        assignedTradesperson: j.assigned_tradesperson_id,
+        isFlagged: j.is_flagged,
+        postcode: j.postcode
+      })));
+    } else {
+      console.log('No jobs found. This could be due to:');
+      console.log('- No jobs are approved (is_approved=true)');
+      console.log('- All jobs are completed (is_completed=false)');
+      console.log('- All jobs are assigned (assigned_tradesperson_id=null)');
+      console.log('- All jobs are flagged (is_flagged=false)');
+      console.log('- Trade/location filters are too restrictive');
+    }
 
     const totalPages = Math.ceil((count || 0) / limit);
 
