@@ -163,7 +163,6 @@ const EnhancedFooter = () => {
                         <li key={j}>
                           {link.href === '#' ? (
                             <button
-                              onClick={link.onClick}
                               className="text-blue-200 hover:text-[#FDBD18] transition-colors duration-300 text-sm group flex items-center gap-1"
                             >
                               <span>{link.name}</span>
