@@ -207,7 +207,6 @@ const UltraFooter = () => {
                         <li key={j}>
                           {link.href === '#' ? (
                             <button
-                              onClick={link.onClick}
                               className="text-blue-200 hover:text-[#FDBD18] transition-colors duration-300 text-base group flex items-center gap-2"
                             >
                               <span className="font-semibold">{link.name}</span>

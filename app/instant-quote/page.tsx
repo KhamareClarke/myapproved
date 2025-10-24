@@ -127,15 +127,15 @@ export default function InstantQuotePage() {
               {/* Step 1: Trade Selection */}
               {currentStep === 1 && (
                 <div className="space-y-6">
-                  <div className="text-center mb-8">
+            <div className="text-center mb-8">
                     <Wrench className="w-12 h-12 text-blue-600 mx-auto mb-4" />
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">What service do you need?</h3>
                     <p className="text-gray-600">Select the type of tradesperson you're looking for</p>
-                  </div>
-                  
+            </div>
+
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     {trades.map((trade) => (
-                      <button
+                    <button
                         key={trade}
                         onClick={() => updateFormData('trade', trade)}
                         className={`p-4 rounded-lg border-2 transition-all duration-200 text-left ${
@@ -145,9 +145,9 @@ export default function InstantQuotePage() {
                         }`}
                       >
                         <div className="font-medium">{trade}</div>
-                      </button>
-                    ))}
-                  </div>
+                    </button>
+                  ))}
+                </div>
                 </div>
               )}
 
@@ -158,20 +158,20 @@ export default function InstantQuotePage() {
                     <FileText className="w-12 h-12 text-blue-600 mx-auto mb-4" />
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Tell us about your job</h3>
                     <p className="text-gray-600">The more details you provide, the better quotes you'll receive</p>
-                  </div>
-                  
+              </div>
+
                   <div className="space-y-4">
-                    <div>
+              <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">Job Description</label>
                       <Textarea
                         placeholder="Describe what needs to be done..."
                         value={formData.description}
                         onChange={(e) => updateFormData('description', e.target.value)}
                         className="min-h-[120px]"
-                      />
-                    </div>
-                    
-                    <div>
+                />
+              </div>
+
+              <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">Postcode</label>
                       <Input
                         placeholder="e.g. SW1A 1AA"
@@ -191,14 +191,14 @@ export default function InstantQuotePage() {
                     <Calendar className="w-12 h-12 text-blue-600 mx-auto mb-4" />
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">When do you need the work done?</h3>
                     <p className="text-gray-600">This helps us match you with available tradespeople</p>
-                  </div>
-                  
+              </div>
+
                   <div className="space-y-6">
-                    <div>
+              <div>
                       <label className="block text-sm font-medium text-gray-700 mb-4">How urgent is this job?</label>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {urgencyOptions.map((option) => (
-                          <button
+                    <button
                             key={option.value}
                             onClick={() => updateFormData('urgency', option.value)}
                             className={`p-4 rounded-lg border-2 transition-all duration-200 text-left ${
@@ -211,12 +211,12 @@ export default function InstantQuotePage() {
                               <span className="text-2xl">{option.icon}</span>
                               <span className="font-medium">{option.label}</span>
                             </div>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+                <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">When are you available?</label>
                       <Select value={formData.availability} onValueChange={(value) => updateFormData('availability', value)}>
                         <SelectTrigger>
@@ -228,9 +228,9 @@ export default function InstantQuotePage() {
                           ))}
                         </SelectContent>
                       </Select>
-                    </div>
-                  </div>
                 </div>
+                </div>
+              </div>
               )}
 
               {/* Step 4: Review & Submit */}
@@ -240,8 +240,8 @@ export default function InstantQuotePage() {
                     <Calculator className="w-12 h-12 text-blue-600 mx-auto mb-4" />
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Review your quote request</h3>
                     <p className="text-gray-600">Make sure everything looks correct before submitting</p>
-                  </div>
-                  
+              </div>
+
                   <div className="bg-gray-50 rounded-lg p-6 space-y-4">
                     <div>
                       <span className="text-sm font-medium text-gray-500">Service needed:</span>
@@ -265,8 +265,8 @@ export default function InstantQuotePage() {
                       <span className="text-sm font-medium text-gray-500">Availability:</span>
                       <p className="text-gray-900">{formData.availability || 'Not specified'}</p>
                     </div>
-                  </div>
-                </div>
+          </div>
+        </div>
               )}
 
               {/* Navigation */}
@@ -290,8 +290,8 @@ export default function InstantQuotePage() {
                       }`}
                     />
                   ))}
-                </div>
-                
+          </div>
+
                 {currentStep < totalSteps ? (
                   <Button onClick={handleNext} className="flex items-center gap-2">
                     Next
@@ -308,7 +308,7 @@ export default function InstantQuotePage() {
                     </Link>
                   </Button>
                 )}
-              </div>
+                </div>
             </CardContent>
           </Card>
         </div>
