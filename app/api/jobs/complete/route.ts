@@ -120,15 +120,15 @@ export async function POST(request: NextRequest) {
       const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'sajidasaif93@gmail.com',
-          pass: 'idsp lvmm vmcp iynp'
+          user: 'khamareclarke@gmail.com',
+          pass: 'ovga hgzy rltc ifyh'
         }
       });
 
       // Email to admin
       const adminEmail = {
         from: 'My Approved <noreply@myapproved.co.uk>',
-        to: 'fizasaif0233@gmail.com', // Admin email
+        to: 'khamareclarke@gmail.com', // Admin email
         subject: `Job Completed - ${job.trade}`,
         html: `
           <div style="font-family:Arial,sans-serif;max-width:600px;margin:auto;padding:20px;border:1px solid #eee;border-radius:8px;">

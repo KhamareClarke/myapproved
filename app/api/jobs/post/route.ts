@@ -131,14 +131,14 @@ export async function POST(request: NextRequest) {
         const transporter = nodemailer.createTransport({
           service: 'gmail',
           auth: {
-            user: 'sajidasaif93@gmail.com',
-            pass: 'idsp lvmm vmcp iynp'
+            user: 'khamareclarke@gmail.com',
+            pass: 'ovga hgzy rltc ifyh'
           }
         });
 
         const mailOptions = {
           from: 'My Approved <noreply@myapproved.co.uk>',
-          to: 'fizasaif0233@gmail.com', // Admin email
+          to: 'khamareclarke@gmail.com', // Admin email
           subject: 'New Job Posted - My Approved',
           html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:auto;padding:20px;border:1px solid #eee;border-radius:8px;">
             <h2 style="color:#2d3748;">New Job Posted</h2>

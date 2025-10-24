@@ -167,8 +167,8 @@ export async function POST(request: NextRequest) {
       const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'myapproved2024@gmail.com',
-          pass: 'qjqj qjqj qjqj qjqj'
+          user: 'khamareclarke@gmail.com',
+          pass: 'ovga hgzy rltc ifyh'
         }
       });
 
@@ -213,8 +213,8 @@ export async function POST(request: NextRequest) {
       `;
 
       await transporter.sendMail({
-        from: '"My Approved" <myapproved2024@gmail.com>',
-        to: 'fizasaif0233@gmail.com', // Admin email
+        from: '"My Approved" <khamareclarke@gmail.com>',
+        to: 'khamareclarke@gmail.com', // Admin email
         subject: 'New Quote Request - Admin Approval Required',
         html: adminEmailContent
       });
