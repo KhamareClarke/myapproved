@@ -51,8 +51,8 @@ export async function GET(request: NextRequest) {
     console.log('Status breakdown:', statusBreakdown);
 
     // Get unique status values
-    const uniqueStatuses = [...new Set(allJobs?.map(j => j.status) || [])];
-    const uniqueApplicationStatuses = [...new Set(allJobs?.map(j => j.application_status) || [])];
+    const uniqueStatuses = Array.from(new Set(allJobs?.map(j => j.status) || []));
+    const uniqueApplicationStatuses = Array.from(new Set(allJobs?.map(j => j.application_status) || []));
 
     return NextResponse.json({
       success: true,
