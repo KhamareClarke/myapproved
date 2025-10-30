@@ -1003,7 +1003,7 @@ export default function Home() {
       <SchemaMarkup schema={organizationSchema} />
       <SchemaMarkup schema={ServiceSchema} />
       {/* World-Class Mobile-First Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-screen">
+      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-screen lg:min-h-[85vh]">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/70 to-indigo-800/60"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.3),transparent_50%)] animate-pulse"></div>
@@ -1014,24 +1014,24 @@ export default function Home() {
         <div className="hidden sm:block absolute top-40 right-20 w-16 h-16 bg-blue-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '1.5s'}}></div>
         <div className="hidden sm:block absolute bottom-32 left-20 w-12 h-12 bg-white/10 rounded-full blur-lg animate-bounce" style={{animationDelay: '2s'}}></div>
         {/* Mobile-First Container */}
-        <div className="relative z-10 min-h-screen flex flex-col justify-center px-4 py-8 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-          <div className="max-w-4xl lg:max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
+        <div className="relative z-10 min-h-screen lg:min-h-[85vh] flex flex-col justify-center px-4 py-8 lg:py-0 lg:pt-8 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+          <div className="max-w-4xl lg:max-w-7xl mx-auto w-full h-full flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
             {/* Mobile-First Content */}
-            <div className="flex-1 z-10 flex flex-col items-center text-center lg:items-start lg:text-left w-full">
+            <div className="flex-1 z-10 flex flex-col items-center text-center lg:items-start lg:text-left lg:justify-end lg:pb-6 w-full">
               {/* Premium Badge - Mobile Optimized */}
-              <div className="flex justify-center lg:justify-start mb-6 sm:mb-8">
-                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400/90 to-yellow-500/90 backdrop-blur-sm px-4 py-2 rounded-full border border-yellow-300/50 shadow-lg">
+              <div className="flex justify-center lg:justify-start mb-6 sm:mb-8 lg:mb-5">
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400/90 to-yellow-500/90 backdrop-blur-sm px-4 py-2 lg:px-5 lg:py-2.5 rounded-full border border-yellow-300/50 shadow-lg lg:self-start">
                   <div className="relative">
-                    <Star className="w-4 h-4 text-yellow-900 animate-pulse" />
+                    <Star className="w-4 h-4 lg:w-5 lg:h-5 text-yellow-900 animate-pulse" />
                     <div className="absolute -inset-1 bg-yellow-300/40 rounded-full blur-sm animate-ping"></div>
                   </div>
-                  <span className="text-sm font-bold text-yellow-900">Rated #1 Tradesperson Platform</span>
+                  <span className="text-sm lg:text-base font-bold text-yellow-900">Rated #1 Tradesperson Platform</span>
                 </div>
               </div>
 
               {/* Hero Title - World-Class Mobile Typography */}
-              <div className="text-center lg:text-left mb-8 sm:mb-10">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.05] tracking-tight mb-6 sm:mb-8">
+              <div className="text-center lg:text-left mb-8 sm:mb-10 lg:mb-4">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-black leading-[1.05] tracking-tight mb-6 sm:mb-8 lg:mb-3">
                   <span className="block">
                     <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent">Find</span>
                     <span className="text-white"> Trusted</span>
@@ -1042,13 +1042,13 @@ export default function Home() {
                   </span>
                 </h1>
                 
-                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-blue-100 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
+                <p className="text-base sm:text-lg md:text-xl lg:text-base xl:text-lg text-blue-100/90 leading-snug md:leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium tracking-tight">
                   Hire vetted professionals near you — fast, reliable, and backed by verified reviews.
                 </p>
               </div>
             
               {/* Premium Statistics - Mobile Optimized */}
-              <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-10">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-10 lg:mb-5 lg:hidden">
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 shadow-lg">
                   <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                   <span className="text-sm font-semibold text-white">50K+ Customers</span>
@@ -1062,7 +1062,7 @@ export default function Home() {
                   <span className="text-sm font-semibold text-white">4.9★ Rating</span>
                 </div>
               </div>
-            <div className="w-full max-w-sm sm:max-w-lg lg:max-w-2xl animate-slide-up" style={{animationDelay: '0.6s'}}>
+            <div className="w-full max-w-sm sm:max-w-lg lg:max-w-xl animate-slide-up" style={{animationDelay: '0.6s'}}>
               <Dialog>
                 <DialogTrigger asChild>
                   <div id="ai-quote-trigger" className="relative group cursor-pointer">
@@ -1070,19 +1070,19 @@ export default function Home() {
                     <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 rounded-2xl sm:rounded-3xl blur-xl sm:blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
                     <div className="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-yellow-400/40 via-white/20 to-yellow-400/40 rounded-xl sm:rounded-2xl blur-md sm:blur-lg opacity-20 group-hover:opacity-30 transition duration-500"></div>
                     
-                    <div className="relative flex items-center bg-white backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl p-2 sm:p-4 lg:p-6 border-2 border-yellow-400/60 group-hover:border-yellow-400 transition-all duration-300">
-                      <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg sm:rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-200 flex-shrink-0">
-                        <Search className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
+                    <div className="relative flex items-center bg-white backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl p-2 sm:p-4 lg:p-5 border-2 border-yellow-400/60 group-hover:border-yellow-400 transition-all duration-300">
+                      <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-10 lg:h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg sm:rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-200 flex-shrink-0">
+                        <Search className="w-4 h-4 sm:w-5 sm:h-5 lg:w-5 lg:h-5 text-white" />
                       </div>
                       <input
                         type="text"
                         placeholder={typed || typingPhrases[phraseIndex]}
-                        className="flex-1 py-2 sm:py-3 lg:py-4 px-2 sm:px-4 lg:px-6 rounded-lg sm:rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none text-sm sm:text-base lg:text-lg font-medium bg-transparent cursor-pointer"
+                        className="flex-1 py-2 sm:py-3 lg:py-3 px-2 sm:px-4 lg:px-4 rounded-lg sm:rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none text-sm sm:text-base lg:text-base font-medium bg-transparent cursor-pointer"
                         readOnly
                       />
                       <Button
                         type="button"
-                        className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-bold rounded-lg sm:rounded-xl px-3 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-sm sm:text-base lg:text-lg shadow-lg hover:shadow-xl transition-all duration-200 flex-shrink-0"
+                        className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-bold rounded-lg sm:rounded-xl px-3 sm:px-4 lg:px-5 py-2 sm:py-3 lg:py-3 text-sm sm:text-base lg:text-base shadow-lg hover:shadow-xl transition-all duration-200 flex-shrink-0"
                       >
                         <span className="hidden sm:inline">Get Started</span>
                         <span className="sm:hidden">Go</span>
@@ -1151,7 +1151,7 @@ export default function Home() {
                 </DialogContent>
               </Dialog>
               {/* Enhanced Trust badges - Exact Badge Style */}
-              <div className="mt-4 sm:mt-6 flex flex-wrap justify-center gap-1.5 sm:gap-2 animate-slide-up" style={{animationDelay: '0.8s'}}>
+              <div className="mt-4 sm:mt-6 lg:mt-3 flex flex-wrap justify-center gap-1.5 sm:gap-2 animate-slide-up" style={{animationDelay: '0.8s'}}>
                 <div className="flex items-center gap-1 bg-teal-600 px-2 py-1 rounded-full border border-teal-500/30 shadow-sm">
                   <ShieldCheck className="w-3 h-3 text-white" />
                   <span className="text-xs font-semibold text-white">Verified</span>
@@ -1166,7 +1166,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="mt-2 sm:mt-3 md:mt-4 lg:mt-5 xl:mt-6">
+            <div className="mt-2 sm:mt-3 md:mt-4 lg:mt-3 xl:mt-4">
               <div className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-6">
                 <div className="min-w-0 flex-1">
                   <p className="text-xs sm:text-sm md:text-base lg:text-lg text-blue-100 italic leading-relaxed">"The easiest way to find a reliable tradesperson. Highly recommended!"</p>
@@ -1179,40 +1179,37 @@ export default function Home() {
             </div>
           </div>
           {/* Right Column: Enlarged Hero Visual - Hidden on Mobile */}
-          <div className="hidden lg:flex flex-1 z-10 items-start justify-center relative animate-slide-up mt-2 lg:mt-0 lg:-mt-32" style={{animationDelay: '0.4s'}}>
-            <div className="relative w-full max-w-2xl">
-              {/* Glow effect behind image - Hidden on mobile for performance */}
-              <div className="hidden sm:block absolute -inset-4 bg-gradient-to-r from-yellow-400/20 via-blue-500/20 to-yellow-400/20 rounded-3xl blur-2xl animate-pulse"></div>
-              
-              <div className="relative">
+          <div className="hidden lg:flex flex-1 z-10 items-end justify-center self-stretch lg:self-stretch h-full relative animate-slide-up mt-2 lg:mt-0" style={{animationDelay: '0.4s'}}>
+            <div className="relative w-full max-w-2xl lg:max-w-4xl lg:h-full">
+              <div className="relative h-full flex items-end">
                 <img
                   src="/hero.png"
                   alt="Trusted Tradespeople"
-                  className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] object-contain object-center transition-transform duration-700 hover:scale-[1.02] rounded-xl sm:rounded-none shadow-2xl"
+                  className="w-full h-[360px] sm:h-[460px] md:h-[520px] lg:h-auto xl:h-auto lg:max-h-full object-contain lg:object-cover object-center lg:object-[center_bottom] transition-transform duration-700 lg:scale-[1.1] xl:scale-[1.16] rounded-xl sm:rounded-none shadow-none lg:self-end lg:mb-[-10px] lg:translate-y-2 xl:translate-y-3"
                   style={{ objectFit: 'contain', objectPosition: 'center' }}
                 />
                 
                 {/* Trust Badges Container - Mobile Responsive */}
-                <div className="absolute bottom-3 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex flex-wrap justify-center gap-2 sm:gap-3 w-full px-3 sm:px-4">
+                <div className="absolute bottom-2 sm:bottom-3 lg:bottom-4 left-1/2 transform -translate-x-1/2 z-10 flex flex-wrap justify-center gap-2 sm:gap-3 w-full px-3 sm:px-4">
                   {/* Verification Badge */}
-                  <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg shadow-xl font-medium flex items-center gap-2 sm:gap-2 border-2 border-white backdrop-blur-sm transition-all duration-300 hover:scale-105">
+                  <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white px-3 sm:px-4 lg:px-2 py-2 sm:py-2.5 lg:py-1.5 rounded-lg shadow-xl font-medium flex items-center gap-2 sm:gap-2 lg:gap-1.5 border-2 border-white backdrop-blur-sm transition-all duration-300 lg:scale-90 hover:scale-105">
                     <div className="relative flex items-center justify-center">
                       <div className="absolute w-2 h-2 sm:w-2.5 sm:h-2.5 bg-white rounded-full animate-ping opacity-75"></div>
                       <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full"></div>
                     </div>
-                    <span className="text-sm sm:text-base font-bold">Verified</span>
+                    <span className="text-sm sm:text-base lg:text-xs font-bold">Verified</span>
                   </div>
                   
                   {/* Rating Badge */}
-                  <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 text-blue-900 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg shadow-xl font-medium flex items-center gap-2 sm:gap-2 border-2 border-yellow-300 backdrop-blur-sm transition-all duration-300 hover:scale-105">
-                    <Star className="w-4 h-4 sm:w-5 sm:h-5 fill-current text-amber-600" />
-                    <span className="text-sm sm:text-base font-bold">4.9★</span>
+                  <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 text-blue-900 px-3 sm:px-4 lg:px-2 py-2 sm:py-2.5 lg:py-1.5 rounded-lg shadow-xl font-medium flex items-center gap-2 sm:gap-2 lg:gap-1.5 border-2 border-yellow-300 backdrop-blur-sm transition-all duration-300 lg:scale-90 hover:scale-105">
+                    <Star className="w-4 h-4 sm:w-5 sm:h-5 lg:w-3.5 lg:h-3.5 fill-current text-amber-600" />
+                    <span className="text-sm sm:text-base lg:text-xs font-bold">4.9★</span>
                   </div>
                   
                   {/* User Count Badge */}
-                  <div className="bg-gradient-to-br from-blue-600 to-blue-700 text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg shadow-xl font-medium flex items-center gap-2 sm:gap-2 border-2 border-white backdrop-blur-sm transition-all duration-300 hover:scale-105">
-                    <Users className="w-4 h-4 sm:w-5 sm:h-5 text-blue-100" />
-                    <span className="text-sm sm:text-base font-bold">50K+</span>
+                  <div className="bg-gradient-to-br from-blue-600 to-blue-700 text-white px-3 sm:px-4 lg:px-2 py-2 sm:py-2.5 lg:py-1.5 rounded-lg shadow-xl font-medium flex items-center gap-2 sm:gap-2 lg:gap-1.5 border-2 border-white backdrop-blur-sm transition-all duration-300 lg:scale-90 hover:scale-105">
+                    <Users className="w-4 h-4 sm:w-5 sm:h-5 lg:w-3.5 lg:h-3.5 text-blue-100" />
+                    <span className="text-sm sm:text-base lg:text-xs font-bold">50K+</span>
                   </div>
                 </div>
               </div>
