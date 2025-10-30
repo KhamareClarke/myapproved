@@ -120,9 +120,9 @@ const EnhancedHeader = () => {
         <div className="max-w-7xl mx-auto px-1 sm:px-2 lg:px-4">
           <div className="flex items-center justify-between">
             {/* Logo - Mobile Responsive */}
-            <Link href="/" className="flex items-center gap-2 sm:gap-3 group -ml-1 sm:-ml-2">
+            <Link href="/" className="flex items-center gap-2 sm:gap-3 group -ml-1 sm:-ml-2 whitespace-nowrap">
               {/* Logo Icon - Mobile Responsive */}
-              <div className="w-12 h-12 sm:w-12 sm:h-12 bg-gradient-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300 overflow-hidden">
+              <div className="w-12 h-12 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center transition-all duration-300 overflow-hidden">
                 <img 
                   src="/logo-icon.svg" 
                   alt="MyApproved Logo Icon"
@@ -141,7 +141,7 @@ const EnhancedHeader = () => {
                 <img 
                   src="/logo-text.svg" 
                   alt="MyApproved Logo"
-                  className="h-9 sm:h-10 md:h-10 lg:h-12 object-contain"
+                  className="h-9 sm:h-10 md:h-12 lg:h-14 xl:h-16 object-contain"
                   onError={(e) => {
                     // Fallback to text if image fails to load
                     const target = e.target as HTMLImageElement;
@@ -446,13 +446,13 @@ const EnhancedHeader = () => {
           />
           
           {/* Menu Panel - Mobile Responsive */}
-          <div className="fixed top-0 right-0 h-full w-full max-w-xs sm:max-w-sm bg-white shadow-2xl border-l border-gray-100 transform transition-transform duration-300 ease-in-out z-[10000]">
+              <div className="fixed top-0 right-0 h-full w-full max-w-xs sm:max-w-sm bg-white shadow-2xl border-l border-gray-100 transform transition-transform duration-300 ease-in-out z-[10000]">
             <div className="flex flex-col h-full">
               {/* Header - Mobile Responsive */}
               <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-100 bg-gradient-to-r from-blue-900 to-blue-800">
                 <div className="flex items-center gap-4 sm:gap-5">
                   {/* Mobile Logo Icon */}
-                  <div className="w-16 h-16 sm:w-18 sm:h-18 bg-gradient-to-b from-blue-900 to-blue-800 rounded-xl flex items-center justify-center shadow-md overflow-hidden">
+                  <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-xl flex items-center justify-center overflow-hidden">
                     <img 
                       src="/logo-icon.svg" 
                       alt="MyApproved Logo Icon"

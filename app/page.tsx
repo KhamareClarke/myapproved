@@ -1014,7 +1014,7 @@ export default function Home() {
         <div className="hidden sm:block absolute top-40 right-20 w-16 h-16 bg-blue-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '1.5s'}}></div>
         <div className="hidden sm:block absolute bottom-32 left-20 w-12 h-12 bg-white/10 rounded-full blur-lg animate-bounce" style={{animationDelay: '2s'}}></div>
         {/* Mobile-First Container */}
-        <div className="relative z-10 min-h-[52vh] md:min-h-[44vh] lg:min-h-[42vh] flex flex-col justify-center px-4 py-6 md:py-0 md:pt-2 lg:py-0 lg:pt-2 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+        <div className="relative z-10 min-h-[52vh] md:min-h-[44vh] lg:min-h-[42vh] flex flex-col justify-center px-4 py-6 md:py-0 md:pt-6 lg:py-0 lg:pt-8 sm:px-6 md:px-8 lg:px-10 xl:px-12">
           <div className="max-w-4xl lg:max-w-7xl mx-auto w-full h-full flex flex-col md:grid md:grid-cols-2 items-center md:items-center md:place-items-center gap-6 md:gap-5 lg:gap-6">
             {/* Mobile-First Content */}
             <div className="flex-1 z-10 flex flex-col items-center text-center md:items-start md:text-left md:justify-center lg:items-start lg:text-left lg:justify-center md:self-center lg:self-center md:max-w-2xl lg:max-w-2xl w-full">
