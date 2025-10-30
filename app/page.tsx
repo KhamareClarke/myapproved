@@ -1003,7 +1003,7 @@ export default function Home() {
       <SchemaMarkup schema={organizationSchema} />
       <SchemaMarkup schema={ServiceSchema} />
       {/* World-Class Mobile-First Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-[78vh] lg:min-h-[70vh]">
+      <section className="relative bg-gradient-to-br from-blue-900 via-blue-950 to-indigo-900 text-white overflow-hidden min-h-[52vh] md:min-h-[44vh] lg:min-h-[42vh]">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/70 to-indigo-800/60"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.3),transparent_50%)] animate-pulse"></div>
@@ -1014,10 +1014,10 @@ export default function Home() {
         <div className="hidden sm:block absolute top-40 right-20 w-16 h-16 bg-blue-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '1.5s'}}></div>
         <div className="hidden sm:block absolute bottom-32 left-20 w-12 h-12 bg-white/10 rounded-full blur-lg animate-bounce" style={{animationDelay: '2s'}}></div>
         {/* Mobile-First Container */}
-        <div className="relative z-10 min-h-[78vh] lg:min-h-[70vh] flex flex-col justify-center px-4 py-6 lg:py-0 lg:pt-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-          <div className="max-w-4xl lg:max-w-7xl mx-auto w-full h-full flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-4">
+        <div className="relative z-10 min-h-[52vh] md:min-h-[44vh] lg:min-h-[42vh] flex flex-col justify-center px-4 py-6 md:py-0 md:pt-2 lg:py-0 lg:pt-2 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+          <div className="max-w-4xl lg:max-w-7xl mx-auto w-full h-full flex flex-col md:grid md:grid-cols-2 items-center md:items-center md:place-items-center gap-6 md:gap-5 lg:gap-6">
             {/* Mobile-First Content */}
-            <div className="flex-1 z-10 flex flex-col items-center text-center lg:items-start lg:text-left lg:justify-start lg:pt-2 w-full">
+            <div className="flex-1 z-10 flex flex-col items-center text-center md:items-start md:text-left md:justify-center lg:items-start lg:text-left lg:justify-center md:self-center lg:self-center md:max-w-2xl lg:max-w-2xl w-full">
               {/* Premium Badge - Mobile Optimized */}
               <div className="flex justify-center lg:justify-start mb-6 sm:mb-8 lg:mb-3">
                 <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400/90 to-yellow-500/90 backdrop-blur-sm px-4 py-2 lg:px-5 lg:py-2.5 rounded-full border border-yellow-300/50 shadow-lg lg:self-start">
@@ -1031,7 +1031,7 @@ export default function Home() {
 
               {/* Hero Title - World-Class Mobile Typography */}
               <div className="text-center lg:text-left mb-8 sm:mb-10 lg:mb-2">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-3xl xl:text-4xl font-black leading-[1.05] tracking-tight mb-6 sm:mb-8 lg:mb-1">
+                <h1 className="text-4xl sm:text-5xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-[1.05] tracking-tight mb-5 sm:mb-7 md:mb-1 lg:mb-1">
                   <span className="block">
                     <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent">Find</span>
                     <span className="text-white"> Trusted</span>
@@ -1042,7 +1042,7 @@ export default function Home() {
                   </span>
                 </h1>
                 
-                <p className="text-base sm:text-lg md:text-xl lg:text-xs xl:text-sm text-blue-100/90 leading-snug md:leading-relaxed max-w-md mx-auto lg:mx-0 font-medium tracking-tight lg:mt-2">
+                <p className="text-base sm:text-lg md:text-sm lg:text-base xl:text-lg text-blue-100/90 leading-snug md:leading-relaxed max-w-lg md:max-w-lg lg:max-w-xl mx-auto md:mx-0 lg:mx-0 font-medium tracking-tight md:mt-2 lg:mt-2">
                   Hire vetted professionals near you — fast, reliable, and backed by verified reviews.
                 </p>
               </div>
@@ -1062,7 +1062,7 @@ export default function Home() {
                   <span className="text-sm font-semibold text-white">4.9★ Rating</span>
                 </div>
               </div>
-            <div className="w-full max-w-sm sm:max-w-lg lg:max-w-md animate-slide-up" style={{animationDelay: '0.6s'}}>
+            <div className="w-full max-w-sm sm:max-w-lg md:max-w-md lg:max-w-lg animate-slide-up" style={{animationDelay: '0.6s'}}>
               <Dialog>
                 <DialogTrigger asChild>
                   <div id="ai-quote-trigger" className="relative group cursor-pointer">
@@ -1070,19 +1070,19 @@ export default function Home() {
                     <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 rounded-2xl sm:rounded-3xl blur-xl sm:blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
                     <div className="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-yellow-400/40 via-white/20 to-yellow-400/40 rounded-xl sm:rounded-2xl blur-md sm:blur-lg opacity-20 group-hover:opacity-30 transition duration-500"></div>
                     
-                    <div className="relative flex items-center bg-white backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl p-2 sm:p-4 lg:p-4 border-2 border-yellow-400/60 group-hover:border-yellow-400 transition-all duration-300">
-                      <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-9 lg:h-9 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg sm:rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-200 flex-shrink-0">
-                        <Search className="w-4 h-4 sm:w-5 sm:h-5 lg:w-4 lg:h-4 text-white" />
+                    <div className="relative flex items-center bg-white backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl p-2 sm:p-4 md:p-4 lg:p-4 border-2 border-yellow-400/60 group-hover:border-yellow-400 transition-all duration-300">
+                      <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-9 md:h-9 lg:w-9 lg:h-9 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg sm:rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-200 flex-shrink-0">
+                        <Search className="w-4 h-4 sm:w-5 sm:h-5 md:w-4 md:h-4 lg:w-4 lg:h-4 text-white" />
                       </div>
                       <input
                         type="text"
                         placeholder={typed || typingPhrases[phraseIndex]}
-                        className="flex-1 py-2 sm:py-3 lg:py-2 px-2 sm:px-4 lg:px-3 rounded-lg sm:rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none text-sm sm:text-base lg:text-sm font-medium bg-transparent cursor-pointer"
+                        className="flex-1 py-2 sm:py-3 md:py-2 lg:py-2 px-2 sm:px-4 md:px-3 lg:px-3 rounded-lg sm:rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none text-sm sm:text-base md:text-sm lg:text-sm font-medium bg-transparent cursor-pointer"
                         readOnly
                       />
                       <Button
                         type="button"
-                        className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-bold rounded-lg sm:rounded-xl px-3 sm:px-4 lg:px-4 py-2 sm:py-3 lg:py-2 text-sm sm:text-base lg:text-sm shadow-lg hover:shadow-xl transition-all duration-200 flex-shrink-0"
+                        className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-bold rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-4 lg:px-4 py-2 sm:py-3 md:py-2 lg:py-2 text-sm sm:text-base md:text-sm lg:text-sm shadow-lg hover:shadow-xl transition-all duration-200 flex-shrink-0"
                       >
                         <span className="hidden sm:inline">Get Started</span>
                         <span className="sm:hidden">Go</span>
@@ -1166,7 +1166,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="mt-2 sm:mt-3 md:mt-4 lg:mt-6 xl:mt-8">
+            <div className="mt-2 sm:mt-3 md:mt-6 lg:mt-8 xl:mt-10">
               <div className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-3 xl:gap-4">
                 <div className="min-w-0 flex-1">
                   <p className="text-xs sm:text-sm md:text-base lg:text-sm text-blue-100 italic leading-relaxed">"The easiest way to find a reliable tradesperson. Highly recommended!"</p>
@@ -1179,18 +1179,21 @@ export default function Home() {
             </div>
           </div>
           {/* Right Column: Enlarged Hero Visual - Hidden on Mobile */}
-          <div className="hidden lg:flex flex-1 z-10 items-start justify-center self-stretch lg:self-stretch h-full relative animate-slide-up mt-2 lg:-mt-36" style={{animationDelay: '0.4s'}}>
-            <div className="relative w-full max-w-2xl lg:max-w-5xl lg:h-full">
-              <div className="relative h-full flex items-end">
+          <div className="hidden md:flex lg:flex flex-1 z-10 items-center justify-end self-stretch h-full relative animate-slide-up mt-2 md:mt-0 lg:mt-0" style={{animationDelay: '0.4s'}}>
+            <div className="relative w-full max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl md:h-full lg:h-full">
+              <div className="absolute inset-0 pointer-events-none hidden md:block">
+                <div className="absolute right-6 bottom-10 w-72 h-72 lg:w-80 lg:h-80 rounded-full blur-3xl opacity-40" style={{background: 'radial-gradient(closest-side, rgba(251,191,36,0.25), rgba(59,130,246,0.12), transparent)'}}></div>
+              </div>
+              <div className="relative h-full flex items-start">
                 <img
                   src="/hero.png"
                   alt="Trusted Tradespeople"
-                  className="w-full h-[360px] sm:h-[460px] md:h-[520px] lg:h-full xl:h-full lg:w-auto object-contain lg:object-cover object-center lg:object-[center_top] transition-transform duration-700 rounded-xl sm:rounded-none shadow-none lg:self-stretch lg:scale-[1.16] xl:scale-[1.2]"
-                  style={{ objectFit: 'contain', objectPosition: 'center' }}
+                  className="w-full h-[420px] sm:h-[520px] md:h-auto lg:h-auto xl:h-auto max-h-[72vh] md:max-h-[70vh] lg:max-h-[74vh] object-contain md:object-right lg:object-right object-top transition-transform duration-700 sm:rounded-none drop-shadow-2xl md:contrast-110 md:saturate-110 md:brightness-105 scale-[1.08] md:scale-[1.16] lg:scale-[1.2]"
+                  style={{ objectFit: 'contain', objectPosition: 'right top' }}
                 />
                 
                 {/* Trust Badges Container - Mobile Responsive */}
-                <div className="absolute bottom-2 sm:bottom-3 lg:bottom-2 left-1/2 transform -translate-x-1/2 z-10 flex flex-wrap justify-center gap-2 sm:gap-3 w-full px-3 sm:px-4">
+                <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 lg:bottom-6 right-4 md:right-auto md:left-[12%] lg:left-[14%] xl:left-[16%] z-10 flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-2.5 lg:gap-3 w-auto px-3 sm:px-4 md:scale-110 lg:scale-125 xl:scale-125">
                   {/* Verification Badge */}
                   <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white px-3 sm:px-4 lg:px-2 py-2 sm:py-2.5 lg:py-1.5 rounded-lg shadow-xl font-medium flex items-center gap-2 sm:gap-2 lg:gap-1.5 border-2 border-white backdrop-blur-sm transition-all duration-300 lg:scale-90 hover:scale-105">
                     <div className="relative flex items-center justify-center">

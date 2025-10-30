@@ -1,3 +1,14 @@
+# MyApproved
+
+## Changelog
+
+### Hero redesign (desktop-first) - 2025-10-30
+- Converted hero to a compact, two-column layout on md+ while keeping mobile untouched
+- Left: tightened typography, widths, and spacing for better readability
+- Right: refined hero image alignment (top-right), sizing caps per breakpoint, and subtle glow/shadow
+- Adjusted badge positioning and scaling to look balanced across md/lg/xl
+- Prevented overflow outside blue background; ensured image remains large but contained
+
 # Trades Platform
 
 A modern platform connecting customers with local tradespeople. Built with Next.js, TypeScript, and Tailwind CSS.
