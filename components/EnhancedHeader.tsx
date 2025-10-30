@@ -122,11 +122,11 @@ const EnhancedHeader = () => {
             {/* Logo - Mobile Responsive */}
             <Link href="/" className="flex items-center gap-2 sm:gap-3 group -ml-1 sm:-ml-2">
               {/* Logo Icon - Mobile Responsive */}
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300 overflow-hidden">
+              <div className="w-12 h-12 sm:w-12 sm:h-12 bg-gradient-to-b from-blue-900/95 to-blue-900/90 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300 overflow-hidden">
                 <img 
                   src="/logo-icon.svg" 
                   alt="MyApproved Logo Icon"
-                  className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
+                  className="w-8 h-8 sm:w-8 sm:h-8 object-contain"
                   onError={(e) => {
                     // Fallback to Shield icon if image fails to load
                     const target = e.target as HTMLImageElement;
@@ -141,7 +141,7 @@ const EnhancedHeader = () => {
                 <img 
                   src="/logo-text.svg" 
                   alt="MyApproved Logo"
-                  className="h-6 sm:h-8 md:h-10 lg:h-12 object-contain"
+                  className="h-9 sm:h-10 md:h-10 lg:h-12 object-contain"
                   onError={(e) => {
                     // Fallback to text if image fails to load
                     const target = e.target as HTMLImageElement;

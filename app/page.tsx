@@ -1014,8 +1014,8 @@ export default function Home() {
         <div className="hidden sm:block absolute top-40 right-20 w-16 h-16 bg-blue-400/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '1.5s'}}></div>
         <div className="hidden sm:block absolute bottom-32 left-20 w-12 h-12 bg-white/10 rounded-full blur-lg animate-bounce" style={{animationDelay: '2s'}}></div>
         {/* Mobile-First Container */}
-        <div className="relative z-10 min-h-[78vh] lg:min-h-[85vh] flex flex-col justify-center px-4 py-6 lg:py-0 lg:pt-8 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-          <div className="max-w-4xl lg:max-w-7xl mx-auto w-full h-full flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
+        <div className="relative z-10 min-h-[78vh] lg:min-h-[80vh] flex flex-col justify-center px-4 py-6 lg:py-0 lg:pt-8 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+          <div className="max-w-4xl lg:max-w-7xl mx-auto w-full h-full flex flex-col lg:flex-row items-center lg:items-end gap-8 lg:gap-10">
             {/* Mobile-First Content */}
             <div className="flex-1 z-10 flex flex-col items-center text-center lg:items-start lg:text-left lg:justify-end lg:pb-6 w-full">
               {/* Premium Badge - Mobile Optimized */}
