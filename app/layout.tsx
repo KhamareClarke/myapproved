@@ -67,6 +67,11 @@ export const metadata: Metadata = {
   verification: {
     google: 'ferjstUZHhIE6kYLP1O8Jptch0hICiQHHLWXpmH7Vk8',
   },
+  icons: {
+    icon: '/logo-icon.svg',
+    shortcut: '/logo-icon.svg',
+    apple: '/logo-icon.svg',
+  },
 };
 const fixedHeaderStyles = `
   :root {
