@@ -1,4 +1,5 @@
 import './globals.css';
+import { SchemaMarkup, organizationSchema, WebsiteSchema, ServiceSchema, LocalBusinessSchema, ReviewSchema, FAQSchema, BreadcrumbSchema } from '@/components/SchemaMarkup';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import EnhancedHeader from '@/components/EnhancedHeader';
@@ -9,20 +10,25 @@ import { AnalyticsProvider } from '@/components/AnalyticsProvider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://myapproved.com'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-GB': '/en-gb',
+    },
+  },
   title: 'MyApproved - Find Trusted Local Tradespeople | UK\'s #1 Platform',
   description: 'Find verified, reliable tradespeople in your area. Connect with approved plumbers, electricians, builders, and more. Get instant quotes, compare services, and hire with confidence on MyApproved.',
+  applicationName: 'MyApproved',
+  authors: [{ name: 'MyApproved', url: 'https://myapproved.co.uk' }],
+  category: 'Home Services',
   keywords: 'tradespeople, plumber, electrician, builder, handyman, home improvement, local trades, verified professionals, quotes, UK, trusted, reliable, approved, certified',
-  authors: [{ name: 'MyApproved' }],
   creator: 'MyApproved',
   publisher: 'MyApproved',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
-  },
-  metadataBase: new URL('https://myapproved.com'),
-  alternates: {
-    canonical: 'https://myapproved.com',
   },
   openGraph: {
     title: 'MyApproved - Find Trusted Local Tradespeople | UK\'s #1 Platform',
@@ -89,6 +95,16 @@ const fixedHeaderStyles = `
   }
 `;
 
+const schemas = [
+  organizationSchema,
+  WebsiteSchema(),
+  ServiceSchema,
+  LocalBusinessSchema,
+  ReviewSchema,
+  FAQSchema,
+  BreadcrumbSchema
+];
+
 export default function RootLayout({
   children,
 }: {
@@ -97,7 +113,11 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <head>
+        <meta name="google-site-verification" content="ferjstUZHhIE6kYLP1O8Jptch0hICiQHHLWXpmH7Vk8" />
         <style dangerouslySetInnerHTML={{ __html: fixedHeaderStyles }} />
+        {schemas.map((schema, index) => (
+          <SchemaMarkup key={index} schema={schema} />
+        ))}
       </head>
       <body className={`${inter.className} bg-gray-50`}>
         <AnalyticsProvider>

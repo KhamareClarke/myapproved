@@ -178,6 +178,7 @@ type FeaturedTP = {
 // const initialFeatured: FeaturedTP[] = [];
 
 export default function Home() {
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [currentStep, setCurrentStep] = useState(1);
@@ -1211,8 +1212,8 @@ export default function Home() {
               </div>
             </div>
             {/* Hero Testimonials Carousel */}
-            <div className="mt-2 sm:mt-3 md:mt-6 lg:mt-8 xl:mt-10">
-              <div className="relative overflow-hidden">
+            <div className="mt-4 sm:mt-5 md:mt-4 lg:mt-6">
+              <div className="relative overflow-hidden max-w-md mx-auto">
                 <div 
                   className="flex transition-transform duration-700 ease-in-out"
                   style={{ transform: `translateX(-${heroTestimonialIndex * 100}%)` }}
@@ -1221,7 +1222,7 @@ export default function Home() {
                     <div key={idx} className="min-w-full flex-shrink-0">
                       <div className="flex flex-col items-center justify-center text-center">
                         <div className="min-w-0 flex-1">
-                          <p className="text-xs xs:text-sm sm:text-base md:text-lg text-blue-50/90 leading-relaxed font-light">
+                          <p className="text-[15px] text-blue-50/90 leading-tight font-light px-4 max-w-[300px] mx-auto">
                             "{testimonial.quote}"
                           </p>
                           <div className="flex flex-col items-center justify-center gap-2 sm:gap-3 mt-2 sm:mt-3">
@@ -1230,10 +1231,13 @@ export default function Home() {
                                 <Star key={i} className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 text-yellow-400 fill-yellow-400" />
                               ))}
                             </div>
-                            <div className="flex items-center gap-1 xs:gap-1.5 sm:gap-2">
-                              <span className="text-yellow-300 font-semibold text-xs xs:text-sm sm:text-base md:text-lg">{testimonial.name}</span>
-                              <MapPin className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 text-yellow-300" />
-                              <span className="text-blue-100/80 text-xs xs:text-sm sm:text-base font-light">{testimonial.location}</span>
+                            <div className="flex items-center justify-center gap-2">
+                              <span className="text-yellow-300 font-semibold text-sm">{testimonial.name}</span>
+                              <span className="text-blue-200/80">•</span>
+                              <div className="flex items-center gap-1">
+                                <MapPin className="w-3 h-3 text-yellow-300" />
+                                <span className="text-blue-100/80 text-sm">{testimonial.location}</span>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -1289,7 +1293,7 @@ export default function Home() {
       </section>
 
       {/* Most In-Demand Services Carousel - Premium Design */}
-      <section className="relative py-16 sm:py-20 md:py-24 my-16 sm:my-20 bg-white text-gray-900 overflow-hidden">
+      <section className="relative py-8 sm:py-12 md:py-16 my-0 bg-white text-gray-900 overflow-hidden">
         {/* Premium Background Elements - Matching testimonials section */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.08),transparent_60%)]"></div>
@@ -1313,8 +1317,10 @@ export default function Home() {
 
           {/* Auto-Looping Horizontal Carousel */}
           <div className="relative mb-12 sm:mb-16">
-            <div className="overflow-x-auto overflow-y-hidden -mx-4 px-4 scrollbar-hide cursor-grab active:cursor-grabbing" ref={emblaRef} style={{scrollBehavior: 'smooth', WebkitOverflowScrolling: 'touch'}}>
-              <div className="flex gap-4 sm:gap-6 pb-4" style={{touchAction: 'pan-x'}}>
+            <div className="mx-auto max-w-[90%] border-2 border-gray-200 rounded-2xl p-6 bg-gray-50/50">
+              <div className="overflow-hidden" ref={emblaRef}>
+                <div className="flex gap-6" style={{touchAction: 'pan-x'}}>
+
                 {[
                   {
                     title: 'Emergency Plumbing',
@@ -1367,15 +1373,15 @@ export default function Home() {
                 ].map((service, index) => (
                   <div
                     key={index}
-                    className="flex-shrink-0 w-[280px] sm:w-[300px] group bg-white rounded-2xl p-4 sm:p-5 border-2 border-gray-200 hover:border-yellow-400 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 relative overflow-hidden"
+                    className="flex-shrink-0 w-full sm:w-[600px] group bg-white rounded-2xl p-4 sm:p-5 border-2 border-gray-200 hover:border-yellow-400 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 relative overflow-hidden"
                   >
                     {/* Premium gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/0 via-yellow-50/0 to-blue-50/0 group-hover:from-yellow-50/60 group-hover:via-transparent group-hover:to-blue-50/40 transition-all duration-500 rounded-2xl"></div>
                     
-                    <div className="relative z-10 flex flex-col h-full">
-                      {/* Header: Icon & Badge */}
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
+                    <div className="relative z-10 flex gap-6">
+                      {/* Left Section: Icon, Title, and Badge */}
+                      <div className="flex-shrink-0 w-32 text-center">
+                        <div className="text-4xl group-hover:scale-110 transition-transform duration-300 mb-3">
                           {service.icon}
                         </div>
                         <div className="inline-flex items-center gap-1 bg-gradient-to-r from-red-500 to-orange-500 text-white px-2 py-0.5 rounded-full text-xs font-bold shadow-md">
@@ -1384,44 +1390,45 @@ export default function Home() {
                         </div>
                       </div>
 
-                      {/* Title - Centered */}
-                      <div className="text-center mb-3">
-                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1.5 group-hover:text-blue-700 transition-colors duration-300">
-                          {service.title}
-                        </h3>
-                        <div className="inline-flex items-center gap-1.5 text-gray-600 bg-gray-50 px-2.5 py-0.5 rounded-full">
-                          <TrendingUp className="w-3.5 h-3.5 text-yellow-600" />
-                          <span className="text-xs font-semibold">{service.jobs}</span>
+                      {/* Middle Section: Title and Details */}
+                      <div className="flex-grow">
+                        <div className="mb-2">
+                          <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-700 transition-colors duration-300">
+                            {service.title}
+                          </h3>
+                          <div className="inline-flex items-center gap-1.5 text-gray-600 bg-gray-50 px-2.5 py-0.5 rounded-full">
+                            <TrendingUp className="w-3.5 h-3.5 text-yellow-600" />
+                            <span className="text-xs font-semibold">{service.jobs}</span>
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 gap-2">
+                          <div className="flex items-center gap-1.5 text-gray-700">
+                            <Clock className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
+                            <span className="text-xs font-medium">{service.responseTime} • Available now</span>
+                          </div>
+                          <div className="flex items-center gap-1.5 text-gray-700">
+                            <MessageCircle className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
+                            <span className="text-xs">Replies within {service.responseTime}</span>
+                          </div>
+                          <div className="flex items-center gap-1.5 text-gray-700">
+                            <Users className="w-3.5 h-3.5 text-purple-600 flex-shrink-0" />
+                            <span className="text-xs font-medium">{service.bookedToday} booked today</span>
+                          </div>
                         </div>
                       </div>
 
-                      {/* Service Details - Centered Grid */}
-                      <div className="grid grid-cols-1 gap-2 mb-3 pb-3 border-b border-gray-200">
-                        <div className="flex items-center justify-center gap-1.5 text-gray-700">
-                          <Clock className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
-                          <span className="text-xs font-medium">{service.responseTime} • Available now</span>
-                        </div>
-                        <div className="flex items-center justify-center gap-1.5 text-gray-700">
-                          <MessageCircle className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
-                          <span className="text-xs">Replies within {service.responseTime}</span>
-                        </div>
-                        <div className="flex items-center justify-center gap-1.5 text-gray-700">
-                          <Users className="w-3.5 h-3.5 text-purple-600 flex-shrink-0" />
-                          <span className="text-xs font-medium">{service.bookedToday} booked today</span>
-                        </div>
-                      </div>
-
-                      {/* Price & CTA - Centered */}
-                      <div className="space-y-2.5 mt-auto">
+                      {/* Right Section: Price and CTA */}
+                      <div className="flex-shrink-0 w-32 flex flex-col justify-between items-center">
                         <div className="text-center">
                           <div className="text-xs text-gray-600 mb-0.5">Starting from</div>
-                          <div className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-yellow-500 via-yellow-600 to-amber-600 bg-clip-text text-transparent">
+                          <div className="text-2xl font-extrabold bg-gradient-to-r from-yellow-500 via-yellow-600 to-amber-600 bg-clip-text text-transparent">
                             {service.price}
                           </div>
                         </div>
-                        <button className="w-full bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-500 hover:from-yellow-500 hover:via-yellow-600 hover:to-amber-600 text-gray-900 font-bold py-2.5 px-4 rounded-xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center gap-2 text-sm">
-                          <span>Get Free Quote</span>
-                          <ArrowRight className="w-4 h-4" />
+                        <button className="w-full bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-500 hover:from-yellow-500 hover:via-yellow-600 hover:to-amber-600 text-gray-900 font-bold py-2 px-3 rounded-xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center gap-1.5 text-sm">
+                          <span>Get Quote</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
                         </button>
                       </div>
                     </div>
@@ -1445,6 +1452,7 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
 
           {/* View All Services Button */}
           <div className="text-center">
@@ -1460,7 +1468,7 @@ export default function Home() {
       </section>
 
       {/* Customer Testimonials Section - Ultra Premium */}
-      <section className="relative py-20 sm:py-24 md:py-32 my-20 sm:my-24 bg-white text-gray-900 overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-20 my-0 bg-white text-gray-900 overflow-hidden">
         {/* Ultra Premium Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
@@ -1598,23 +1606,22 @@ export default function Home() {
       
 
       {/* Get Started Section - Premium Multi-Million Pound Design */}
-      <section className="relative py-16 sm:py-20 md:py-24 my-16 sm:my-20 bg-white text-gray-900 overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-20 my-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white overflow-hidden">
         {/* Premium Animated Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.08),transparent_60%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(251,191,36,0.06),transparent_60%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.2),transparent_60%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(251,191,36,0.15),transparent_60%)]"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400/20 to-blue-400/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-blue-100 mb-3">
-              <Sparkles className="w-3.5 h-3.5 text-yellow-600" />
-              <span className="text-xs font-medium text-blue-800">Get Started Today</span>
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400/30 to-blue-400/30 backdrop-blur-sm px-3 py-1.5 rounded-full border border-yellow-300/50 mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
+              <span className="text-xs font-medium text-yellow-100">Get Started Today</span>
             </div>
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight mb-4">
-              <span className="bg-gradient-to-r from-yellow-500 via-yellow-600 to-amber-600 bg-clip-text text-transparent">Choose Your</span>{' '}
-              <span className="text-gray-900">Path</span>
+              <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent">Choose Your</span>{' '}
+              <span className="text-white">Path</span>
             </h2>
-            <p className="text-gray-500 text-base xs:text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed font-light">
+            <p className="text-blue-100 text-base xs:text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed font-light">
               Whether you need a service or provide one, we've got you covered
             </p>
           </div>
@@ -1814,7 +1821,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section - Ultra Premium Design */}
-      <section className="relative py-20 sm:py-24 md:py-32 my-20 sm:py-24 bg-white text-gray-900 overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-20 my-0 bg-white text-gray-900 overflow-hidden">
         {/* Ultra Premium Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
